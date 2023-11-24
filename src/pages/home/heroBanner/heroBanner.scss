@@ -1,0 +1,11 @@
+.heroBanner {
+    display: flex;
+    justify-content: end;
+    padding: 20px 0px;
+    .images {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 20px;
+    }
+}

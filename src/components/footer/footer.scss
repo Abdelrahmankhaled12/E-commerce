@@ -1,0 +1,36 @@
+footer {
+    padding: 80px 0px;
+    .grid {
+        display: grid;
+        grid-template-columns: 400px 250px 250px 350px;
+        align-items: end;
+        gap: 30px;
+        .info {
+            img {
+                margin: 0px 0px 20px 0px;
+            }
+            p {
+                margin: 15px 0px;
+            }
+        }
+        .links {
+            h3 {
+                position: relative;
+                top: -50px;
+            }
+            ul {
+                list-style: none;
+                padding: none;
+                li {
+                    margin: 12px 0px;
+                    color: #333e48;
+                    transition: 0.5s;
+                    cursor: pointer;
+                    &:hover {
+                        color: var(--primary);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,82 @@
+header {
+    .header_one {
+        background-color: #1b252f;
+
+        .content_headerOne {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            font-size: 17px;
+            padding: 13px 0px;
+            color: white;
+
+            p {
+                margin-left: 15px;
+                font-size: 14px;
+                transition: 0.5s;
+                cursor: pointer;
+                position: relative;
+                &:hover {
+                    color: var(--primary);
+                }
+            }
+            p.after {
+                &::after {
+                    content: "";
+                    width: 1px;
+                    height: 85%;
+                    right: -14px;
+                    top: 2px;
+                    position: absolute;
+                    background-color: rgb(176, 176, 176);
+                }
+            }
+        }
+    }
+
+    .header_two {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        .content_headerTwo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+        }
+    }
+
+    .header_three {
+        background-color: var(--body-color);
+        padding: 10px 0px;
+
+        .content_headerThree {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+
+            ul {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 12px 0;
+
+                li {
+                    list-style: none;
+                    font-size: 17px;
+                    color: white;
+                    margin: 0px 40px;
+                    cursor: pointer;
+                    transition: 0.5s;
+                    &:hover {
+                        color: var(--primary);
+                    }
+                }
+            }
+        }
+    }
+}

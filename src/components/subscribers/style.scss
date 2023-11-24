@@ -1,0 +1,44 @@
+.subscribe {
+    background-color: var(--primary);
+    padding: 50px 0px;
+    margin-bottom: 40px;
+    .content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .text {
+            color: white;
+            h3 {
+                font-size: 28px;
+                margin: 5px 0px;
+            }
+            p {
+                font-size: 15px;
+            }
+        }
+        form {
+            .text_input {
+                width: 450px;
+                padding: 18px 30px;
+                border-bottom-left-radius: 18px;
+                border-top-left-radius: 18px;
+                outline: none;
+                border: none;
+                font-size: 14px;
+                &::placeholder {
+                    color: #777777ab;
+                }
+            }
+            .submit_input {
+                padding: 18px 30px;
+                border-bottom-right-radius: 18px;
+                border-top-right-radius: 18px;
+                border: none;
+                background-color: #1b252f;
+                color: white;
+                font-weight: 600;
+                font-size: 14px;
+            }
+        }
+    }
+}
