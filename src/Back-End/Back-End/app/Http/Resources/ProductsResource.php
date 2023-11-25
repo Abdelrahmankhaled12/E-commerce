@@ -27,10 +27,10 @@ class ProductsResource extends JsonResource
                     'category_id' => $this->id,
                     'product_name' => $product->title,
                     'description' => $product->description,
-                    'discount' => json_decode($product->discount),
+                    'discount' => $product->discount,
                     'stock' => $product->stock,
                     'images' => json_decode($product->image),
-                    'price' => json_decode($product->price),
+                    'price' => $product->price,
                 ];
             }),
         ];

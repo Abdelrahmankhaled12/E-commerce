@@ -20,10 +20,10 @@ class AllProductsResource extends JsonResource
             'category_id' => $this->category->id,
             'category_name' => $this->category->title,
             'description' => $this->description,
-            'color' => json_decode($this->color),
-            'discount' => json_decode($this->discount),
+            'discount' => $this->discount,
             'stock' => $this->stock,
-            'price' => json_decode($this->price),
+            'price' => $this->price,
+            'image' => json_decode($this->image),
         ];
     }
 }
