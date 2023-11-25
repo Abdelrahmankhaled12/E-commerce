@@ -10,12 +10,15 @@ import m2 from '../../assets/m2.avif'
 import m3 from '../../assets/m3.webp'
 import m4 from '../../assets/m4.webp'
 import m5 from '../../assets/m5.webp'
+import Header from '../../components/header/Header'
+import Footer from '../../components/footer/Footer'
 
 import './style.scss'
 
 const Home = () => {
   return (
-    <div>
+    <>
+      <Header />
       <ContentWrapper>
         <HeroBanner />
         <ProductsTabs />
@@ -33,7 +36,8 @@ const Home = () => {
           <img src={m5} alt="" />
         </div>
       </ContentWrapper>
-    </div>
+      <Footer />
+    </>
   )
 }
 

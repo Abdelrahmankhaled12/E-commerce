@@ -1,0 +1,37 @@
+.sidebar {
+    width: 250px;
+    background-color: var(--sidebarColorMain);
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    .logo {
+        margin: 20px 0px;
+        text-align: center;
+    }
+    ul {
+        li {
+            color: #9DA4AE;
+            font-size: 16px;
+            margin: 15px 10px;
+            padding: 10px 25px;
+            border-radius: 6px;
+            list-style: none;
+            cursor: pointer;
+            transition: 0.5s;
+            font-weight: 600;
+            &:hover {
+                background-color: rgba(164, 164, 164, 0.134);
+            }
+        }
+        li.active {
+            color: #FFFFFF;
+            background-color: rgba(164, 164, 164, 0.134);
+        }
+    }
+    p {
+        color: rgba(255, 255, 255, 0.716);
+        text-align: center;
+        margin-bottom: 10px;
+    }
+}

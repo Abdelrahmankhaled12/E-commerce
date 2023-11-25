@@ -1,8 +1,12 @@
 import axios from 'axios';
 
+const token = 'R7t#xP1$9@fGzQwY2&5U8*oK$L3aXcZ6'; // Replace 'YOUR_AUTH_TOKEN' with the actual token
+
 const BASE_URL = "http://127.0.0.1:8000/api/";
 
 const ADD_PRODUCT = "http://127.0.0.1:8000/api/admin/add_product"
+
+const ADD_CATEGORY = 'http://127.0.0.1:8000/api/admin/add_category';
 
 export const fetchDataFromApi = async (url) => {
     try {
@@ -26,5 +30,27 @@ export const Add_Product = (name, description, priceOld, priceNew, stock, catego
     formData.append('category_id', category);
     const xhr = new XMLHttpRequest();
     xhr.open('POST', ADD_PRODUCT, true);
+    xhr.send(formData);
+}
+
+export const Add_categoryAPi = (category) => {
+    const formData = new FormData();
+    formData.append('title', category);
+    formData.append('status', "active");
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', ADD_CATEGORY, true);
+    xhr.setRequestHeader('Authorization', `Bearer ${token}`);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200 || xhr.status === 201) {
+                // Request was successful, handle the response
+                console.log(xhr.responseText);
+            } else {
+                // There was an error with the request
+                console.error('Request error:', xhr.status);
+            }
+        }
+    };
+
     xhr.send(formData);
 }

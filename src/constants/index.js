@@ -22,13 +22,6 @@ export const header_links = [
 ]
 
 
-
-
-
-
-
-
-
 export const footer_links = [
     {
         title: "INFORMATION",
@@ -52,4 +45,27 @@ export const footer_links = [
             "Secure payment",
         ]
     }
+]
+
+export const sidebar_links = [
+    {
+        title : "Add Product",
+        router : "/"
+    },
+    {
+        title : "Delete Product",
+        router : "/"
+    },
+    {
+        title : "Update Product",
+        router : "/About"
+    },
+    {
+        title : "Add Category",
+        router : "/"
+    },
+    {
+        title : "Delete Category",
+        router : "/"
+    },
 ]

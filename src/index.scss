@@ -7,7 +7,7 @@
   --body-color: #333e48;
   --body-color-light: #989898;
   --whiteColor: #ffffff;
-
+  --sidebarColorMain: #1C2536;
   --body-bg: #ffffff;
   --heading-color: #333e48;
   --color-link: #333e48;
@@ -50,4 +50,9 @@
 body {
   background-color: var(--body-bg);
   font-family: 'Roboto', sans-serif;
+}
+
+
+.flex {
+  display: flex;
 }

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import useFetch from "../../../hooks/useFetch";
 import { Add_Product } from "../../../utils/api";
+import SideBar from "../../components/sidebar/SideBar";
 
 const AddProduct = () => {
 
@@ -16,7 +17,7 @@ const AddProduct = () => {
 
 
     const formSumbit = () => {
-        Add_Product(product_name , product_description , product_priceOld ,product_priceNew , product_stock , product_category , product_image);
+        Add_Product(product_name, product_description, product_priceOld, product_priceNew, product_stock, product_category, product_image);
     }
 
     console.log(product_category)
@@ -25,7 +26,8 @@ const AddProduct = () => {
 
     return (
         <div>
-            <form action="" onSubmit={(e)=> e.preventDefault()}>
+            <SideBar />
+            <form action="" onSubmit={(e) => e.preventDefault()}>
                 <input type="text" placeholder="Product Name " onChange={(e) => setProduct_name(e.target.value)} />
                 <textarea name="" id="" cols="30" rows="10" placeholder="Description" onChange={(e) => setProduct_description(e.target.value)}>
 
@@ -45,7 +47,7 @@ const AddProduct = () => {
                     <div>
                     </div>
                 )}
-                <input type="text" name="" id="" onChange={(e)=> setProduct_image(e.target.value)} />
+                <input type="text" name="" id="" onChange={(e) => setProduct_image(e.target.value)} />
                 <button type="submit" onClick={formSumbit}> add product</button>
             </form>
         </div>
