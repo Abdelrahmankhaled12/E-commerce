@@ -33,7 +33,7 @@ function App() {
           <Route path="/Admin/delete_product" element={<DeleteProduct />} />
           <Route path="/Admin/update_product" element={<UpdateProduct />} />
           <Route path="/Admin/add_category" element={<Add_category />} />
-          <Route path="/Admin/delete_produxt" element={<DeleteCategory />} />
+          <Route path="/Admin/delete_category" element={<DeleteCategory />} />
           <Route path="/Admin/show_users" element={<ShowUsers />} />
           <Route path="/Admin/show_products" element={<ShowProduct />} />
         </Routes>

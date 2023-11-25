@@ -49,23 +49,35 @@ export const footer_links = [
 
 export const sidebar_links = [
     {
-        title : "Add Product",
-        router : "/"
-    },
-    {
-        title : "Delete Product",
-        router : "/"
-    },
-    {
-        title : "Update Product",
-        router : "/About"
+        title : "Dashboard",
+        router : "/Admin/DashBoard"
     },
     {
         title : "Add Category",
-        router : "/"
+        router : "/Admin/add_category"
     },
     {
         title : "Delete Category",
-        router : "/"
+        router : "/Admin/delete_category"
+    },
+    {
+        title : "Add Product",
+        router : "/Admin/add_product"
+    },
+    {
+        title : "Delete Product",
+        router : "/Admin/delete_product"
+    },
+    {
+        title : "Update Product",
+        router : "/Admin/update_product"
+    },
+    {
+        title : "Show Products",
+        router : "/Admin/show_products"
+    },
+    {
+        title : "Show Users",
+        router : "/Admin/show_users"
     },
 ]

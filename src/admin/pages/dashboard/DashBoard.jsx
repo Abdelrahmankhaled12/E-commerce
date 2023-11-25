@@ -1,8 +1,14 @@
+import SideBar from '../../components/sidebar/SideBar'
 import './DashBoard'
 
 const DashBoard = () => {
   return (
-    <div>DashBoard</div>
+    <div className='flex'>
+      <SideBar />
+      <div className="div">
+
+      </div>
+    </div>
   )
 }
 

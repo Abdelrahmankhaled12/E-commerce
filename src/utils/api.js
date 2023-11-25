@@ -39,18 +39,5 @@ export const Add_categoryAPi = (category) => {
     formData.append('status', "active");
     const xhr = new XMLHttpRequest();
     xhr.open('POST', ADD_CATEGORY, true);
-    xhr.setRequestHeader('Authorization', `Bearer ${token}`);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200 || xhr.status === 201) {
-                // Request was successful, handle the response
-                console.log(xhr.responseText);
-            } else {
-                // There was an error with the request
-                console.error('Request error:', xhr.status);
-            }
-        }
-    };
-
     xhr.send(formData);
 }

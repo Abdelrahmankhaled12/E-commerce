@@ -1,9 +1,13 @@
 import './style.scss'
+import SideBar from '../../components/sidebar/SideBar'
 
 const ShowUsers = () => {
   return (
-    <div>
-        
+    <div className='flex'>
+      <SideBar />
+      <div className="div">
+
+      </div>
     </div>
   )
 }
