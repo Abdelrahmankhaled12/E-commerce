@@ -23,19 +23,15 @@ const ProductsTabs = () => {
       </div>
       <div className="boxes">
         {!loading ? (
-          <ul>
-            {
-              data?.data.map(product => (
-                <Box product={product} setDetailsProduct={()=> setDetails(product)} openModel={() => setIsOpen(true)} key={product.product_id}/>
-              ))
-            }
-          </ul>
+          data?.data.map(product => (
+            <Box product={product} setDetailsProduct={() => setDetails(product)} openModel={() => setIsOpen(true)} key={product.product_id} />
+          ))
         ) : (
           <div>
           </div>
         )}
       </div>
-      <ProductDetails isOpen={isOpen} product={details} closeModal={() => setIsOpen(false)} car={""} />
+      <ProductDetails isOpen={isOpen} product={details} closeModal={() => setIsOpen(false)} />
 
     </div>
   )

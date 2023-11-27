@@ -31,6 +31,11 @@
         }
         .content {
             display: flex;
+            .images {
+                img {
+                    width: 350px;
+                }
+            }
             .content_details {
                 .category {
                     font-size: 14px;

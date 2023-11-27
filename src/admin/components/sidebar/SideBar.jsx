@@ -9,7 +9,6 @@ const SideBar = () => {
     const location = useLocation();
     const path = location.pathname.split("/")[2];
 
-    console.log(path)
     return (
         <div className="sidebar">
             <div className="logo">

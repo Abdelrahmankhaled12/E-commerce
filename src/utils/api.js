@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-const token = 'R7t#xP1$9@fGzQwY2&5U8*oK$L3aXcZ6'; // Replace 'YOUR_AUTH_TOKEN' with the actual token
 
 const BASE_URL = "http://127.0.0.1:8000/api/";
 
@@ -23,8 +22,8 @@ export const Add_Product = (name, description, priceOld, priceNew, stock, catego
     const formData = new FormData();
     formData.append('title', name);
     formData.append('description', description);
-    formData.append('discount', JSON.stringify([priceNew]));
-    formData.append('price', JSON.stringify([priceOld]));
+    formData.append('discount', priceNew);
+    formData.append('price', priceOld);
     formData.append('stock', stock);
     formData.append('images', JSON.stringify([image]));
     formData.append('category_id', category);

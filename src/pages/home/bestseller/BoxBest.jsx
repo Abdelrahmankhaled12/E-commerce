@@ -1,21 +1,21 @@
-import img from '../../../assets/50.webp'
+/* eslint-disable react/prop-types */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass  } from '@fortawesome/free-solid-svg-icons'
 
-const BoxBest = () => {
+const BoxBest = ({ product , openModel, setDetailsProduct }) => {
     return (
         <div className="box_best">
             <div className="image">
-                <img src={img} alt="" />
-                <button className='search'><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
+                <img src={product.image[0]} alt="" />
+                <button className='search' onClick={() => { openModel(), setDetailsProduct() }}><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
             </div>
             <div className="details">
                 <div className="category">
-                    Digital, Electronices
+                    {product.category_name}
                 </div>
-                <h3>Home Security Camera</h3>
+                <h3>{product.product_name}</h3>
                 <div className="price">
-                    $290.66
+                    ${product.discount}
                 </div>
                 <button className='buttonCard'>
                     ADD TO CART
