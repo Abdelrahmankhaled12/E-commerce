@@ -58,7 +58,7 @@ const AddProduct = () => {
                         <input type="text" name="" id="" onChange={(e) => setProduct_image(e.target.value)} />
                         <div className="buttons">
                             <button className='cancel' type='button'>Cancel</button>
-                            <button className='create' type='sumbit' onClick={()=>formSumbit()}>Create</button>
+                            <button className='create' type='sumbit' onClick={() => formSumbit()}>Create</button>
                         </div>            </form>
                 </div>
                 <div className="show_categories">

@@ -10,7 +10,12 @@ const ProductsTabs = () => {
 
   const { data, loading, } = useFetch("admin/all_products");
 
-  console.log(data)
+  const products = data?.data.filter((item, index) => {
+    if (index <= 5) {
+      return item
+    }
+  })
+
 
   return (
     <div className="product_tabs">
@@ -21,10 +26,10 @@ const ProductsTabs = () => {
           <li>Special</li>
         </ul>
       </div>
-      <div className="boxes">
+      <div className="boxes_products">
         {!loading ? (
-          data?.data.map(product => (
-            <Box product={product} setDetailsProduct={() => setDetails(product)} openModel={() => setIsOpen(true)} key={product.product_id} />
+          products?.map(product => (
+            <Box product={product} setDetailsProduct={() => setDetails(product)} openModel={() => setIsOpen(true)} key={product.product_name} />
           ))
         ) : (
           <div>

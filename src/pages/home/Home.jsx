@@ -5,17 +5,31 @@ import imgBanner_1 from '../../assets/banner4.webp'
 import imgBanner_2 from '../../assets/banner5.webp'
 import imgBanner_3 from '../../assets/banner6.webp'
 import Bestseller from "./bestseller/Bestseller"
-import m1 from '../../assets/m1.webp'
-import m2 from '../../assets/m2.avif'
-import m3 from '../../assets/m3.webp'
-import m4 from '../../assets/m4.webp'
-import m5 from '../../assets/m5.webp'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 
 import './style.scss'
+import Icons from "../../components/icons/Icons"
+import ButtonScroll from "../../components/buttonScroll/ButtonScroll"
+import useFetch from "../../hooks/useFetch"
+import Box from "./productTabs/Box"
+import ProductDetails from "../../components/product_details/ProductDetails"
+import { useState } from "react"
 
 const Home = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [details, setDetails] = useState({});
+  
+  const { data, loading, } = useFetch("admin/all_products");
+
+  const products = data?.data.filter((item, index) => {
+    if (index <= 5) {
+      return item
+    }
+  })
+
+
+
   return (
     <>
       <Header />
@@ -27,15 +41,21 @@ const Home = () => {
           <img src={imgBanner_2} alt="Bannner two" />
         </div>
         <Bestseller />
-        <img src={imgBanner_3} alt="Bannner Three" />
-        <div className="cards">
-          <img src={m1} alt="" />
-          <img src={m2} alt="" />
-          <img src={m3} alt="" />
-          <img src={m4} alt="" />
-          <img src={m5} alt="" />
+        <img src={imgBanner_3} alt="Bannner Three" style={{"marginBottom" :"60px"}} />
+        <div className="boxes_products">
+          {!loading ? (
+            products?.map(product => (
+              <Box product={product} setDetailsProduct={() => setDetails(product)} openModel={() => setIsOpen(true)} key={product.product_name} />
+            ))
+          ) : (
+            <div>
+            </div>
+          )}
         </div>
+        <ProductDetails isOpen={isOpen} product={details} closeModal={() => setIsOpen(false)} />
       </ContentWrapper>
+      <Icons />
+      <ButtonScroll />
       <Footer />
     </>
   )

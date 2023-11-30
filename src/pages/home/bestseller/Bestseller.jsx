@@ -23,19 +23,34 @@ const Bestseller = () => {
     useEffect(() => {
         const category = data?.data[0].category_name;
         setActive(category)
-        const products = data_products?.data.filter(item => item.category_name === category)
+        let products = data_products?.data.filter(item => item.category_name === category)
+        products = products?.filter((item, index) => {
+            if (index <= 3) {
+                return item
+            }
+        })
         setProducts(products)
-    }, [data , data_products])
+    }, [data, data_products])
 
-
-
-    console.log(data_products)
 
 
     const productsFilter = (category) => {
-        const products = data_products.data.filter(item => item.category_name === category)
+        let products = data_products.data.filter(item => item.category_name === category)
+        products = products?.filter((item, index) => {
+            if (index <= 3) {
+                return item
+            }
+        })
         setProducts(products)
     }
+
+    const categories = data?.data.filter((item, index) => {
+        if (index <= 3) {
+            return item
+        }
+    })
+
+
 
     return (
         <div className='bestseller'>
@@ -45,7 +60,7 @@ const Bestseller = () => {
                     {!loading ? (
                         <ul>
                             {
-                                data?.data.map((category) => (
+                                categories?.map((category) => (
                                     <li onClick={() => { setActive(category.category_name), productsFilter(category.category_name) }} className={active === category.category_name ? "active" : ""} key={category.category_name}>{category.category_name}</li>
                                 ))
                             }
@@ -56,7 +71,7 @@ const Bestseller = () => {
                     )}
                 </div>
             </div>
-            <div className="boxes">
+            <div className="boxes_products">
                 {!loading_products ? (
                     products?.map((product, index) => (
                         <BoxBest product={product} setDetailsProduct={() => setDetails(product)} openModel={() => setIsOpen(true)} key={index} />

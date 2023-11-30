@@ -4,6 +4,9 @@ import './style.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { setProductCart } from '../../store/cartSlice'
+import Cart from '../cart/Cart'
 
 const ProductDetails = ({ isOpen, closeModal, product }) => {
 
@@ -23,6 +26,15 @@ const ProductDetails = ({ isOpen, closeModal, product }) => {
         }
     }
 
+    const [isOpenCart, setIsOpenCart] = useState(false);
+    const dispatch = useDispatch();
+
+    const addProductCart = (product) => {
+        product.counter = counter;
+        dispatch(setProductCart(product))
+    }
+
+
     return (
         <>
             <div className={isOpen ? "product_details active_details" : 'product_details'}>
@@ -40,7 +52,7 @@ const ProductDetails = ({ isOpen, closeModal, product }) => {
                             </div>
                             <h3>{product.product_name}</h3>
                             <div className="price">
-                                ${typeof product.discount !== 'undefined' && !isNaN(product.discount) && product.discount}
+                                ${(+product.discount).toFixed(2)}
                             </div>
                             <div className="availability">
                                 <p> <strong>Availability: </strong> {product.stock === 0 ? "Unavailable" : "available"}</p>
@@ -53,11 +65,13 @@ const ProductDetails = ({ isOpen, closeModal, product }) => {
                                 <p>{counter}</p>
                                 <button onClick={() => changeCounter("plus")}><FontAwesomeIcon icon={faPlus} /></button>
                             </div>
-                            <button className='addCard'>ADD TO CARD</button>
+                            <button className='addCard' onClick={()=>{ setIsOpenCart(true), addProductCart(product) }}>ADD TO CARD</button>
                         </div>
                     </div>
                 </div>
             </div>
+            <Cart isOpenCart={isOpenCart} closeModalCart={() => setIsOpenCart(false)} />
+
         </>
     )
 }
