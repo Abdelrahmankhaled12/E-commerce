@@ -1,0 +1,47 @@
+.icons_social {
+    position: fixed;
+    right: 0;
+    top: 20%;
+
+    .icon {
+        display: flex;
+        padding: 3px 8px;
+        font-size: 19px;
+        align-items: center;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        color: white;
+        margin-bottom: 5px;
+        position: relative;
+        transform: translatex(65%);
+        cursor: pointer;
+        transition: 0.3s;
+        height: 43px;
+        position: relative;
+        text-align: center;
+
+        &:hover {
+            transform: translatex(0%);
+        }
+
+        svg {
+            padding: 10px;
+        }
+
+        P {
+            font-size: 12px;
+            position: relative;
+            margin-left: 15px;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: -10px;
+                width: 1px;
+                height: 80%;
+                top: 10%;
+                background-color: rgba(255, 255, 255, 0.455);
+            }
+        }
+    }
+}

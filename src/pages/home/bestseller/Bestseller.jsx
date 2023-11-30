@@ -1,16 +1,56 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import './style.scss'
 import BoxBest from './BoxBest'
 import useFetch from '../../../hooks/useFetch'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import ProductDetails from '../../../components/product_details/ProductDetails';
 
 const Bestseller = () => {
 
+
     const { data, loading, } = useFetch("admin/all_categories");
 
-    const [ active , setActive ] = useState("");
-    
+    const { data: data_products, loading: loading_products, } = useFetch("admin/all_products");
 
-    console.log(data)
+    const [products, setProducts] = useState([])
+
+    const [active, setActive] = useState("");
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const [details, setDetails] = useState({});
+
+    useEffect(() => {
+        const category = data?.data[0].category_name;
+        setActive(category)
+        let products = data_products?.data.filter(item => item.category_name === category)
+        products = products?.filter((item, index) => {
+            if (index <= 3) {
+                return item
+            }
+        })
+        setProducts(products)
+    }, [data, data_products])
+
+
+
+    const productsFilter = (category) => {
+        let products = data_products.data.filter(item => item.category_name === category)
+        products = products?.filter((item, index) => {
+            if (index <= 3) {
+                return item
+            }
+        })
+        setProducts(products)
+    }
+
+    const categories = data?.data.filter((item, index) => {
+        if (index <= 3) {
+            return item
+        }
+    })
+
+
 
     return (
         <div className='bestseller'>
@@ -20,8 +60,8 @@ const Bestseller = () => {
                     {!loading ? (
                         <ul>
                             {
-                                data?.data.map(category => (
-                                    <li onClick={() => setActive(category.category_name)} className={active ===  category.category_name ? "active" : ""} key={category.category_name}>{category.category_name}</li>
+                                categories?.map((category) => (
+                                    <li onClick={() => { setActive(category.category_name), productsFilter(category.category_name) }} className={active === category.category_name ? "active" : ""} key={category.category_name}>{category.category_name}</li>
                                 ))
                             }
                         </ul>
@@ -31,12 +71,18 @@ const Bestseller = () => {
                     )}
                 </div>
             </div>
-            <div className="boxes">
-                <BoxBest />
-                <BoxBest />
-                <BoxBest />
-                <BoxBest />
+            <div className="boxes_products">
+                {!loading_products ? (
+                    products?.map((product, index) => (
+                        <BoxBest product={product} setDetailsProduct={() => setDetails(product)} openModel={() => setIsOpen(true)} key={index} />
+                    ))
+                ) : (
+                    <div>
+                    </div>
+                )}
             </div>
+            <ProductDetails isOpen={isOpen} product={details} closeModal={() => setIsOpen(false)} />
+
         </div>
     )
 }

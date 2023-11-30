@@ -39,12 +39,12 @@
         }
     }
 
-    .boxes {
+    .boxes_products {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         margin: 20px 0px;
 
-        .box {
+        .box_product {
             display: flex;
             align-items: center;
             transition: 0.5s;

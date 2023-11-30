@@ -1,13 +1,13 @@
 .product_details {
     position: fixed;
-    z-index: 100;
     background-color: #77777758;
     height: 100vh;
     width: 100%;
     top: 0;
     left: 0;
-    display: none;
-
+    z-index: -1;
+    opacity: 0; 
+transition: 0.5s;
     .box_details {
         background-color: var(--whiteColor);
         position: absolute;
@@ -16,9 +16,11 @@
         transform: translate(-50%, -50%);
         padding: 10px 15px;
         border-radius: 8px;
+
         .close {
             display: flex;
             justify-content: end;
+
             button {
                 width: 30px;
                 height: 30px;
@@ -29,35 +31,49 @@
                 cursor: pointer;
             }
         }
+
         .content {
             display: flex;
+
+            .images {
+                img {
+                    width: 350px;
+                }
+            }
+
             .content_details {
                 .category {
                     font-size: 14px;
                     color: #777777c5;
                     margin: 5px 0px;
                 }
+
                 h3 {
                     font-size: 20px;
                 }
+
                 .price {
                     color: var(--primary);
                     font-weight: 600;
                     margin: 10px 0px;
                     font-size: 25px;
                 }
+
                 .availability {
                     font-size: 16px;
                 }
+
                 .description {
                     font-size: 14px;
                     color: #777777d6;
                     margin: 8px 0px;
                 }
+
                 .counter {
                     display: flex;
                     align-items: center;
                     margin: 15px 0px;
+
                     button {
                         width: 35px;
                         height: 35px;
@@ -65,10 +81,12 @@
                         background-color: transparent;
                         transition: 0.5s;
                         cursor: pointer;
+
                         &:hover {
                             color: var(--primary);
                         }
                     }
+
                     p {
                         width: 35px;
                         height: 35px;
@@ -79,6 +97,7 @@
                         font-weight: 600;
                     }
                 }
+
                 .addCard {
                     width: 100%;
                     background-color: var(--primary);
@@ -91,6 +110,7 @@
                     transition: 0.5s;
                     border: 1px solid var(--primary);
                     cursor: pointer;
+
                     &:hover {
                         background-color: white;
                         color: var(--primary);
@@ -102,5 +122,6 @@
 }
 
 .active_details {
-    display: block;
+    z-index: 100;
+    opacity: 1;
 }

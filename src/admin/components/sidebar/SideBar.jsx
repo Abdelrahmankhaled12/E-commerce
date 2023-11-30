@@ -1,11 +1,13 @@
 import './style.scss'
 import logo from '../../../assets/logo.avif'
 import { sidebar_links } from '../../../constants'
-import { useState } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 const SideBar = () => {
 
-    const [active , setActive] = useState("");
+    const navigate = useNavigate();
+    const location = useLocation();
+    const path = location.pathname.split("/")[2];
 
     return (
         <div className="sidebar">
@@ -14,10 +16,10 @@ const SideBar = () => {
             </div>
             <ul>
                 {sidebar_links.map(link => (
-                    <li 
-                    key={link.title} 
-                    className={active === link.title ? "active" : ""}
-                    onClick={()=> setActive(link.title)}
+                    <li
+                        key={link.title}
+                        className={path === link.router.split("/")[2] ? "active" : ""}
+                        onClick={() => navigate(link.router)}
                     >{link.title}</li>
                 ))}
             </ul>
