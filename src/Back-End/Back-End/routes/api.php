@@ -62,6 +62,7 @@ Route::middleware('access')->group(function () {
             Route::post('accept_order', 'acceptOrder');
             Route::post('reject_order', 'rejectOrder');
             Route::get('paid_orders', 'paidOrders')->withoutMiddleware('access');
+            Route::get('all_orders', 'allOrders');
         });
     });
 });
@@ -76,21 +77,21 @@ Route::prefix('user')->group(function () {
         Route::get('state', 'responseCallback');
         Route::post('pay_details', 'payDetails');
     });
-        ###############User Controller#################
-        Route::controller(UserUserController::class)->group(function () {
-            Route::get('home', 'index');
-            Route::get('products', 'allProducts');
-            Route::post('update', 'updateData');
-            Route::post('Contact_Us', 'contactUs');
-            Route::get('show_product/{id}', 'showProduct');
-        });
-        ###############Order Controller################
-        Route::controller(OrderController::class)->group(function () {
-            Route::get('all_orders', 'allOrders');
-            Route::post('make_order', 'makeOrder');
-        });
-        ##############Offer Controller#################
-        Route::controller(UserOfferController::class)->group(function () {
-            Route::get('all_offers', 'allOffers');
-        });
+    ###############User Controller#################
+    Route::controller(UserUserController::class)->group(function () {
+        Route::get('home', 'index');
+        Route::get('products', 'allProducts');
+        Route::post('update', 'updateData');
+        Route::post('Contact_Us', 'contactUs');
+        Route::get('show_product/{id}', 'showProduct');
+    });
+    ###############Order Controller################
+    Route::controller(OrderController::class)->group(function () {
+        Route::get('all_orders', 'allOrders');
+        Route::post('make_order', 'makeOrder');
+    });
+    ##############Offer Controller#################
+    Route::controller(UserOfferController::class)->group(function () {
+        Route::get('all_offers', 'allOffers');
+    });
 });
