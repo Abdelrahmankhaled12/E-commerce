@@ -6,6 +6,9 @@ import Icons from '../../components/icons/Icons'
 import ButtonScroll from '../../components/buttonScroll/ButtonScroll'
 import { useState } from 'react'
 import { register_sumbit } from '../../utils/api'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { setLogged, setUserData } from '../../store/login'
 
 const Register = () => {
 
@@ -15,17 +18,8 @@ const Register = () => {
     const [password, setPassword] = useState("")
     const [address, setAddress] = useState("")
     const [phone, setPhone] = useState("")
-
-    const handleClickSubmit = () => {
-        register_sumbit(
-            (first_name + " " + last_name),
-            email,
-            password,
-            phone,
-            address
-        )
-        console.log(status)
-    }
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     return (
         <div>
@@ -34,7 +28,7 @@ const Register = () => {
                 <div className="form">
                     <ContentWrapper>
                         <h3>Create account</h3>
-                        <form action="" onSubmit={(e)=> e.preventDefault()}>
+                        <form action="" onSubmit={(e) => e.preventDefault()}>
                             <div className="div">
                                 <label htmlFor="firstname">First name</label>
                                 <input type="text" id='firstname' placeholder='First name' onChange={(e) => setFirstName(e.target.value)} />
@@ -60,7 +54,21 @@ const Register = () => {
                                 <input type="text" id='Phone' placeholder='Phone' onChange={(e) => setPhone(e.target.value)} />
                             </div>
                             <button className='register_button'
-                                onClick={() => handleClickSubmit()}
+                                onClick={() => {
+                                    register_sumbit((first_name + " " + last_name),
+                                        email,
+                                        password,
+                                        phone,
+                                        address).then((res) => {
+                                            if (res.message === "Registration Done") {
+                                                dispatch(setLogged(true))
+                                                dispatch(setUserData(res.data))
+                                                navigate("/")
+                                            }
+                                        }).catch(() => {
+                                            console.log("Something went wrong")
+                                        })
+                                }}
                             >
                                 Create
                             </button>

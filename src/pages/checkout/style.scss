@@ -34,6 +34,24 @@
                         font-size: 14px;
                     }
                 }
+
+                .pay {
+                    width: 100%;
+                    padding: 10px;
+                    color: white;
+                    font-weight: 600;
+                    font-size: 20px;
+                    background-color: var(--primary);
+                    border: 1px solid var(--primary);
+                    border-radius: 4px;
+                    transition: 0.5s;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: var(--primary);
+                        background-color: white;
+                    }
+                }
             }
         }
 
@@ -71,6 +89,7 @@
             background-color: #d6d6d6a9;
             padding: 20px;
             min-height: 86.5vh;
+
             .contentWrapper {
                 height: 100%;
                 display: flex;
@@ -131,10 +150,12 @@
                         }
                     }
                 }
+
                 .price_all {
                     .flex {
                         justify-content: space-between;
                         margin: 8px 0px;
+
                         p {
                             font-weight: 600;
                             color: var(--primary);

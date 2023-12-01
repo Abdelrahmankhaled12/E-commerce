@@ -4,9 +4,13 @@ import ContentWrapper from '../../components/contentWrapper/ContentWrapper'
 import { governorate } from '../../constants'
 import { useSelector } from "react-redux";
 import { useEffect , useState} from 'react';
+import { makeOrder } from '../../utils/api';
+
 const Checkout = () => {
 
     let { products } = useSelector((state) => state.cart);
+    let { userData } = useSelector((state) => state.login);
+
 
     const [totalPrice, setTotalPrice] = useState(products?.map(item => +item.discount * +item.counter)?.reduce((acc, ele) => acc + ele, 0))
 
@@ -15,6 +19,20 @@ const Checkout = () => {
 
       }, [products])
     console.log(products)
+
+    const handleClick = () => {
+        let data = {
+            token: userData.token,
+            order_details: JSON.stringify(products),
+            products: [],
+            total_price: totalPrice,
+            paid_method: "cash"
+        };
+        console.log(data.token)
+        makeOrder(data);
+    }
+
+
 
     return (
         <div className='checkout'>
@@ -53,6 +71,7 @@ const Checkout = () => {
                                         ))}
                                     </select>
                                 </form>
+                                <button className='pay' onClick={()=>handleClick()}>Pay</button>
                             </div>
                         </ContentWrapper>
                     </div>
@@ -81,11 +100,11 @@ const Checkout = () => {
                                 </div>
                                 <div className="flex">
                                     <h4>Discount</h4>
-                                    <p>$942.97</p>
+                                    <p>$0.00</p>
                                 </div>
                                 <div className="flex">
                                     <h4>Total</h4>
-                                    <p>$942.97</p>
+                                    <p>${totalPrice.toFixed(2)}</p>
                                 </div>
                             </div>
                         </ContentWrapper>
