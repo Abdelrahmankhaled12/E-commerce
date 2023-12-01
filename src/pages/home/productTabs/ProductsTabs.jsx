@@ -1,9 +1,8 @@
 import './productTabs.scss'
-import Box from './Box'
 import { useState } from 'react';
 import ProductDetails from '../../../components/product_details/ProductDetails';
-import useFetch
-  from '../../../hooks/useFetch';
+import useFetch from '../../../hooks/useFetch';
+import BoxProduct from '../../../components/boxProduct/BoxProduct';
 const ProductsTabs = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [details, setDetails] = useState({});
@@ -29,7 +28,13 @@ const ProductsTabs = () => {
       <div className="boxes_products">
         {!loading ? (
           products?.map(product => (
-            <Box product={product} setDetailsProduct={() => setDetails(product)} openModel={() => setIsOpen(true)} key={product.product_name} />
+            <BoxProduct
+              product={product}
+              setDetailsProduct={() => setDetails(product)}
+              openModel={() => setIsOpen(true)}
+              widthImage={150}
+              style={""}
+              key={product.product_name} />
           ))
         ) : (
           <div>

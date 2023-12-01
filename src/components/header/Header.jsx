@@ -20,7 +20,6 @@ const Header = () => {
     const { data, } = useFetch("admin/all_categories");
     const [active, setActive] = useState(location.pathname === "/" ? true : false)
     let { logged, userData } = useSelector((state) => state.login);
-    console.log(logged, userData)
 
     return (
         <>
@@ -78,10 +77,10 @@ const Header = () => {
                                 )}
                             </div>
                             <ul
-                                style={active ? { "opacity": "1" } : { "opacity": "0" }}
+                                style={active ? { "opacity": "1" , "zIndex" : "10000" } : { "opacity": "0" ,"zIndex" : "-1"}}
                             >
                                 {data?.data.map((category) => (
-                                    <li key={category.category_name}>{category.category_name}</li>
+                                    <li onClick={() => navigate(`/Shop/${category.category_name}`)} key={category.category_name}>{category.category_name}</li>
                                 ))}
                             </ul>
                         </div>

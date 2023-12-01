@@ -5,7 +5,7 @@ export const header_links = [
     },
     {
         title: "Shop",
-        router: "/Shop"
+        router: "/Shop/categories"
     },
     {
         title: "About Us",

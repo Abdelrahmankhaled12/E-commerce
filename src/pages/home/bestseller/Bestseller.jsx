@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import './style.scss'
-import BoxBest from './BoxBest'
 import useFetch from '../../../hooks/useFetch'
 import { useEffect, useState } from 'react';
 import ProductDetails from '../../../components/product_details/ProductDetails';
+import BoxProduct from '../../../components/boxProduct/BoxProduct';
 
 const Bestseller = () => {
 
@@ -74,7 +74,13 @@ const Bestseller = () => {
             <div className="boxes_products">
                 {!loading_products ? (
                     products?.map((product, index) => (
-                        <BoxBest product={product} setDetailsProduct={() => setDetails(product)} openModel={() => setIsOpen(true)} key={index} />
+                        <BoxProduct
+                            product={product}
+                            setDetailsProduct={() => setDetails(product)}
+                            openModel={() => setIsOpen(true)}
+                            widthImage={250}
+                            style={"column"}
+                            key={index} />
                     ))
                 ) : (
                     <div>

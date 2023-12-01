@@ -4,7 +4,6 @@ import Header from '../../components/header/Header'
 import './style.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import BoxBest from '../home/bestseller/BoxBest'
 import useFetch from '../../hooks/useFetch'
 import { useState } from 'react'
 import ProductDetails from '../../components/product_details/ProductDetails'
@@ -16,6 +15,7 @@ import { useDispatch } from 'react-redux'
 import { setProductCart } from '../../store/cartSlice'
 import Cart from '../../components/cart/Cart'
 import { useParams } from 'react-router-dom'
+import BoxProduct from '../../components/boxProduct/BoxProduct'
 
 const Details = () => {
 
@@ -111,7 +111,13 @@ const Details = () => {
                         <div className="boxes_products">
                             {!loading_products ? (
                                 products?.map((product, index) => (
-                                    <BoxBest product={product} setDetailsProduct={() => setDetails(product)} openModel={() => setIsOpen(true)} key={index} />
+                                    <BoxProduct
+                                        product={product}
+                                        setDetailsProduct={() => setDetails(product)}
+                                        openModel={() => setIsOpen(true)}
+                                        widthImage={250}
+                                        style={"column"}
+                                        key={index} />
                                 ))
                             ) : (
                                 <div>

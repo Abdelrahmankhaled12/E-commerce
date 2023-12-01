@@ -12,9 +12,9 @@ import './style.scss'
 import Icons from "../../components/icons/Icons"
 import ButtonScroll from "../../components/buttonScroll/ButtonScroll"
 import useFetch from "../../hooks/useFetch"
-import Box from "./productTabs/Box"
 import ProductDetails from "../../components/product_details/ProductDetails"
 import { useState } from "react"
+import BoxProduct from "../../components/boxProduct/BoxProduct"
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,7 +45,14 @@ const Home = () => {
         <div className="boxes_products">
           {!loading ? (
             products?.map(product => (
-              <Box product={product} setDetailsProduct={() => setDetails(product)} openModel={() => setIsOpen(true)} key={product.product_name} />
+              <BoxProduct
+              product={product} 
+              setDetailsProduct={() => setDetails(product)} 
+              openModel={() => setIsOpen(true)} 
+              key={product.product_name} 
+              widthImage={150}
+              style={""}
+              />
             ))
           ) : (
             <div>
