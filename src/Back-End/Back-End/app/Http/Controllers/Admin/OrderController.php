@@ -33,9 +33,9 @@ class OrderController extends Controller
         foreach ($order_details as $order_detail) {
             $arr_of_order_detail = explode(',', $order_detail);
             $amount = $arr_of_order_detail[count($arr_of_order_detail) - 1];
-                $product = Product::where('title', $arr_of_order_detail[0])->first();
-                $product->stock = $product->stock + $amount;
-                $product->save();
+            $product = Product::where('title', $arr_of_order_detail[0])->first();
+            $product->stock = $product->stock + $amount;
+            $product->save();
         }
         $destroyAdmin = AdminOrder::destroy($request->id);
         if ($destroyAdmin) {
@@ -48,5 +48,10 @@ class OrderController extends Controller
     {
         $orders = AdminOrders::collection(AdminOrder::where('paid', 'paid')->get());
         return $this->JsonResponse(200, 'Delivered Orders', $orders);
+    }
+    public function allOrders()
+    {
+        $orders = AdminOrders::collection(AdminOrder::all());
+        return $this->JsonResponse(200, 'All Orders', $orders);
     }
 }
