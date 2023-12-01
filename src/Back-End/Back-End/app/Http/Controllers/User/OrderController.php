@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserOrders;
 use App\Models\AdminOrder;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
 use App\Traits\ApiResponse;
@@ -21,7 +22,9 @@ class OrderController extends Controller
     }
     public function makeOrder(Request $request)
     {
-        $user_data = 'name:' . $request->name . '<br>' . 'email:' . $request->email . '<br>' . 'phone:' . $request->phone . '<br>' . 'location:' . $request->address . '<br>' . 'Governate:' . $request->governorate;
+        $user = User::find(auth()->user()->id);
+        $user_data =
+        'name:' . $user->name . '<br>' . 'email:' . $user->email . '<br>' . 'phone:' . $user->phone . '<br>' . 'location:' . $user->address;
         $adminOrder = new AdminOrder;
         $adminOrder->user_data = $user_data;
         $adminOrder->order_details = $request->order_details;
@@ -37,7 +40,16 @@ class OrderController extends Controller
             $product_data->stock = ($product_data->stock) - ($product['amount']);
             $product_data->save();
         }
-        if ($adminOrders) {
+        $user_id = $user->id;
+        $order = new Order;
+        $order->user_id = $user_id;
+        $order->order_id = $adminOrder->id;
+        $order->order_details = $request->order_details;
+        $order->total_price = $request->total_price;
+        $order->paid = $request->paid_method;
+        $order->promocode = $request->has('promocode') ? $request->promocode : 'nothing';
+        $UserOrdered = $order->save();
+        if ($adminOrders && $UserOrdered) {
             return $this->JsonResponse(200, 'Order Done', $adminOrders);
         } else {
             return $this->JsonResponse(500, 'Somethin went wrong');

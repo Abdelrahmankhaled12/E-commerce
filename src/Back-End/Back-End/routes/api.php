@@ -81,14 +81,14 @@ Route::prefix('user')->group(function () {
     Route::controller(UserUserController::class)->group(function () {
         Route::get('home', 'index');
         Route::get('products', 'allProducts');
-        Route::post('update', 'updateData');
+        Route::post('update', 'updateData')->middleware('auth:sanctum');
         Route::post('Contact_Us', 'contactUs');
         Route::get('show_product/{id}', 'showProduct');
     });
     ###############Order Controller################
     Route::controller(OrderController::class)->group(function () {
-        Route::get('all_orders', 'allOrders');
-        Route::post('make_order', 'makeOrder');
+        Route::get('all_orders', 'allOrders')->middleware('auth:sanctum');
+        Route::post('make_order', 'makeOrder')->middleware('auth:sanctum');
     });
     ##############Offer Controller#################
     Route::controller(UserOfferController::class)->group(function () {
