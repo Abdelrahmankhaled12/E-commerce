@@ -61,7 +61,7 @@ export const Delete_product = (product) => {
 }
 
 
-export const register_sumbit = (name, email, password, phone, address) => {
+export const register_sumbit = async (name, email, password, phone, address) => {
     const formData = new FormData();
     formData.append('name', name);
     formData.append('email', email)
@@ -69,19 +69,13 @@ export const register_sumbit = (name, email, password, phone, address) => {
     formData.append('password', password)
     formData.append('address', address)
 
-    fetch('http://127.0.0.1:8000/api/user/register', {
-        method: 'POST',
-        body: formData
-    })
-        .then(response => response.json())
-        .then(data => {
-            return data.data;
-        })
-        .catch(error => {
-            console.log(error)
-        });
+    try {
+        const { data } = await axios.post("http://127.0.0.1:8000/api/user/register", formData);
+        return data;
+    } catch (err) {
+        return err
+    }
 }
-
 
 export const login_submit = async (email, password) => {
     const formData = new FormData();
@@ -89,9 +83,29 @@ export const login_submit = async (email, password) => {
     formData.append('password', password)
 
     try {
-        const { data } = await axios.post("http://127.0.0.1:8000/api/user/login",formData);
+        const { data } = await axios.post("http://127.0.0.1:8000/api/user/login", formData);
         return data;
     } catch (err) {
         return err
     }
+}
+
+export const makeOrder = (data) => {
+    var jsonData = JSON.stringify(data);
+    fetch('http://127.0.0.1:8000/api/user/make_order', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8',
+            'Authorization': `Bearer ${data.token}`
+        },
+        body: jsonData
+    }).then(response => response.json())
+        .then(data => {
+            if (data.status) {
+                console.log(data.status)
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        });
 }
