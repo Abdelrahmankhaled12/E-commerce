@@ -8,7 +8,7 @@ const ADD_CATEGORY = 'http://127.0.0.1:8000/api/admin/add_category';
 
 const DELETE_CATEGORY = 'http://127.0.0.1:8000/api/admin/delete_category';
 const DELTE_PRODUCT = `http://127.0.0.1:8000/api/admin/delete_product`;
-
+const ADD_OFFERS = 'http://127.0.0.1:8000/api/admin/add_offer';
 
 export const fetchDataFromApi = async (url) => {
     try {
@@ -35,6 +35,7 @@ export const Add_Product = (name, description, priceOld, priceNew, stock, catego
     xhr.send(formData);
 }
 
+
 export const Add_categoryAPi = (category) => {
     const formData = new FormData();
     formData.append('title', category);
@@ -44,6 +45,7 @@ export const Add_categoryAPi = (category) => {
     xhr.send(formData);
 }
 
+
 export const Delete_category = (category) => {
     const formData = new FormData();
     formData.append('id', category);
@@ -51,6 +53,7 @@ export const Delete_category = (category) => {
     xhr.open('POST', DELETE_CATEGORY, true);
     xhr.send(formData);
 }
+
 
 export const Delete_product = (product) => {
     const formData = new FormData();
@@ -77,6 +80,7 @@ export const register_sumbit = async (name, email, password, phone, address) => 
     }
 }
 
+
 export const login_submit = async (email, password) => {
     const formData = new FormData();
     formData.append('email', email)
@@ -89,6 +93,7 @@ export const login_submit = async (email, password) => {
         return err
     }
 }
+
 
 export const makeOrder = (data) => {
     var jsonData = JSON.stringify(data);
@@ -108,4 +113,16 @@ export const makeOrder = (data) => {
         .catch(error => {
             console.log(error);
         });
+}
+
+
+export const addPromoCode = (promoCode , discount , startDate , endDate) => {
+    const formData = new FormData();
+    formData.append('promocode', promoCode);
+    formData.append('started_at', startDate);
+    formData.append('expired_at', endDate);
+    formData.append('discount', discount);
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', ADD_OFFERS , true);
+    xhr.send(formData);
 }

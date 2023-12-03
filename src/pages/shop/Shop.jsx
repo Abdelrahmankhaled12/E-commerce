@@ -7,14 +7,14 @@ import Animation from "../../components/animation/Animation";
 import Categories from "./categories/Categories";
 import ProductsShop from "./products/ProductsShop";
 import { useParams } from "react-router-dom";
+import Icons from "../../components/icons/Icons";
+import ButtonScroll from "../../components/buttonScroll/ButtonScroll";
 
 const Shop = () => {
 
   const { data, } = useFetch("admin/all_categories");
   let { data: data_products, } = useFetch("admin/all_products");
   let { category } = useParams();
-
-  console.log(data , category , data_products);
 
   data_products = category === "categories" ? data_products?.data :  data_products?.data.filter(item => item.category_name ===  category);
 
@@ -32,6 +32,8 @@ const Shop = () => {
               </div>
             </ContentWrapper>
           </div>
+          <Icons />
+          <ButtonScroll />
           <Footer />
         </>
       )}

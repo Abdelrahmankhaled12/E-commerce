@@ -7,20 +7,16 @@ import imgBanner_3 from '../../assets/banner6.webp'
 import Bestseller from "./bestseller/Bestseller"
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
-
 import './style.scss'
 import Icons from "../../components/icons/Icons"
 import ButtonScroll from "../../components/buttonScroll/ButtonScroll"
 import useFetch from "../../hooks/useFetch"
-import ProductDetails from "../../components/product_details/ProductDetails"
-import { useState } from "react"
 import BoxProduct from "../../components/boxProduct/BoxProduct"
+import Animation from "../../components/animation/Animation"
 
 const Home = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [details, setDetails] = useState({});
-  
-  const { data, loading, } = useFetch("admin/all_products");
+
+  const { data, } = useFetch("admin/all_products");
 
   const products = data?.data.filter((item, index) => {
     if (index <= 5) {
@@ -28,42 +24,44 @@ const Home = () => {
     }
   })
 
-
+  console.log(
+    data
+  )
 
   return (
     <>
-      <Header />
-      <ContentWrapper>
-        <HeroBanner />
-        <ProductsTabs />
-        <div className="images">
-          <img src={imgBanner_1} alt="Banner one" />
-          <img src={imgBanner_2} alt="Bannner two" />
-        </div>
-        <Bestseller />
-        <img src={imgBanner_3} alt="Bannner Three" style={{"marginBottom" :"60px"}} />
-        <div className="boxes_products">
-          {!loading ? (
-            products?.map(product => (
-              <BoxProduct
-              product={product} 
-              setDetailsProduct={() => setDetails(product)} 
-              openModel={() => setIsOpen(true)} 
-              key={product.product_name} 
-              widthImage={150}
-              style={""}
-              />
-            ))
-          ) : (
-            <div>
-            </div>
-          )}
-        </div>
-        <ProductDetails isOpen={isOpen} product={details} closeModal={() => setIsOpen(false)} />
-      </ContentWrapper>
-      <Icons />
-      <ButtonScroll />
-      <Footer />
+      {!data && <Animation />}
+      {
+        data && (
+          <>
+            <Header />
+            <ContentWrapper>
+              <HeroBanner />
+              <ProductsTabs data={data} />
+              <div className="images">
+                <img src={imgBanner_1} alt="Banner one" />
+                <img src={imgBanner_2} alt="Bannner two" />
+              </div>
+              <Bestseller />
+              <img src={imgBanner_3} alt="Bannner Three" style={{ "marginBottom": "60px" }} />
+              <div className="boxes_products">
+                {
+                  products?.map(product => (
+                    <BoxProduct
+                      product={product}
+                      key={product.product_name}
+                      widthImage={150}
+                      style={""}
+                    />
+                  ))
+                }
+              </div>
+            </ContentWrapper>
+            <Icons />
+            <ButtonScroll />
+            <Footer />
+          </>
+        )}
     </>
   )
 }

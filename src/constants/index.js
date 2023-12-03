@@ -49,10 +49,6 @@ export const footer_links = [
 
 export const sidebar_links = [
     {
-        title: "Dashboard",
-        router: "/Admin/DashBoard"
-    },
-    {
         title: "categories",
         router: "/Admin/categories"
     },
@@ -67,6 +63,14 @@ export const sidebar_links = [
     {
         title: "Show Users",
         router: "/Admin/show_users"
+    },
+    {
+        title: "Add Promo Code",
+        router: "/Admin/add_promocode"
+    },
+    {
+        title: "Orders",
+        router: "/Admin/Orders"
     },
 ]
 
