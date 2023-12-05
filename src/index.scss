@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap");
 
 :root {
   --primary: #b11e22;
@@ -7,7 +7,7 @@
   --body-color: #333e48;
   --body-color-light: #989898;
   --whiteColor: #ffffff;
-  --sidebarColorMain: #1C2536;
+  --sidebarColorMain: #1c2536;
   --body-bg: #ffffff;
   --heading-color: #333e48;
   --color-link: #333e48;
@@ -49,10 +49,51 @@
 
 body {
   background-color: var(--body-bg);
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
-
 
 .flex {
   display: flex;
+}
+
+img.effectImage {
+  position: relative;
+  transition: 0.5s;
+  
+  &:hover {
+    &::after {
+      top: 50%;
+      bottom: 50%;
+      z-index: 1;
+      background: rgba(255, 255, 255, .2);
+    }
+
+    &::before {
+      right: 50%;
+      left: 50%;
+      z-index: 1;
+      background: rgba(255, 255, 255, .2);
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    ;
+    transition: all .5s linear;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    transition: all .5s linear;
+  }
 }

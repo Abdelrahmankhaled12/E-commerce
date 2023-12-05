@@ -11,8 +11,8 @@ const HeroBanner = () => {
         <div className='heroBanner'>
             <Carousel />
             <div className="images">
-                <img src={banner_1} alt="" />
-                <img src={banner_2} alt="" />
+                <img src={banner_1} alt=""  className="effectImage"/>
+                <img src={banner_2} alt="" className="effectImage" />
             </div>
         </div>
     )

@@ -29,6 +29,10 @@ const Carousel = () => {
         }
     }
 
+    setTimeout(()=> {
+        setSlide_active(slide_active === 0 ? 1 : slide_active === 1 ? 2 : 0)
+    },6000)
+
     
     return (
         <div className='slider'>
@@ -39,6 +43,11 @@ const Carousel = () => {
                 <button onClick={()=>handleButtonClick("left")}><FontAwesomeIcon icon={faChevronLeft} /></button>
                 <button onClick={()=>handleButtonClick("right")}><FontAwesomeIcon icon={faChevronRight} /></button>
             </div>
+            <ul>
+                <li className={slide_active === 0 ? 'active' : ""} onClick={()=>setSlide_active(0)}></li>
+                <li className={slide_active === 1 ? 'active' : ""} onClick={()=>setSlide_active(1)}></li>
+                <li className={slide_active === 2 ? 'active' : ""} onClick={()=>setSlide_active(2)}></li>
+            </ul>
         </div>
     )
 }

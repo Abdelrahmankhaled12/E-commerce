@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import SideBar from '../../components/sidebar/SideBar'
 import './style.scss'
 import { Add_categoryAPi, Delete_category } from '../../../utils/api'
@@ -6,19 +6,28 @@ import useFetch from '../../../hooks/useFetch'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import Warning from '../../components/warning/Warning'
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux/es/hooks/useSelector'
 
 const Add_category = () => {
 
     const { data, } = useFetch("admin/all_categories");
     const [ isOpen , setIsOpen ] = useState(false)
     const [ category , setCategory ] = useState(null)
-
+    const navigate = useNavigate();
     const [value, setValue] = useState("")
+    let { loggedAdmin } = useSelector((state) => state.admin);
 
     const handleClickButtonForm = () => {
         Add_categoryAPi(value)
         setValue("")
     }
+
+    useEffect(()=> {
+        if(!loggedAdmin) {
+            navigate("/Admin")
+        }
+    }) 
 
     return (
         <div className='flex'>

@@ -39,8 +39,12 @@ const Home = () => {
               <HeroBanner />
               <ProductsTabs data={data} />
               <div className="images">
-                <img src={imgBanner_1} alt="Banner one" />
-                <img src={imgBanner_2} alt="Bannner two" />
+                <div className="effectImage">
+                  <img src={imgBanner_1} alt="Banner one" />
+                </div>
+                <div className="effectImage">
+                  <img src={imgBanner_2} alt="Bannner two" />
+                </div>
               </div>
               <Bestseller />
               <img src={imgBanner_3} alt="Bannner Three" style={{ "marginBottom": "60px" }} />

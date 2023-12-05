@@ -14,6 +14,7 @@ import Register from './pages/register/Register'
 import Checkout from './pages/checkout/Checkout'
 import LoginUser from './pages/login/LoginUser'
 import PromoCode from './admin/pages/add_promocode/PromoCode'
+import Orders from './admin/pages/orders/Orders'
 
 
 
@@ -38,6 +39,8 @@ function App() {
           <Route path="/Admin/show_users" element={<ShowUsers />} />
           <Route path="/Admin/show_products" element={<ShowProduct />} />
           <Route path="/Admin/add_promocode" element={<PromoCode/>} />
+          <Route path="/Admin/Orders" element={<Orders/>} />
+
         </Routes>
       </BrowserRouter>
     </>

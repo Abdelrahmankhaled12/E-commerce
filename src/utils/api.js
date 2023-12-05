@@ -116,13 +116,26 @@ export const makeOrder = (data) => {
 }
 
 
-export const addPromoCode = (promoCode , discount , startDate , endDate) => {
+export const addPromoCode = (promoCode, discount, startDate, endDate) => {
     const formData = new FormData();
     formData.append('promocode', promoCode);
     formData.append('started_at', startDate);
     formData.append('expired_at', endDate);
     formData.append('discount', discount);
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', ADD_OFFERS , true);
+    xhr.open('POST', ADD_OFFERS, true);
     xhr.send(formData);
+}
+
+
+export const login_admin = async (email, password) => {
+    const formData = new FormData();
+    formData.append('email', email)
+    formData.append('password', password)
+    try {
+        const { data } = await axios.post("http://127.0.0.1:8000/api/admin/login", formData);
+        return data;
+    } catch (err) {
+        return err
+    }
 }
