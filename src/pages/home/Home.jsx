@@ -35,7 +35,7 @@ const Home = () => {
         data && (
           <>
             <Header />
-            <ContentWrapper>
+            {/* <ContentWrapper>
               <HeroBanner />
               <ProductsTabs data={data} />
               <div className="images">
@@ -63,7 +63,7 @@ const Home = () => {
             </ContentWrapper>
             <Icons />
             <ButtonScroll />
-            <Footer />
+            <Footer /> */}
           </>
         )}
     </>

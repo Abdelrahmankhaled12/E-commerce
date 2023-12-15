@@ -1,0 +1,59 @@
+@import "../../../mixins.scss";
+
+.header_one {
+    background-color: #1b252f;
+    .content_headerOne {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 17px;
+        padding: 13px 20px;
+        color: white;
+        flex-wrap: wrap;
+        gap: 15px;
+        @include sm {
+            justify-content: space-between;
+        }
+        @include xl {
+            padding: 13px 0px;
+        }
+        .div {
+            p {
+                font-size: 14px;
+                span {
+                    transition: 0.5s;
+                    cursor: pointer;
+                    &:hover {
+                        color: var(--primary);
+                    }
+                }
+            }
+        }
+        .flex {
+            p {
+                margin-left: 15px;
+                font-size: 14px;
+                transition: 0.5s;
+                cursor: pointer;
+                position: relative;
+                &:hover {
+                    color: var(--primary);
+                }
+            }
+        }
+        p.after {
+            &::after {
+                content: "";
+                width: 1px;
+                height: 85%;
+                right: -14px;
+                top: 2px;
+                position: absolute;
+                background-color: rgb(176, 176, 176);
+            }
+        }
+    }
+}
