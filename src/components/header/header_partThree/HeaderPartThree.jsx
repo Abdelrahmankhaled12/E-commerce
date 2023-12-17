@@ -19,6 +19,26 @@ const HeaderPartThree = () => {
         <div className="header_three">
             <div className='content_headerThree'>
                 <ul className="menuItems">
+                    <div className='shop'>
+                        <div
+                            className="button_shop"
+                            onClick={() => setActive(!active)}
+                        >
+                            <p>SHOP BY DEPARTMENT</p>
+                            {active ? (
+                                <FontAwesomeIcon icon={faXmark} />
+                            ) : (
+                                <FontAwesomeIcon icon={faBarsStaggered} />
+                            )}
+                        </div>
+                        <ul
+                            style={active ? { "opacity": "1", "zIndex": "10000" } : { "opacity": "0", "zIndex": "-1" }}
+                        >
+                            {data?.data.map((category) => (
+                                <li onClick={() => navigate(`/Shop/${category.category_name}`)} key={category.category_name}>{category.category_name}</li>
+                            ))}
+                        </ul>
+                    </div>
                     {header_links.map(link => (
                         <li
                             className="menuItem"
@@ -26,26 +46,6 @@ const HeaderPartThree = () => {
                         >{link.title}</li>
                     ))}
                 </ul>
-                <div className='shop'>
-                    <div
-                        className="button_shop"
-                        onClick={() => setActive(!active)}
-                    >
-                        <p>SHOP BY DEPARTMENT</p>
-                        {active ? (
-                            <FontAwesomeIcon icon={faXmark} />
-                        ) : (
-                            <FontAwesomeIcon icon={faBarsStaggered} />
-                        )}
-                    </div>
-                    <ul
-                        style={active ? { "opacity": "1", "zIndex": "10000" } : { "opacity": "0", "zIndex": "-1" }}
-                    >
-                        {data?.data.map((category) => (
-                            <li onClick={() => navigate(`/Shop/${category.category_name}`)} key={category.category_name}>{category.category_name}</li>
-                        ))}
-                    </ul>
-                </div>
             </div>
         </div>
     )

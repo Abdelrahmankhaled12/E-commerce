@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 import { useSelector } from "react-redux";
 import { useState } from 'react';
-import Cart from '../cart/Cart';
+import Cart from '../../cart/Cart';
+import SideBar from '../sidebar/SideBar'
 
 
 const HeaderPartTwo = () => {
@@ -17,8 +18,13 @@ const HeaderPartTwo = () => {
         <>
             <div className="header_two">
                 <div className='content_headerTwo'>
+                    <div className="sidebarMenuMobile">
+                        <SideBar />
+                    </div>
                     <img src={logo} />
-                    <SearchBar />
+                    <div className="searchbar">
+                        <SearchBar />
+                    </div>
                     <div className="cart_button" onClick={() => setIsOpenCart(true)}>
                         <div className="counter_cart">
                             <p>{products.length}</p>

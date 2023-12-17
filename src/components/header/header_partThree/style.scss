@@ -1,91 +1,116 @@
+@import "../../../mixins.scss";
+
 .header_three {
-    background-color: var(--body-color);
-    padding: 10px 0px;
-    position: relative;
+  background-color: var(--body-color);
+  padding: 10px 0px;
+  position: relative;
+  height: 65px;
 
-    .content_headerThree {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
+  .content_headerThree {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px;
 
-        ul {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 12px 0;
-
-            li {
-                list-style: none;
-                font-size: 17px;
-                color: white;
-                margin: 0px 40px;
-                cursor: pointer;
-                transition: 0.5s;
-                font-weight: 600;
-
-                &:hover {
-                    color: var(--primary);
-                }
-            }
-        }
+    @include xl {
+        padding: 12px 0px;
     }
 
-    .shop {
-        position: absolute;
-        top: 0;
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      @include md {
+        justify-content: start;
+    }
+      li {
+        list-style: none;
+        font-size: 17px;
         color: white;
-        font-weight: 600;
-        font-size: 16px;
+        margin: 0px 40px;
         cursor: pointer;
-        top: -6px;
-
-        .button_shop {
-            position: relative;
-            display: flex;
-            align-items: center;
-            background-color: var(--primary);
-            z-index: 25500;
-            padding: 25px 40px;
-            border-top-left-radius: 6px;
-            border-top-right-radius: 6px;
+        transition: 0.5s;
+        font-weight: 600;
+        &:hover {
+          color: var(--primary);
         }
+      }
 
-        p {
-            font-size: 14px;
-            margin-right: 20px;
+      .menuItem {
+        display: none;
+        @include md {
+          display: block;
         }
-
-        svg {
-            font-size: 20px;
-        }
-
-        ul {
-            position: absolute;
-            flex-direction: column;
-            background-color: #ffffff;
-            color: #333;
-            top: 100%;
-            width: 100%;
-            left: 0;
-            padding: 15px 20px;
-            border-bottom-left-radius: 11px;
-            border-bottom-right-radius: 11px;
-            border: 1px solid #33333335;
-            transition: 0.5s;
-
-            li {
-                width: 100%;
-                text-align: start;
-                margin: 10px 0px;
-                padding-bottom: 10px;
-                color: #777;
-                border-bottom: 1px solid #33333335;
-                font-size: 15px;
-
-                &:last-of-type {
-                    border-bottom: none;
-                }
-            }
-        }
+      }
     }
+  }
+
+  .shop {
+    position: relative;
+    top: 0;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    top: -6px;
+    width: 90%;
+
+    @include md {
+      width: auto;
+    }
+
+    .button_shop {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: var(--primary);
+      z-index: 25500;
+      padding: 25px 40px;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+      top: -22px;
+      @include md {
+        width: auto;
+      }
+    }
+
+    p {
+      font-size: 14px;
+      margin-right: 20px;
+    }
+
+    svg {
+      font-size: 20px;
+    }
+
+    ul {
+      position: absolute;
+      flex-direction: column;
+      background-color: #ffffff;
+      color: #333;
+      top: 69%;
+      width: 100%;
+      left: 0;
+      padding: 15px 20px;
+      border-bottom-left-radius: 11px;
+      border-bottom-right-radius: 11px;
+      border: 1px solid #33333335;
+      transition: 0.5s;
+
+      li {
+        width: 100%;
+        text-align: start;
+        margin: 10px 0px;
+        padding-bottom: 10px;
+        color: #777;
+        border-bottom: 1px solid #33333335;
+        font-size: 15px;
+
+        &:last-of-type {
+          border-bottom: none;
+        }
+      }
+    }
+  }
 }
