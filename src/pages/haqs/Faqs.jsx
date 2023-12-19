@@ -1,6 +1,6 @@
 import ContentWrapper from "../../components/contentWrapper/ContentWrapper"
 import Header from "../../components/header/Header"
-import Footer from "../../components/Footer/Footer"
+import Footer from "../../components/footer/Footer"
 import { Disclosure } from '@headlessui/react'
 import './style.scss'
 import { useState } from "react"

@@ -1,11 +1,30 @@
+@import "../../../mixins.scss";
+
 .heroBanner {
     display: flex;
     justify-content: end;
     padding: 20px 0px;
+    flex-direction: column;
+    @include md {
+        flex-direction: row;
+    }
     .images {
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        margin-left: 20px;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+        @include md {
+            margin-left: 20px;
+            margin-top: 0px;
+            gap: 0px;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .img {
+            img {
+                width: 100%;
+            }
+        }
     }
 }

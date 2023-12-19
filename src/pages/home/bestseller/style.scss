@@ -1,46 +1,71 @@
+@import "../../../mixins.scss";
+
 .bestseller {
-    padding: 80px 0px;
+  padding: 80px 0px;
+  .contentWrapper {
+    position: relative;
+  }
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #7777773a;
+    padding-bottom: 6px;
 
-    .top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid #7777773a;
-        padding-bottom: 6px;
-
-        h3 {
-            font-size: 22px;
-        }
-
-        ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-
-            li {
-                margin: 0px 10px;
-                font-size: 15px;
-                color: #7777779a;
-                cursor: pointer;
-                transition: 0.5s;
-                font-weight: 500;
-
-                &:hover {
-                    color: var(--primary);
-                }
-            }
-
-            li.active {
-                color: var(--primary);
-            }
-
-        }
+    h3 {
+      font-size: 22px;
     }
-
-    .boxes_products {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        margin: 20px 0px;
-
+    .arrow {
+      font-size: 17px;
+      color: #7777779a;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      margin: 0px 10px;
+      transition: 0.3s;
+      &:hover {
+        color: var(--primary);
+      }
     }
+    ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+
+      li {
+        margin: 0px 10px;
+        font-size: 15px;
+        color: #7777779a;
+        cursor: pointer;
+        transition: 0.5s;
+        font-weight: 500;
+
+        &:hover {
+          color: var(--primary);
+        }
+      }
+
+      li.active {
+        color: var(--primary);
+      }
+    }
+  }
+
+  .boxes_products {
+    display: flex;
+    gap: 10px;
+    overflow-y: hidden;
+    margin-right: -20px;
+    margin-left: -20px;
+    padding: 0 20px;
+    @include sm {
+      overflow-x: hidden;
+    }
+    @include md {
+      gap: 20px;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+  }
 }
