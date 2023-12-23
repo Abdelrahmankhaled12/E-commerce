@@ -36,12 +36,12 @@ const Home = () => {
                   <img src={imgBanner_2} alt="Bannner two" />
                 </div>
               </div>
-              <Bestseller />
+              {/* <Bestseller /> */}
               <img src={imgBanner_3} alt="Bannner Three" style={{ "marginBottom": "60px" , "width" : "100%"}} />
             </ContentWrapper>
             <Icons />
             <ButtonScroll />
-            {/* <Footer /> */}
+            <Footer />
           </>
         )}
     </>

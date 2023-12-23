@@ -3,15 +3,12 @@ import './footer.scss'
 import logo from "../../assets/logo.avif"
 import { footer_links } from '../../constants'
 import SubScribers from '../subscribers/SubScribers'
-import ImagesFooter from '../imagesFoote/ImagesFooter'
+import icon from '../../assets/icon_footer.avif'
 
 const Footer = () => {
     return (
         <>
-            <ImagesFooter />
             <footer>
-                <ContentWrapper>
-                </ContentWrapper>
                 <SubScribers />
                 <ContentWrapper>
                     <div className="grid">
@@ -38,22 +35,21 @@ const Footer = () => {
                                 </ul>
                             </div>
                         ))}
-                        <div className="links">
-                            <h3>INFORMATION</h3>
-                            <ul>
-                                <li>About Us</li>
-                                <li>About Us</li>
-                                <li>About Us</li>
-                                <li>About Us</li>
-                                <li>About Us</li>
-                                <li>About Us</li>
-                            </ul>
+                    </div>
+                    <div className="footer_end">
+                        <div className='madeBy'>
+                            Made By
+                            <span>Abdelrahman</span>
+                            &
+                            <span>Shehab</span>
+                        </div>
+                        <div className="image_footerEnd">
+                            <img src={icon} alt="Icon Image" />
                         </div>
                     </div>
                 </ContentWrapper>
             </footer>
         </>
-
     )
 }
 

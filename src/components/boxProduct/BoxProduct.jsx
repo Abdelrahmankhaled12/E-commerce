@@ -9,7 +9,7 @@ import { setProductCart } from '../../store/cartSlice'
 import { useNavigate } from 'react-router-dom'
 import ProductDetails from '../product_details/ProductDetails'
 
-const BoxProduct = ({ product , style , widthImage }) => {
+const BoxProduct = ({ product, style, widthImage }) => {
 
     const [isOpen, setIsOpen] = useState(false);
     const [details, setDetails] = useState({});
@@ -22,15 +22,25 @@ const BoxProduct = ({ product , style , widthImage }) => {
         dispatch(setProductCart(product))
     }
 
-    const navigate = useNavigate();
+    const calcDiscount = (discount, price) => {
+        return +(((+discount / +price) * 100) - 100).toFixed(0)
+    }
 
+    const navigate = useNavigate();
 
     return (
         <>
             <div className={`box_product ${style}`}>
                 <div className="image">
-                    <img src={product.image[0]} alt="" style={{"width":widthImage+"px"}}/>
-                    <button className='search' onClick={() => { setDetails(product) ,  setIsOpen(true) }}><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
+                    <img src={product.image[0]} alt="" style={{ "width": widthImage + "px" }} />
+                    <button className='search' onClick={() => { setDetails(product), setIsOpen(true) }}><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
+                    {
+                        calcDiscount(product.discount, product.price) < 0 && (
+                            <div className="discount">
+                                {calcDiscount(product.discount, product.price)}%
+                            </div>
+                        )
+                    }
                 </div>
                 <div className="details">
                     <div className="category">
@@ -38,7 +48,9 @@ const BoxProduct = ({ product , style , widthImage }) => {
                     </div>
                     <h3 onClick={() => navigate(`/details/${product.category_name}/${product.product_name}/${product.product_id}`)}>{product.product_name}</h3>
                     <div className="price">
-                        ${(+product.discount).toFixed(2)}
+                        {'$' + (+product.discount).toFixed(2)} {+product.discount !== +product.price && (
+                            <del>{'$' + (+product.price).toFixed(2)}</del>
+                        )}
                     </div>
                     <button className='buttonCard' onClick={() => { setIsOpenCart(true), addProductCart(product) }}>
                         ADD TO CART

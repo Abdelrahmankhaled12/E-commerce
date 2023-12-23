@@ -35,6 +35,20 @@
                 background-color: var(--primary);
             }
         }
+
+        .discount {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #e53939;
+            color: white;
+            width: 40px;
+            padding: 4px;
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 3px;        
+        }
+
     }
     .details {
         .category {
@@ -51,6 +65,11 @@
             color: var(--primary);
             font-weight: 600;
             margin: 8px 0px;
+            del {
+                color: #b5b5b5;
+                margin: 0px 3px;
+                font-size: 14px;
+            }
         }
 
         button.buttonCard {

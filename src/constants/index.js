@@ -17,7 +17,7 @@ export const header_links = [
     },
     {
         title: "Contact us",
-        router: "/Contact us"
+        router: "/Contact-us"
     },
 ]
 
@@ -28,10 +28,8 @@ export const footer_links = [
         links: [
             'About Us',
             "Contact Us",
-            "Help Center",
-            "Track Your Order",
+            "Shop",
             "FAQs",
-            "Search",
         ]
     },
     {
@@ -42,7 +40,6 @@ export const footer_links = [
             "Shipping Policy",
             "Terms of Service",
             "Help & Contact Us",
-            "Secure payment",
         ]
     }
 ]

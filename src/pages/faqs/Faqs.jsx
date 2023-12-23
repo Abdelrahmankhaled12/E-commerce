@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 import { faqs_questions } from "../../constants"
 import { useNavigate } from "react-router-dom"
+import Icons from "../../components/icons/Icons"
+import ButtonScroll from "../../components/buttonScroll/ButtonScroll"
 
 const Faqs = () => {
 
@@ -46,6 +48,8 @@ const Faqs = () => {
           </div>
         </ContentWrapper>
       </div>
+      <Icons />
+      <ButtonScroll />
       <Footer />
     </>
 

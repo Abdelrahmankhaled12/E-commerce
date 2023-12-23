@@ -1,11 +1,24 @@
+@import '../../mixins.scss';
+
 footer {
-    padding: 0px 0px 80px;
+    padding: 0px;
     background-color: #f4f8f9;
+    .contentWrapper {
+        padding-top: 0px !important;
+    }
     .grid {
         display: grid;
-        grid-template-columns: 400px 250px 250px 350px;
-        align-items: end;
+        grid-template-columns: 1fr;
         gap: 30px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.097);
+        padding-bottom: 30px;
+        @include sm {
+            grid-template-columns: 2fr 1fr;
+        }
+        
+        @include md {
+            grid-template-columns: 3fr 1fr 1fr;
+        }
         .info {
             img {
                 margin: 0px 0px 20px 0px;
@@ -17,7 +30,7 @@ footer {
         .links {
             h3 {
                 position: relative;
-                top: -50px;
+                margin: 20px 0px;
             }
             ul {
                 list-style: none;
@@ -31,6 +44,27 @@ footer {
                         color: var(--primary);
                     }
                 }
+            }
+        }
+    }
+    .footer_end {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 30px 0px;
+        gap: 20px;
+        .madeBy {
+            color: #777777c3;
+            span{
+                color: var(--primary);
+                margin: 0px 5px;
+                font-weight: 500;
+                cursor: pointer;
+            }
+        }
+        .image_footerEnd {
+            img {
+                width: 100%;
             }
         }
     }
