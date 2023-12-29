@@ -11,7 +11,8 @@
     align-items: center;
     border-bottom: 1px solid #7777773a;
     padding-bottom: 6px;
-
+    position: relative;
+    z-index: 500000000;
     h3 {
       font-size: 22px;
     }
@@ -28,10 +29,12 @@
       }
     }
     ul {
-      display: flex;
+      display: none;
       justify-content: center;
       list-style: none;
-
+      @include mdd {
+        display: flex;
+      }
       li {
         margin: 0px 10px;
         font-size: 15px;

@@ -4,6 +4,12 @@
     }
 }
 
+@mixin mdd {
+    @media only screen and (min-width: 880px) {
+        @content;
+    }
+}
+
 @mixin md {
     @media only screen and (min-width: 992px) {
         @content;

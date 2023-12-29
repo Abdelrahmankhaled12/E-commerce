@@ -73,13 +73,15 @@ const Bestseller = () => {
                                         <li onClick={() => { setActive(category.category_name), productsFilter(category.category_name) }} className={active === category.category_name ? "active" : ""} key={category.category_name}>{category.category_name}</li>
                                     ))
                                 }
-                                <button className='arrow' onClick={() => navigation("left")}><FontAwesomeIcon icon={faChevronLeft} /></button>
-                                <button className='arrow' onClick={() => navigation("right")}><FontAwesomeIcon icon={faChevronRight} /></button>
                             </ul>
                         ) : (
                             <div>
                             </div>
                         )}
+                    </div>
+                    <div className="div">
+                        <button className='arrow' onClick={() => navigation("left")}><FontAwesomeIcon icon={faChevronLeft} /></button>
+                        <button className='arrow' onClick={() => navigation("right")}><FontAwesomeIcon icon={faChevronRight} /></button>
                     </div>
                 </div>
                 <div className="boxes_products" ref={carouselContainer}>

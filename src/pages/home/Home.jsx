@@ -12,6 +12,7 @@ import Icons from "../../components/icons/Icons"
 import ButtonScroll from "../../components/buttonScroll/ButtonScroll"
 import useFetch from "../../hooks/useFetch"
 import Animation from "../../components/animation/Animation"
+import TopProducts from "./topProduct/TopProducts"
 
 const Home = () => {
 
@@ -36,8 +37,9 @@ const Home = () => {
                   <img src={imgBanner_2} alt="Bannner two" />
                 </div>
               </div>
-              {/* <Bestseller /> */}
+              <Bestseller />
               <img src={imgBanner_3} alt="Bannner Three" style={{ "marginBottom": "60px" , "width" : "100%"}} />
+              <TopProducts  data={data} />
             </ContentWrapper>
             <Icons />
             <ButtonScroll />
