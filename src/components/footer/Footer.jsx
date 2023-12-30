@@ -4,8 +4,12 @@ import logo from "../../assets/logo.avif"
 import { footer_links } from '../../constants'
 import SubScribers from '../subscribers/SubScribers'
 import icon from '../../assets/icon_footer.avif'
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+
+    const navigate = useNavigate();
+
     return (
         <>
             <footer>
@@ -30,7 +34,7 @@ const Footer = () => {
                                 <h3>{item.title}</h3>
                                 <ul>
                                     {item.links.map((link) => (
-                                        <li key={link}>{link}</li>
+                                        <li key={link} onClick={() => navigate(link.router)}>{link.title}</li>
                                     ))}
                                 </ul>
                             </div>

@@ -21,25 +21,48 @@ export const header_links = [
     },
 ]
 
-
 export const footer_links = [
     {
         title: "INFORMATION",
         links: [
-            'About Us',
-            "Contact Us",
-            "Shop",
-            "FAQs",
+
+            {
+                title: "About Us",
+                router: "/About"
+            },
+            {
+                title: "Contact us",
+                router: "/Contact-us"
+            },
+            {
+                title: "Shop",
+                router: "/Shop/categories"
+            },
+            {
+                title: "FAQs",
+                router: "/FAQs"
+            },
         ]
     },
     {
         title: "OUR SERVICES",
         links: [
-            'Privacy Policy',
-            "Refund Policy",
-            "Shipping Policy",
-            "Terms of Service",
-            "Help & Contact Us",
+            {
+                title: "Privacy Policy",
+                router: "/Privacy-Policy"
+            },
+            {
+                title: "Shipping Policy",
+                router: "/Shipping-Policy"
+            },
+            {
+                title: "Terms of Service",
+                router: "/Terms-of-Service"
+            },
+            {
+                title: "Help & Contact Us",
+                router: "/Contact-us"
+            },
         ]
     }
 ]

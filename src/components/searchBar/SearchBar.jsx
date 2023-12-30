@@ -2,11 +2,12 @@ import { Fragment, useState } from "react";
 import { Combobox, Transition } from "@headlessui/react";
 import useFetch from "../../hooks/useFetch";
 import './style.scss'
+import BoxSearchProduct from "./BoxSearchProduct";
 
 const SearchBar = () => {
   const [query, setQuery] = useState("");
 
-  const { data, loading: loading_products, } = useFetch("admin/all_products");
+  const { data, loading , } = useFetch("admin/all_products");
 
   const manufacturers = data?.data.map(item => item.product_name)
 
@@ -65,7 +66,7 @@ const SearchBar = () => {
                     {({ selected, active }) => (
                       <>
                         <span className={`block truncate ${selected ? "font-medium" : "font-normal"}`}>
-                          {item}
+                          <BoxSearchProduct data={data} productName={item} />
                         </span>
 
                         {selected ? (

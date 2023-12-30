@@ -1,5 +1,6 @@
 .search-manufacturer {
     position: relative;
+
     input {
         width: 430px;
         padding: 13px 15px;
@@ -30,12 +31,47 @@
         width: 100%;
         background-color: white;
         z-index: 1000;
+        list-style: none;
+        padding: 10px 0px;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        max-height: 512.2px;
+        overflow: auto;
+        box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important
     }
 
     .search-manufacturer__option {
-        margin: 20px 0px;
+        margin: 10px 0px;
         padding: 0px 20px;
         color: #777;
         font-size: 15px;
+    }
+}
+
+.boxSearchProduct {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    .image {
+        img {
+            width: 55px;
+        }
+    }
+
+    .text {
+        padding-left: 4px;
+        h4 {
+            font-size: 13px;
+            color: #333e48;
+            font-weight: 400;
+        }
+
+        p {
+            color: var(--primary);
+            font-size: 15px;
+            font-weight: 600;
+            margin: 4px 0px;
+        }
     }
 }
