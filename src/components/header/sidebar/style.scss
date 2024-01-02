@@ -1,0 +1,46 @@
+.menu {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.159);
+    height: 100vh;
+    width: 100%;
+    right: 0;
+    top: 0;
+    z-index: 10000000000000;
+    transform: translateX(-100%);
+    transition: 0.5s;
+
+    .flex {
+        justify-content: end;
+        .content {
+            background-color: rgba(255, 255, 255);
+            height: 100vh;
+            width: 400px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid #77777739;
+                padding-bottom: 10px;
+                h2 {
+                    font-size: 25px;
+                    font-weight: 600;
+                }
+                button {
+                    background-color: transparent;
+                    border: none;
+                    font-size: 25px;
+                    cursor: pointer;
+                }
+            }
+
+        }
+    }
+}
+
+.menu_active {
+    transform: translateX(0%);
+}

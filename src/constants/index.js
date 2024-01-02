@@ -1,14 +1,14 @@
 export const header_links = [
     {
-        title: "Home",
+        title: "HOME",
         router: "/"
     },
     {
-        title: "Shop",
+        title: "SHOP",
         router: "/Shop/categories"
     },
     {
-        title: "About Us",
+        title: "ABOUT US",
         router: "/About"
     },
     {
@@ -16,7 +16,7 @@ export const header_links = [
         router: "/FAQs"
     },
     {
-        title: "Contact us",
+        title: "CONTACT US",
         router: "/Contact-us"
     },
 ]

@@ -3,71 +3,85 @@
 .header_two {
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 5px auto;
 
-    .content_headerTwo {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    .div {
         padding: 12px 20px;
 
         @include xl {
             padding: 13px 0px;
         }
-        .sidebarMenuMobile {
-            display: block;
 
+        .content_headerTwo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .sidebarMenuMobile {
+                display: block;
+                font-size: 35px;
+                @include md {
+                    display: none;
+                }
+            }
+
+            .searchbar {
+                display: none;
+
+                @include md {
+                    display: block;
+                }
+            }
+
+            .cart_button {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                cursor: pointer;
+
+                .counter_cart {
+                    background-color: var(--primary);
+                    width: 20px;
+                    border-radius: 50%;
+                    height: 20px;
+                    color: white;
+                    position: absolute;
+                    top: -3px;
+                    right: -5px;
+                    cursor: pointer;
+
+                    p {
+                        color: white;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        font-size: 11px;
+                    }
+                }
+
+                button {
+                    background-color: transparent;
+                    border: none;
+                    color: var(--body-color);
+                    font-size: 22px;
+                    cursor: pointer;
+                }
+
+                p {
+                    font-size: 13px;
+                    color: #777;
+                }
+            }
+        }
+
+        .searchMobile {
+            display: block;
+            margin: 20px auto;
+            width: fit-content;
             @include md {
                 display: none;
             }
-        }
-        .searchbar {
-            display: none;
-
-            @include md {
-                display: block;
-            }
-        }
-    }
-
-    .cart_button {
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        cursor: pointer;
-
-        .counter_cart {
-            background-color: var(--primary);
-            width: 20px;
-            border-radius: 50%;
-            height: 20px;
-            color: white;
-            position: absolute;
-            top: -3px;
-            right: -5px;
-            cursor: pointer;
-
-            p {
-                color: white;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                font-size: 11px;
-            }
-        }
-
-        button {
-            background-color: transparent;
-            border: none;
-            color: var(--body-color);
-            font-size: 22px;
-            cursor: pointer;
-        }
-
-        p {
-            font-size: 13px;
-            color: #777;
         }
     }
 }

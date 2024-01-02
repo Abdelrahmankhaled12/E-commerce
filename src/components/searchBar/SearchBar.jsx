@@ -24,7 +24,7 @@ const SearchBar = () => {
   return (
     <div className='search-manufacturer'>
       <Combobox value={""}>
-        <div>
+        <div className="flex">
           <Combobox.Input
             displayValue={(item) => item}
             onChange={(event) => setQuery(event.target.value)} 
@@ -43,7 +43,6 @@ const SearchBar = () => {
             afterLeave={() => setQuery("")} 
           >
             <Combobox.Options
-              className='text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm'
               static
             >
               {filteredManufacturers?.length === 0 && query !== "" ? (

@@ -19,11 +19,8 @@ const HeaderPartThree = () => {
         <div className="header_three">
             <div className='content_headerThree'>
                 <ul className="menuItems">
-                    <div className='shop'>
-                        <div
-                            className="button_shop"
-                            onClick={() => setActive(!active)}
-                        >
+                    <div className='shop' onClick={() => setActive(!active)}>
+                        <div className="button_shop">
                             <p>SHOP BY DEPARTMENT</p>
                             {active ? (
                                 <FontAwesomeIcon icon={faXmark} />

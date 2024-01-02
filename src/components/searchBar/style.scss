@@ -1,14 +1,19 @@
+@import '../../mixins.scss';
+
 .search-manufacturer {
     position: relative;
 
     input {
-        width: 430px;
+        width: 100%;
         padding: 13px 15px;
         border: 1px solid #7777773d;
         border-top-left-radius: 6px;
         border-bottom-left-radius: 6px;
         font-size: 15px;
         outline: none;
+    }
+    @include sm {
+        width: 500px;
     }
 
     .search_button {
@@ -30,14 +35,15 @@
         position: absolute;
         width: 100%;
         background-color: white;
-        z-index: 1000;
         list-style: none;
         padding: 10px 0px;
         border-bottom-left-radius: 6px;
         border-bottom-right-radius: 6px;
         max-height: 512.2px;
         overflow: auto;
-        box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important
+        box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
+        z-index: 1000000000000;
+        top: 100%;
     }
 
     .search-manufacturer__option {
