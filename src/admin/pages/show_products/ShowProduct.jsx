@@ -6,9 +6,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import Warning from '../../components/warning/Warning'
 import { useState } from 'react'
 import { Delete_product } from '../../../utils/api'
-import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux/es/hooks/useSelector'
-import { useEffect } from 'react'
+
 
 const ShowProduct = () => {
 
@@ -16,14 +14,7 @@ const ShowProduct = () => {
 
   const [isOpen, setIsOpen] = useState(false)
   const [category, setCategory] = useState(null)
-  const navigate = useNavigate();
-  let { loggedAdmin } = useSelector((state) => state.admin);
-  useEffect(()=> {
-      if(!loggedAdmin) {
-          navigate("/Admin")
-      }
-  }) 
-  
+
   return (
     <div className='flex'>
       <SideBar />

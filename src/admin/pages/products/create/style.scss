@@ -27,6 +27,7 @@
         form {
             flex: 1;
             margin-left: 20px;
+
             input {
                 display: block;
                 width: 100%;
@@ -38,6 +39,7 @@
                 font-weight: 500;
                 margin-bottom: 10px;
             }
+
             textarea {
                 display: block;
                 width: 100%;
@@ -50,10 +52,12 @@
                 margin-bottom: 10px;
 
             }
+
             .buttons {
                 display: flex;
                 justify-content: end;
                 align-items: center;
+
                 button {
                     margin-top: 20px;
                     cursor: pointer;
@@ -63,19 +67,23 @@
                     border-radius: 6px;
                     transition: 0.5s;
                 }
+
                 button.create {
                     border: 1px solid rgb(99, 102, 241);
-                    background-color:rgb(99, 102, 241);
+                    background-color: rgb(99, 102, 241);
                     color: white;
+
                     &:hover {
-                        background-color:white;
+                        background-color: white;
                         color: rgb(99, 102, 241);
                     }
                 }
+
                 button.cancel {
                     color: #333;
                     border: none;
                     background-color: transparent;
+
                     &:hover {
                         background-color: #7777772c;
                     }
