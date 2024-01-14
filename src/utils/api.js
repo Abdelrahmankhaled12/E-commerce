@@ -1,4 +1,6 @@
 import axios from 'axios';
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/src/sweetalert2.scss'
 
 const BASE_URL = "http://127.0.0.1:8000/api/";
 
@@ -28,7 +30,7 @@ export const Add_Product = (name, description, priceOld, priceNew, stock, catego
     formData.append('discount', priceNew);
     formData.append('price', priceOld);
     formData.append('stock', stock);
-    formData.append('images', JSON.stringify([image]));
+    formData.append('images', JSON.stringify(image));
     formData.append('category_id', category);
     const xhr = new XMLHttpRequest();
     xhr.open('POST', ADD_PRODUCT, true);
@@ -37,12 +39,31 @@ export const Add_Product = (name, description, priceOld, priceNew, stock, catego
 
 
 export const Add_categoryAPi = (category) => {
-    const formData = new FormData();
-    formData.append('title', category);
-    formData.append('status', "active");
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', ADD_CATEGORY, true);
-    xhr.send(formData);
+
+    Swal.fire({
+        title: "Are you sure?",
+        text: `A new category will be added called ${category}`,
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Add it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const formData = new FormData();
+            formData.append('title', category);
+            formData.append('status', "active");
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', ADD_CATEGORY, true);
+            xhr.send(formData);
+            Swal.fire({
+                title: "Added!",
+                text: `A new category called ${category} has been added.`,
+                icon: "success"
+            });
+        }
+    });
+
 }
 
 

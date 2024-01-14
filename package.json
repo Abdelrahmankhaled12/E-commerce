@@ -10,8 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^40.2.0",
+    "@ckeditor/ckeditor5-react": "^6.2.0",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+    "@fortawesome/fontawesome-free": "^6.5.1",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
     "@fortawesome/free-regular-svg-icons": "^6.4.2",
@@ -23,10 +26,15 @@
     "@reduxjs/toolkit": "^1.9.1",
     "axios": "^1.2.2",
     "i": "^0.3.7",
+    "immutability-helper": "^3.1.1",
     "leaflet": "^1.9.4",
+    "mdb-react-ui-kit": "^7.1.0",
     "npm": "^10.2.4",
+    "quill": "^1.3.6",
     "react": "^18.2.0",
     "react-circular-progressbar": "^2.1.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
     "react-infinite-scroll-component": "^6.1.0",
@@ -35,7 +43,10 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.6.2",
     "react-select": "^5.7.0",
-    "sass": "^1.57.1"
+    "sass": "^1.57.1",
+    "slate": "^0.101.5",
+    "slate-react": "^0.101.5",
+    "sweetalert2": "^11.6.13"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",
