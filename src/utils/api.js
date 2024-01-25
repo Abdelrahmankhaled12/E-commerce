@@ -6,9 +6,10 @@ const BASE_URL = "http://127.0.0.1:8000/api/";
 
 const ADD_PRODUCT = "http://127.0.0.1:8000/api/admin/add_product"
 
-const ADD_CATEGORY = 'http://127.0.0.1:8000/api/admin/add_category';
+const ADD_CATEGORY = 'http://127.0.0.1:8000/api/categories';
 
-const DELETE_CATEGORY = 'http://127.0.0.1:8000/api/admin/delete_category';
+const DELETE_CATEGORY = 'http://127.0.0.1:8000/api/categories/';
+
 const DELTE_PRODUCT = `http://127.0.0.1:8000/api/admin/delete_product`;
 const ADD_OFFERS = 'http://127.0.0.1:8000/api/admin/add_offer';
 

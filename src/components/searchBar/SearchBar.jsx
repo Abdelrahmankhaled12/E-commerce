@@ -7,7 +7,7 @@ import BoxSearchProduct from "./BoxSearchProduct";
 const SearchBar = () => {
   const [query, setQuery] = useState("");
 
-  const { data, loading , } = useFetch("admin/all_products");
+  const { data, loading , } = useFetch("products");
 
   const manufacturers = data?.data.map(item => item.product_name)
 

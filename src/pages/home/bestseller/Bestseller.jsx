@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import './style.scss'
-import useFetch from '../../../hooks/useFetch'
 import { useEffect, useState, useRef } from 'react';
 import ProductDetails from '../../../components/product_details/ProductDetails';
 import BoxProduct from '../../../components/boxProduct/BoxProduct';
@@ -8,13 +7,9 @@ import ContentWrapper from '../../../components/contentWrapper/ContentWrapper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 
-const Bestseller = () => {
+const Bestseller = ({ data, data_products }) => {
 
     const carouselContainer = useRef();
-
-    const { data, loading, } = useFetch("admin/all_categories");
-
-    const { data: data_products, loading: loading_products, } = useFetch("admin/all_products");
 
     const [products, setProducts] = useState([])
 
@@ -66,7 +61,7 @@ const Bestseller = () => {
                 <div className="top">
                     <h3>Bestseller Products</h3>
                     <div className="items">
-                        {!loading ? (
+                        {
                             <ul>
                                 {
                                     categories?.map((category) => (
@@ -74,10 +69,7 @@ const Bestseller = () => {
                                     ))
                                 }
                             </ul>
-                        ) : (
-                            <div>
-                            </div>
-                        )}
+                        }
                     </div>
                     <div className="div">
                         <button className='arrow' onClick={() => navigation("left")}><FontAwesomeIcon icon={faChevronLeft} /></button>
@@ -85,7 +77,7 @@ const Bestseller = () => {
                     </div>
                 </div>
                 <div className="boxes_products" ref={carouselContainer}>
-                    {!loading_products ? (
+                    {
                         products?.map((product, index) => (
                             <BoxProduct
                                 product={product}
@@ -95,10 +87,7 @@ const Bestseller = () => {
                                 style={"column"}
                                 key={index} />
                         ))
-                    ) : (
-                        <div>
-                        </div>
-                    )}
+                    }
                 </div>
             </ContentWrapper>
             <ProductDetails isOpen={isOpen} product={details} closeModal={() => setIsOpen(false)} />

@@ -1,15 +1,10 @@
 import './style.scss'
-import Header from "../../components/header/Header"
 import ContentWrapper from '../../components/contentWrapper/ContentWrapper'
-import Footer from '../../components/footer/Footer'
-import Icons from '../../components/icons/Icons'
-import ButtonScroll from '../../components/buttonScroll/ButtonScroll'
 import MapComponent from './map/MapComponent'
 
 const Contact = () => {
   return (
     <>
-      <Header />
       <MapComponent />
       <ContentWrapper>
         <div className="contactUS">
@@ -54,9 +49,6 @@ const Contact = () => {
           </div>
         </div>
       </ContentWrapper>
-      <Icons />
-      <ButtonScroll />
-      <Footer />
     </>
   )
 }

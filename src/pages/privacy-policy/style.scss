@@ -1,0 +1,31 @@
+@import '../../mixins.scss';
+
+.privacy_policy {
+    padding: 0px 0px 80px;
+
+    .content {
+        margin: 50px 0 0 0;
+        h4 {
+            text-align: center;
+            margin-top: 0;
+            font-size: 27px;
+            color: var(--secondary);
+
+            @include sm {
+                font-size: 40px;
+            }
+        }
+
+        p {
+            margin: 20px auto;
+            width: auto;
+            line-height: 1.8;
+            font-style: italic;
+            color: var(--secondary);
+
+            @include md {
+                width: 650px;
+            }
+        }
+    }
+}

@@ -3,7 +3,7 @@
 :root {
   --primary: #b11e22;
   --primary-light: rgba(177, 30, 34, 0.7);
-  --secondary: #003b57;
+  --secondary: #333e48;
   --body-color: #333e48;
   --body-color-light: #989898;
   --whiteColor: #ffffff;
@@ -20,25 +20,6 @@
   --footer-link-hover: #b11e22;
   --footer-bg: #ffffff;
   --color-copyright-bg: #ffffff;
-  --color-copyright: #333e43;
-  --menu-font-size: 14px;
-  --menu-dropdown-font-size: 14px;
-  --menu-bg: #333e48;
-  --menu-color: #ffffff;
-  --menu-hover-color: #ffffff;
-  --menu-dropdown-bg: #ffffff;
-  --menu-dropdown-color: #858a8d;
-  --menu-dropdown-hover-color: #333e43;
-  --vertical-menu-font-size: 14px;
-  --vertical-menu-dropdown-font-size: 14px;
-  --vertical-menu-bg: #ffffff;
-  --vertical-menu-color: #333e48;
-  --vertical-menu-hover-color: #b11e22;
-  --vertical-menu-dropdown-bg: #ffffff;
-  --vertical-menu-dropdown-color: #858a8d;
-  --vertical-menu-dropdown-hover-color: #333e43;
-  --breadcrumb-bg: var(--body-bg);
-  --breadcrumb-heading-color: var(--heading-color);
 }
 
 * {
@@ -61,3 +42,5 @@ body {
 ul {
   padding: 0;
 }
+
+

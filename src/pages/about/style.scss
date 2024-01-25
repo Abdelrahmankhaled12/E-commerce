@@ -3,25 +3,6 @@
 .about {
     padding: 0px 0px 40px;
 
-    ul {
-        display: flex;
-
-        li {
-            list-style: none;
-            font-size: 15px;
-            margin-right: 2px;
-            color: #777;
-            font-weight: 600;
-            margin-top: 5px;
-            cursor: pointer;
-        }
-
-        li.active {
-            color: var(--primary);
-            cursor: default;
-        }
-    }
-
     .story {
         padding: 60px 0px;
         display: grid;
@@ -60,8 +41,12 @@
             h2 {
                 font-size: 45px;
                 position: relative;
-                margin-bottom: 50px;
+                margin-bottom: 20px;
                 padding-bottom: 20px;
+
+                @include mdd {
+                    margin-bottom: 50px;
+                }
 
                 &::before {
                     content: "";
@@ -117,7 +102,7 @@
             display: grid;
             gap: 30px;
             grid-template-columns: 1fr;
-            
+
             @include sm {
                 grid-template-columns: 1fr 1fr;
             }

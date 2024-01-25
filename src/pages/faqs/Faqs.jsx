@@ -1,30 +1,21 @@
 import ContentWrapper from "../../components/contentWrapper/ContentWrapper"
-import Header from "../../components/header/Header"
-import Footer from "../../components/footer/Footer"
 import { Disclosure } from '@headlessui/react'
 import './style.scss'
 import { useState } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 import { faqs_questions } from "../../constants"
-import { useNavigate } from "react-router-dom"
-import Icons from "../../components/icons/Icons"
-import ButtonScroll from "../../components/buttonScroll/ButtonScroll"
+import BreadCrumb from "../../components/breadcrumb/BreadCrumb"
 
 const Faqs = () => {
 
   const [active, setActive] = useState(null);
-  const navigate = useNavigate()
 
   return (
     <>
-      <Header />
       <div className="faqs">
         <ContentWrapper>
-          <ul>
-            <li onClick={() => navigate('/')}>Home /</li>
-            <li className="active">FAQs</li>
-          </ul>
+          <BreadCrumb page={"FAQs"} />
           <div className="boxes">
             {
               faqs_questions.map((item, index) => (
@@ -48,9 +39,6 @@ const Faqs = () => {
           </div>
         </ContentWrapper>
       </div>
-      <Icons />
-      <ButtonScroll />
-      <Footer />
     </>
 
   )

@@ -13,7 +13,6 @@ export const cartSlice = createSlice({
             state.products = action.payload;
         },
         setCounter: (state, action) => {
-            console.log(action)
             state.products = state.products.map(product => {
                 if (product.product_id === action.payload[1])
                     product.counter = product.counter - action.payload[0]

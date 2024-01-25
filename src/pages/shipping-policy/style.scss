@@ -1,0 +1,47 @@
+@import '../../mixins.scss';
+
+.shipping_policy {
+    padding: 0px 0px 100px;
+    .content {
+        margin: 50px 0 0 0;
+        h4 {
+            text-align: center;
+            margin-top: 0;
+            font-size: 27px;
+            color: var(--secondary);
+            @include sm {
+                font-size: 40px;
+            }
+        }
+        p {
+            margin: 10px auto;
+            width: auto;
+            line-height: 1.5;
+            font-style: italic;
+            color: var(--secondary);
+            @include md {
+                width: 650px;
+            }
+            &:first-of-type {
+                margin: 40px auto 0px;
+            }
+        }
+
+        ul {
+            list-style: auto;
+            margin: 0px auto 40px;
+            width: auto;
+            line-height: 1.5;
+            font-style: italic;
+            color: var(--secondary);
+            padding-left: 30px;
+            li {
+                font-size: 15px;
+                margin: 10px 0px;
+            }
+            @include md {
+                width: 650px;
+            }
+        }
+    }
+}

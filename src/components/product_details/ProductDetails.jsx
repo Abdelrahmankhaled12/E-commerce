@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { setProductCart } from '../../store/cartSlice'
 import Cart from '../cart/Cart'
+import ImagesProduct from './images/ImagesProduct'
 
 const ProductDetails = ({ isOpen, closeModal, product }) => {
 
@@ -44,7 +45,7 @@ const ProductDetails = ({ isOpen, closeModal, product }) => {
                     </div>
                     <div className="content">
                         <div className="images">
-                            <img src={typeof product.discount !== 'undefined' && product.image[0]} alt="" />
+                            <ImagesProduct images={product.images} />
                         </div>
                         <div className="content_details">
                             <div className="category">
@@ -57,15 +58,13 @@ const ProductDetails = ({ isOpen, closeModal, product }) => {
                             <div className="availability">
                                 <p> <strong>Availability: </strong> {product.stock === 0 ? "Unavailable" : "available"}</p>
                             </div>
-                            <div className="description">
-                                {product.description}
-                            </div>
+                            <div className="description" dangerouslySetInnerHTML={{ __html: product.description }} />
                             <div className="counter">
                                 <button onClick={() => changeCounter("minus")} style={counter === 1 ? { "cursor": "not-allowed" } : { "cursor": "pointer" }} ><FontAwesomeIcon icon={faMinus} /></button>
                                 <p>{counter}</p>
                                 <button onClick={() => changeCounter("plus")}><FontAwesomeIcon icon={faPlus} /></button>
                             </div>
-                            <button className='addCard' onClick={()=>{ setIsOpenCart(true), addProductCart(product) }}>ADD TO CARD</button>
+                            <button className='addCard' onClick={() => { setIsOpenCart(true), addProductCart(product) }}>ADD TO CARD</button>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,64 @@
+@import "../../../mixins.scss";
+
+
+.imagesProduct {
+    width: fit-content;
+    margin: auto;
+    @include md {
+        width: auto;
+        margin: 0 0 0 auto;
+    }
+    img {
+        width: 100%;
+    }
+    position: relative;
+    &:hover {
+        .buttons {
+            opacity: 1;
+        }
+    }
+    .hide {
+        position: absolute;
+        transition: 0.5s;
+        left: 0;
+        opacity: 0;
+    }
+    .active {
+        opacity: 1;
+        position: relative;
+    }
+    
+    .buttons {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0px 10px;
+        transition: 0.5s;
+        opacity:1;
+        button {
+            position: relative;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: none;
+            background-color: var(--whiteColor);
+            transition: 0.5s;
+            cursor: pointer;
+            font-size: 11px;
+            @include sm {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+            &:hover {
+                background-color: var(--primary);
+                color: white;
+            }
+        }
+
+    }
+}

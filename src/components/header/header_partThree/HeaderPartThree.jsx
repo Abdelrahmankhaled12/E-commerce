@@ -12,7 +12,7 @@ const HeaderPartThree = () => {
 
     const location = useLocation();
     const navigate = useNavigate();
-    const { data, } = useFetch("admin/all_categories");
+    const { data, } = useFetch("categories");
     const [active, setActive] = useState(location.pathname === "/" ? true : false)
 
     return (

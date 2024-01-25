@@ -32,7 +32,7 @@ const BoxProduct = ({ product, style, widthImage }) => {
         <>
             <div className={`box_product ${style}`}>
                 <div className="image">
-                    <img src={product.image[0].img} alt="" style={{ "width": widthImage + "px" }} />
+                    <img src={product.images[0]} alt="" style={{ "width": widthImage + "px" }} />
                     <button className='search' onClick={() => { setDetails(product), setIsOpen(true) }}><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
                     {
                         calcDiscount(product.discount, product.price) < 0 && (

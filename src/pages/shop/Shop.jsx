@@ -11,10 +11,8 @@ import Icons from "../../components/icons/Icons";
 import ButtonScroll from "../../components/buttonScroll/ButtonScroll";
 import { useNavigate } from "react-router-dom"
 
-const Shop = () => {
+const Shop = ({ data, data_products }) => {
 
-  const { data, } = useFetch("admin/all_categories");
-  let { data: data_products, } = useFetch("admin/all_products");
   let { category } = useParams();
   const navigate = useNavigate()
 
@@ -22,27 +20,23 @@ const Shop = () => {
 
   return (
     <>
-      {!data_products && <Animation />}
-      {data_products && (
-        <>
-          <Header />
-          <div className="shop_products">
-            <ContentWrapper>
-              <ul className="pageTop">
-                <li onClick={() => navigate('/')}>Home /</li>
-                <li className="active">Products</li>
-              </ul>
-              <div className="grid">
-                <Categories data={data} />
-                <ProductsShop data={data_products} />
-              </div>
-            </ContentWrapper>
+      <div className="shop_products">
+        <ContentWrapper>
+          <ul className="pageTop">
+            <li onClick={() => navigate('/')}>Home /</li>
+            <li className="active">Products</li>
+          </ul>
+          <div className="grid">
+            <div className="filterCategories">
+              <Categories data={data} />
+            </div>
+            <ProductsShop data={data_products} />
           </div>
-          <Icons />
-          <ButtonScroll />
-          <Footer />
-        </>
-      )}
+        </ContentWrapper>
+      </div>
+      <Icons />
+      <ButtonScroll />
+      <Footer />
     </>
 
   )

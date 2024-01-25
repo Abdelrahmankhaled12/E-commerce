@@ -49,11 +49,11 @@ export const footer_links = [
         links: [
             {
                 title: "Privacy Policy",
-                router: "/Privacy-Policy"
+                router: "/privacy-policy"
             },
             {
                 title: "Shipping Policy",
-                router: "/Shipping-Policy"
+                router: "/shipping-policy"
             },
             {
                 title: "Terms of Service",
