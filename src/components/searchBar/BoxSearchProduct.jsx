@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const BoxSearchProduct = ({ data ,  productName }) => {
 
-    const product = data?.data.filter(item => {
+    const product = data.filter(item => {
         if (item.product_name === productName) {
             return item
         }
@@ -15,7 +15,7 @@ const BoxSearchProduct = ({ data ,  productName }) => {
     return (
         <div className="boxSearchProduct" onClick={()=> navigate(`/details/${product[0].category_name}/${product[0].product_name}/${product[0].product_id}`)}>
             <div className="image">
-                <img src={product[0].image[0]} alt="image product" />
+                <img src={product[0].images[0]} alt="image product" />
             </div>
             <div className="text">
                 <h4>{product[0].product_name}</h4>

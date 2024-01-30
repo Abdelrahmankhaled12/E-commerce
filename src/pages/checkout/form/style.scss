@@ -1,0 +1,55 @@
+@import '../../../mixins.scss';
+
+
+.formCheck {
+    form {
+        h3 {
+            font-size: 22px;
+            margin-top: 15px;
+        }
+
+        .gridInputsTwo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 15px 0px;
+        }
+
+        .gridInputsThree {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin: 15px 0px;
+
+            @include md {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            padding: 10px 9px;
+            outline: none;
+            border-radius: 4px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+    }
+    .payNow {
+        width: 100%;
+        padding: 10px;
+        color: white;
+        font-weight: 600;
+        font-size: 20px;
+        background-color: #000;
+        border: 1px solid #000;
+        border-radius: 4px;
+        transition: 0.5s;
+        cursor: pointer;
+        &:hover {
+            color: #000;
+            background-color: white;
+        }
+    }
+}

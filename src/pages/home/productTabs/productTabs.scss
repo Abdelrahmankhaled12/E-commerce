@@ -2,42 +2,9 @@
 
 .product_tabs {
     padding: 50px 0px;
-    .items_tabs {
-        ul {
-            display: flex;
-            align-items: center;
-            list-style: none;
-            padding: 12px 0px;
-            border-bottom: 1px solid #bababa6c;
-            li {
-                margin-right: 40px;
-                font-size: 20px;
-                position: relative;
-                color: #989898;
-                font-weight: 600;
-                transition: 0.5s;
-                cursor: pointer;
-                &:after {
-                    content: "";
-                    width: 1px;
-                    height: 70%;
-                    position: absolute;
-                    right: -20px;
-                    background-color: #bababab3;
-                    top: 20%;
-                }
-                &:hover {
-                    color: #333;
-                }
-            }
-            li.active {
-                color: #333;
-            }
-        }
-    }
     .boxes_products {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Adjust minmax values as needed */
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
         grid-gap: 10px;
         margin: 20px 0px;
         justify-items: center;

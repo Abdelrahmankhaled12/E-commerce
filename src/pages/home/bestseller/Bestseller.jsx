@@ -20,20 +20,20 @@ const Bestseller = ({ data, data_products }) => {
     const [details, setDetails] = useState({});
 
     useEffect(() => {
-        const category = data?.data[0].category_name;
+        const category = data[0].category_name;
         setActive(category)
-        let products = data_products?.data.filter(item => item.category_name === category)
+        let products = data_products.filter(item => item.category_name === category)
         setProducts(products)
     }, [data, data_products])
 
 
 
     const productsFilter = (category) => {
-        let products = data_products.data.filter(item => item.category_name === category)
+        let products = data_products.filter(item => item.category_name === category)
         setProducts(products)
     }
 
-    const categories = data?.data.filter((item, index) => {
+    const categories = data.filter((item, index) => {
         if (index <= 3) {
             return item
         }

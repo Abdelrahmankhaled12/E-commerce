@@ -43,7 +43,7 @@ const Cart = ({ isOpenCart, closeModalCart }) => {
                 return (
                   <div className="box" key={product.product_id} id={index + 20}>
                     <div className='flex'>
-                      <img src={product.image[0]} alt="" />
+                      <img src={product.images[0]} alt="" />
                       <div className="text">
                         <h4>{product.product_name}</h4>
                         <div className="price">

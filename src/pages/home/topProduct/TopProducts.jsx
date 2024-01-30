@@ -3,7 +3,7 @@ import './style.scss'
 import ContainerProducts from './containerProducts/ContainerProducts';
 
 const TopProducts = ({ data }) => {
-    const products = data?.data.filter((item, index) => {
+    const products = data.filter((item, index) => {
         if (index <= 2) {
             return item
         }

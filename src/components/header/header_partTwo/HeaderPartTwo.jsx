@@ -9,12 +9,12 @@ import Cart from '../../cart/Cart';
 import SideBar from '../sidebar/SideBar'
 
 
-const HeaderPartTwo = () => {
-    const { products } = useSelector((state) => state.cart);
+const HeaderPartTwo = ({ products }) => {
+
+
+    const { products:productCart } = useSelector((state) => state.cart);
     const [isOpenCart, setIsOpenCart] = useState(false);
     const [isOpenMenu, setIsOpenMenu] = useState(false);
-
-
 
     return (
         <>
@@ -26,11 +26,11 @@ const HeaderPartTwo = () => {
                         </div>
                         <img src={logo} />
                         <div className="searchbar">
-                            <SearchBar />
+                            <SearchBar data={products} />
                         </div>
                         <div className="cart_button" onClick={() => setIsOpenCart(true)}>
                             <div className="counter_cart">
-                                <p>{products.length}</p>
+                                <p>{productCart.length}</p>
                             </div>
                             <button>
                                 <FontAwesomeIcon icon={faCartPlus} />
@@ -39,7 +39,7 @@ const HeaderPartTwo = () => {
                         </div>
                     </div>
                     <div className="searchMobile">
-                        <SearchBar />
+                        <SearchBar data={products} />
                     </div>
                 </div>
             </div>

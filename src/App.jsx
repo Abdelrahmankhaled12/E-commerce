@@ -16,10 +16,16 @@ import Icons from "./components/icons/Icons"
 import ButtonScroll from "./components/buttonScroll/ButtonScroll"
 import useFetch from './hooks/useFetch'
 import Animation from './components/animation/Animation'
-
+import { useEffect, useState } from 'react'
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 function App() {
   const { data: products, } = useFetch("products");
   const { data: categories, } = useFetch("categories");
+  const [isCheckoutPage , setIsCheckOutPage ] = useState(false)
+
+  useEffect(()=> {
+    setIsCheckOutPage(window.location.pathname === '/checkout');
+  },[window.location.pathname])
 
 
   return (
@@ -29,23 +35,23 @@ function App() {
         (products && categories) && (
           <>
             <BrowserRouter>
-              <Header />
+              {!isCheckoutPage && <Header products={products.data} categories={categories.data} />}
               <Routes>
-                <Route path="/" element={<Home products={products} categories={categories} />} />
-                <Route path="/Shop/:category" element={<Shop data={categories} data_products={products} />} />
+                <Route path="/" element={<Home products={products.data} categories={categories.data} />} />
+                <Route path="/Shop/:category" element={<Shop categories={categories.data} data_products={products} />} />
                 <Route path="/About" element={<About />} />
                 <Route path="/FAQs" element={<Faqs />} />
                 <Route path="/Contact-us" element={<Contact />} />
                 <Route path="/checkout" element={<Checkout />} />
-                <Route path="/details/:category/:product/:id" element={<Details />} />
+                <Route path="/details/:category/:product/:id" element={<Details data_products={products.data} />} />
                 <Route path="/*" element={<NotFoundPage />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/shipping-policy" element={<ShippingPolicy />} />
                 <Route path="/terms-of-service" element={<TermsOfService />} />
               </Routes>
-              <Icons />
-              <ButtonScroll />
-              <Footer />
+              {!isCheckoutPage && <Icons />}
+              {!isCheckoutPage && <ButtonScroll />}
+              {!isCheckoutPage && <Footer />}
             </BrowserRouter>
           </>
         )}

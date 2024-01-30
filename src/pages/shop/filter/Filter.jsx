@@ -5,9 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Categories from "../categories/Categories";
 import useFetch from '../../../hooks/useFetch';
 
-const Filter = ({ isOpenFilter, closeModalFilter }) => {
-    const { data, } = useFetch("categories");
-
+const Filter = ({ categories , isOpenFilter, closeModalFilter }) => {
     return (
         <div className={isOpenFilter ? "filter filter_active" : "filter"}>
             <div className="flex">
@@ -16,7 +14,7 @@ const Filter = ({ isOpenFilter, closeModalFilter }) => {
                         <h2>Filter</h2>
                         <button onClick={() => closeModalFilter()}><FontAwesomeIcon icon={faXmark} /></button>
                     </div>
-                    <Categories data={data}/>
+                    <Categories categories={categories}/>
                 </div>
                 <div style={{ "flex": "1" }} onClick={() => closeModalFilter()}></div>
             </div>

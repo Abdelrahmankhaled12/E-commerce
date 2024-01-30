@@ -7,13 +7,13 @@ import { useState } from 'react';
 import useFetch from '../../../hooks/useFetch';
 import { useLocation } from 'react-router-dom';
 
-
-const HeaderPartThree = () => {
+const HeaderPartThree = ({ data }) => {
 
     const location = useLocation();
     const navigate = useNavigate();
-    const { data, } = useFetch("categories");
     const [active, setActive] = useState(location.pathname === "/" ? true : false)
+
+    data = data.filter((category, index) => index < 9);
 
     return (
         <div className="header_three">
@@ -31,16 +31,22 @@ const HeaderPartThree = () => {
                         <ul
                             style={active ? { "opacity": "1", "zIndex": "10000" } : { "opacity": "0", "zIndex": "-1" }}
                         >
-                            {data?.data.map((category) => (
+                            {data.map((category) => (
                                 <li onClick={() => navigate(`/Shop/${category.category_name}`)} key={category.category_name}>{category.category_name}</li>
                             ))}
+                            <li onClick={() => navigate(`/Shop/categories`)} key={"categories"}>All Categories</li>
                         </ul>
                     </div>
                     {header_links.map(link => (
                         <li
                             className="menuItem"
                             key={link.title} onClick={() => navigate(link.router)}
-                        >{link.title}</li>
+                        >
+                            {link.title}
+                            {link.title === "SHOP" && (
+                                <p className='iconNew'>New</p>
+                            )}
+                        </li>
                     ))}
                 </ul>
             </div>

@@ -5,7 +5,7 @@ import { faSliders } from '@fortawesome/free-solid-svg-icons'
 import Filter from "../filter/Filter";
 import { useState } from "react";
 
-const ProductsShop = ({ data }) => {
+const ProductsShop = ({ categories, data }) => {
 
     const [filterOpen , setFilterOpen ] = useState(false)
     return (
@@ -24,7 +24,7 @@ const ProductsShop = ({ data }) => {
                     ))}
                 </div>
             </div>
-            <Filter isOpenFilter={filterOpen} closeModalFilter={()=>setFilterOpen(false)} />
+            <Filter categories={categories} isOpenFilter={filterOpen} closeModalFilter={()=>setFilterOpen(false)} />
         </>
 
     )

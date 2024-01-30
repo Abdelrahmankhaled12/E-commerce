@@ -1,15 +1,15 @@
 import ContentWrapper from "../../components/contentWrapper/ContentWrapper"
-import { Disclosure } from '@headlessui/react'
-import './style.scss'
-import { useState } from "react"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 import { faqs_questions } from "../../constants"
 import BreadCrumb from "../../components/breadcrumb/BreadCrumb"
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import './style.scss'
+
 
 const Faqs = () => {
-
-  const [active, setActive] = useState(null);
 
   return (
     <>
@@ -19,21 +19,21 @@ const Faqs = () => {
           <div className="boxes">
             {
               faqs_questions.map((item, index) => (
-                <div className="box" key={index}>
-                  <Disclosure>
-                    <Disclosure.Button onClick={() => active === index ? setActive(null) : setActive(index)} className={`button flex ${active === index ? "box_active" : ""}`}>
-                      <div className="icon">
-                        {
-                          active === index ? <FontAwesomeIcon icon={faMinus} /> : <FontAwesomeIcon icon={faPlus} />
-                        }
-                      </div>
-                      {item.question}
-                    </Disclosure.Button>
-                    <Disclosure.Panel className="text">
+                <Accordion key={index}>
+                  <AccordionSummary
+                    expandIcon={<ArrowDropDownIcon />}
+                    aria-controls="panel2-content"
+                    id="panel2-header"
+                    className="box"
+                  >
+                    <Typography >{item.question}</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails className="text">
+                    <Typography>
                       {item.answer}
-                    </Disclosure.Panel>
-                  </Disclosure>
-                </div>
+                    </Typography>
+                  </AccordionDetails>
+                </Accordion>
               ))
             }
           </div>
@@ -45,3 +45,4 @@ const Faqs = () => {
 }
 
 export default Faqs
+

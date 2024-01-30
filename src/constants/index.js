@@ -135,7 +135,7 @@ export const faqs_questions = [
 ]
 
 
-export const governorate =
+export const Governorates =
     [
         'Alexandria',
         'Aswan',

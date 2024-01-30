@@ -1,25 +1,6 @@
 @import '../../mixins.scss';
 
 .shop_products {
-    ul.pageTop {
-        display: flex;
-
-        li {
-            list-style: none;
-            font-size: 15px;
-            margin-right: 2px;
-            color: #777;
-            font-weight: 600;
-            margin-top: 5px;
-            cursor: pointer;
-        }
-
-        li.active {
-            color: var(--primary);
-            cursor: default;
-        }
-    }
-
     .grid {
         padding: 50px 0px;
         display: grid;
