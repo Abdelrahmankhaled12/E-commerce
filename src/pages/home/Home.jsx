@@ -7,11 +7,17 @@ import imgBanner_3 from '../../assets/banner6.webp'
 import Bestseller from "./bestseller/Bestseller"
 import './style.scss'
 import TopProducts from "./topProduct/TopProducts"
+import Header from '../../components/header/Header'
+import Icons from '../../components/icons/Icons'
+import ButtonScroll from '../../components/buttonScroll/ButtonScroll'
+import Footer from '../../components/footer/Footer'
+
 
 const Home = ({ products, categories }) => {
 
   return (
     <>
+    <Header />
       <ContentWrapper>
         <HeroBanner />
         <ProductsTabs data={products} />
@@ -23,10 +29,13 @@ const Home = ({ products, categories }) => {
             <img src={imgBanner_2} alt="Bannner two" />
           </div>
         </div>
-        <Bestseller data={categories} data_products={products} />
+        <Bestseller/>
         <img src={imgBanner_3} alt="Bannner Three" style={{ "marginBottom": "60px", "width": "100%" }} />
-        <TopProducts data={products} />
+        <TopProducts />
       </ContentWrapper>
+      <Icons />
+      <ButtonScroll />
+      <Footer />
     </>
   )
 }

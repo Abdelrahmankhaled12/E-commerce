@@ -2,7 +2,7 @@
 import './style.scss'
 import { useNavigate } from "react-router-dom";
 
-const BoxSearchProduct = ({ data ,  productName }) => {
+const BoxSearchProduct = ({ data, productName }) => {
 
     const product = data.filter(item => {
         if (item.product_name === productName) {
@@ -13,13 +13,15 @@ const BoxSearchProduct = ({ data ,  productName }) => {
     const navigate = useNavigate();
 
     return (
-        <div className="boxSearchProduct" onClick={()=> navigate(`/details/${product[0].category_name}/${product[0].product_name}/${product[0].product_id}`)}>
+        <div className="boxSearchProduct" onClick={() => navigate(`/details/${product[0].category_name}/${product[0].product_name}/${product[0].product_id}`)}>
             <div className="image">
                 <img src={product[0].images[0]} alt="image product" />
             </div>
             <div className="text">
                 <h4>{product[0].product_name}</h4>
-                <p>${product[0].discount}</p>
+                <p>{'$' + (+product[0].discount).toFixed(2)} {+product.discount !== +product.price && (
+                    <del>{'$' + (+product[0].price).toFixed(2)}</del>
+                )}</p>
             </div>
         </div>
     )

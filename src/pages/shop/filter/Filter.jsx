@@ -3,9 +3,8 @@ import './style.scss'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Categories from "../categories/Categories";
-import useFetch from '../../../hooks/useFetch';
 
-const Filter = ({ categories , isOpenFilter, closeModalFilter }) => {
+const Filter = ({ categories, maxValue, valueFilter, minValue, setFilterValuePrice, isOpenFilter, closeModalFilter }) => {
     return (
         <div className={isOpenFilter ? "filter filter_active" : "filter"}>
             <div className="flex">
@@ -14,7 +13,13 @@ const Filter = ({ categories , isOpenFilter, closeModalFilter }) => {
                         <h2>Filter</h2>
                         <button onClick={() => closeModalFilter()}><FontAwesomeIcon icon={faXmark} /></button>
                     </div>
-                    <Categories categories={categories}/>
+                    <Categories
+                        categories={categories}
+                        maxValue={maxValue}
+                        valueFilter={valueFilter}
+                        minValue={minValue}
+                        setFilterValuePrice={(value) => setFilterValuePrice(value)}
+                    />
                 </div>
                 <div style={{ "flex": "1" }} onClick={() => closeModalFilter()}></div>
             </div>

@@ -1,11 +1,15 @@
 import ContentWrapper from '../../components/contentWrapper/ContentWrapper'
 import BreadCrumb from '../../components/breadcrumb/BreadCrumb'
 import './style.scss'
-
+import Header from '../../components/header/Header'
+import Icons from '../../components/icons/Icons'
+import ButtonScroll from '../../components/buttonScroll/ButtonScroll'
+import Footer from '../../components/footer/Footer'
 
 const TermsOfService = () => {
     return (
         <>
+            <Header />
             <div className="terms_of_service">
                 <ContentWrapper>
                     <BreadCrumb page={"Terms of service"} />
@@ -16,6 +20,9 @@ const TermsOfService = () => {
                     </div>
                 </ContentWrapper>
             </div>
+            <Icons />
+            <ButtonScroll />
+            <Footer />
         </>
     )
 }

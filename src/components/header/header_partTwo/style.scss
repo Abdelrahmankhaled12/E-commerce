@@ -4,19 +4,15 @@
     width: 100%;
     max-width: 1200px;
     margin: 5px auto;
-
     .div {
         padding: 12px 20px;
-
         @include xl {
             padding: 13px 0px;
         }
-
         .content_headerTwo {
             display: flex;
             justify-content: space-between;
             align-items: center;
-
             .sidebarMenuMobile {
                 display: block;
                 font-size: 35px;
@@ -24,21 +20,17 @@
                     display: none;
                 }
             }
-
             .searchbar {
                 display: none;
-
                 @include md {
                     display: block;
                 }
             }
-
             .cart_button {
                 display: flex;
                 flex-direction: column;
                 position: relative;
                 cursor: pointer;
-
                 .counter_cart {
                     background-color: var(--primary);
                     width: 20px;
@@ -49,7 +41,6 @@
                     top: -3px;
                     right: -5px;
                     cursor: pointer;
-
                     p {
                         color: white;
                         position: absolute;
@@ -59,7 +50,6 @@
                         font-size: 11px;
                     }
                 }
-
                 button {
                     background-color: transparent;
                     border: none;
@@ -67,14 +57,12 @@
                     font-size: 22px;
                     cursor: pointer;
                 }
-
                 p {
                     font-size: 13px;
                     color: #777;
                 }
             }
         }
-
         .searchMobile {
             display: block;
             margin: 20px auto;

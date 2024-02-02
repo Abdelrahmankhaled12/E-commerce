@@ -34,7 +34,7 @@ const Footer = () => {
                                 <h3>{item.title}</h3>
                                 <ul>
                                     {item.links.map((link) => (
-                                        <li key={link} onClick={() => navigate(link.router)}>{link.title}</li>
+                                        <li key={link.title} onClick={() => navigate(link.router)}>{link.title}</li>
                                     ))}
                                 </ul>
                             </div>

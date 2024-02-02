@@ -10,7 +10,7 @@ const ImagesProduct = ({ images }) => {
 
     const handleButtonClick = (action) => {
         if (action === "right") {
-            if (slide_active === 2) {
+            if (slide_active === images.length - 1) {
                 setSlide_active(0)
             } else {
                 setSlide_active(slide_active + 1)
@@ -19,7 +19,7 @@ const ImagesProduct = ({ images }) => {
 
         if (action === "left") {
             if (slide_active === 0) {
-                setSlide_active(2)
+                setSlide_active(images.length - 1)
             } else {
                 setSlide_active(slide_active - 1)
             }

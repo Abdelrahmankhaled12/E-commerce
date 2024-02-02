@@ -8,10 +8,8 @@
     z-index: 10000000000000;
     transform: translateX(100%);
     transition: 0.5s;
-
     .flex {
         justify-content: end;
-
         .content {
             background-color: rgba(255, 255, 255);
             height: 100vh;
@@ -20,7 +18,6 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-
             .top {
                 display: flex;
                 justify-content: space-between;
@@ -40,7 +37,18 @@
                     cursor: pointer;
                 }
             }
-
+            .boxes {
+                &::-webkit-scrollbar {
+                    width: 4px;
+                }
+                &::-webkit-scrollbar-thumb {
+                    background-color: var(--primary);
+                    border-radius: 6px;
+                }
+                &::-webkit-scrollbar-track {
+                    background-color: #ffffff;
+                }
+            }
             .box {
                 display: flex;
                 justify-content: space-between;
@@ -106,35 +114,29 @@
                 }
 
             }
-
             .footer_cart {
                 .flex {
                     justify-content: space-between;
                     align-items: center;
-
                     p {
                         color: #333333;
                         font-weight: 600;
                         font-size: 18px;
                     }
-
                     .price {
                         color: var(--primary);
                         font-weight: 600;
                         font-size: 18px;
                     }
                 }
-
                 p {
                     font-size: 13px;
                     color: #777;
                     font-style: italic;
                 }
-
                 .buttons {
                     display: flex;
                     justify-content: center;
-
                     button {
                         padding: 12px 35px;
                         background-color: #333e48;
@@ -148,11 +150,9 @@
                         text-transform: uppercase;
                         border-radius: 4px;
                     }
-
                     button.check {
                         background-color: var(--primary);
                         border: 1px solid var(--primary);
-
                     }
                 }
             }
@@ -162,4 +162,12 @@
 
 .cart_active {
     transform: translateX(0%);
+}
+
+.cartEmpty {
+    font-size: 30px;
+    text-align: center;
+    position: relative;
+    top: 90px;
+    color: #00000070;
 }

@@ -1,11 +1,15 @@
 import ContentWrapper from '../../components/contentWrapper/ContentWrapper'
 import BreadCrumb from '../../components/breadcrumb/BreadCrumb'
 import './style.scss'
-
+import Header from '../../components/header/Header'
+import Icons from '../../components/icons/Icons'
+import ButtonScroll from '../../components/buttonScroll/ButtonScroll'
+import Footer from '../../components/footer/Footer'
 
 const ShippingPolicy = () => {
     return (
         <>
+        <Header />
             <div className="shipping_policy">
                 <ContentWrapper>
                     <BreadCrumb page={"Shipping policy"} />
@@ -21,6 +25,9 @@ const ShippingPolicy = () => {
                     </div>
                 </ContentWrapper>
             </div>
+            <Icons />
+            <ButtonScroll />
+            <Footer />
         </>
     )
 }

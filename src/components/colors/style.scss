@@ -1,0 +1,46 @@
+.colorProductDetails {
+    .text {
+        display: flex;
+        align-items: center;
+        margin-bottom: 6px;
+        h5 {
+            margin: 0;
+        }
+        p {
+            margin: 0px 5px;
+            text-transform: capitalize;
+        }
+    }
+    ul {
+        display: flex;
+        list-style: none;
+        margin-bottom: 10px;
+        li {
+            background-color: white;
+            width: 29px;
+            height: 29px;
+            margin-right: 6px;
+            border-radius: 50%;
+            border: 1px solid #a0a0a08a;
+            position: relative;
+            cursor: pointer;
+            transition: 0.3s;
+            &:hover {
+                transform: scale(1.2);
+            }
+            div {
+                background-color: red;
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        li.active {
+            border: 1px solid var(--primary);
+        }
+    }
+}

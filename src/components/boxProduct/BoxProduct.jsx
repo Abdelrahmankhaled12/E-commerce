@@ -17,9 +17,10 @@ const BoxProduct = ({ product, style, widthImage }) => {
     const [isOpenCart, setIsOpenCart] = useState(false);
     const dispatch = useDispatch();
 
-    const addProductCart = (product) => {
-        product.counter = 1;
-        dispatch(setProductCart(product))
+    const addProductCart = (productCart) => {
+        console.log(productCart)
+        productCart.counter = 1;
+        dispatch(setProductCart(productCart))
     }
 
     const calcDiscount = (discount, price) => {
@@ -28,16 +29,24 @@ const BoxProduct = ({ product, style, widthImage }) => {
 
     const navigate = useNavigate();
 
+
     return (
         <>
             <div className={`box_product ${style}`}>
                 <div className="image">
                     <img src={product.images[0]} alt="" style={{ "width": widthImage + "px" }} />
                     <button className='search' onClick={() => { setDetails(product), setIsOpen(true) }}><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
-                    {
+                    {product.stock > 0 &&
                         calcDiscount(product.discount, product.price) < 0 && (
                             <div className="discount">
                                 {calcDiscount(product.discount, product.price)}%
+                            </div>
+                        )
+                    }
+                    {product.stock === 0 &&
+                        (
+                            <div className="OutOfStock">
+                                Out of stock
                             </div>
                         )
                     }
@@ -52,9 +61,11 @@ const BoxProduct = ({ product, style, widthImage }) => {
                             <del>{'$' + (+product.price).toFixed(2)}</del>
                         )}
                     </div>
-                    <button className='buttonCard' onClick={() => { setIsOpenCart(true), addProductCart(product) }}>
-                        ADD TO CART
-                    </button>
+                    {product.stock > 0 && (
+                        <button className='buttonCard' onClick={() => { setIsOpenCart(true), addProductCart(product) }}>
+                            ADD TO CART
+                        </button>
+                    )}
                 </div>
             </div>
             <Cart isOpenCart={isOpenCart} closeModalCart={() => setIsOpenCart(false)} />

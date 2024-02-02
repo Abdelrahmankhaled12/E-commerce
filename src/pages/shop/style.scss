@@ -65,17 +65,21 @@
                     font-size: 18px;
                     font-weight: 600;
                     cursor: pointer;
+
                     svg {
                         color: #777;
                     }
+
                     display: block;
+
                     @include md {
                         display: none;
                     }
                 }
 
             }
-            p {
+
+            p.parTop {
                 color: #33333379;
                 padding-bottom: 9px;
                 position: relative;
@@ -111,7 +115,58 @@
 
 .filterCategories {
     display: none;
+
     @include md {
         display: block;
     }
+}
+
+
+.filterPrice {
+    margin-bottom: 15px;
+
+    h5 {
+        margin: 15px 0px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .boxesFilterPrice {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .box {
+        border: 1px solid #77777770;
+        width: fit-content;
+        width: 63px;
+        padding: 6px 10px 4px 4px;
+        border-radius: 3px;
+        display: flex;
+        justify-content: space-between;
+
+        span {
+            &:first-of-type {
+                color: #7777779e;
+            }
+            &:last-of-type {
+                color: #000000bd;
+            }
+        }
+    }
+
+    p {
+        font-weight: 600;
+    }
+}
+
+.css-187mznn-MuiSlider-root {
+    color: var(--primary) !important;
+}
+
+.productsEmpty {
+    font-size: 25px !important;
+    margin-top: 10px !important;
+    text-align: center !important;
 }

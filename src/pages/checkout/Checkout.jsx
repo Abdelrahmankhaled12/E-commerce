@@ -26,7 +26,6 @@ const Checkout = () => {
                         </div>
                     </ContentWrapper>
                 </div>
-                
             </div>
         </>
     )

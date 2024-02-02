@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import '../style.scss'
 import { useState } from 'react';
-import ProductDetails from '../../../../components/product_details/ProductDetails';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
@@ -13,11 +12,7 @@ const ContainerProducts = ({ title , products }) => {
     const [activeRight, setActiveRight] = useState(true);
 
 
-    const [isOpen, setIsOpen] = useState(false);
-
-    const [details, setDetails] = useState({});
-
-
+    
     const navigate = useNavigate();
 
 
@@ -78,9 +73,7 @@ const ContainerProducts = ({ title , products }) => {
                     </div>
                 </div>
             </div>
-            <ProductDetails isOpen={isOpen} product={details} closeModal={() => setIsOpen(false)} />
         </>
-
     )
 }
 

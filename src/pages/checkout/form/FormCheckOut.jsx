@@ -3,6 +3,7 @@ import SelectGovernorates from './SelectGovernorates'
 import CardMethod from '../card/CardMethod';
 import { useState } from 'react';
 import './style.scss'
+import { postalCodeCheck } from './functionFormCheckOut';
 
 const FormCheckOut = () => {
 
@@ -12,7 +13,11 @@ const FormCheckOut = () => {
   const [lastName, setLastName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+  const [postal , setPostal ] = useState("");
+  const [city , setCity ] = useState("");
 
+
+  console.log(postalCodeCheck(postal))
 
   return (
     <div className='formCheck'>
@@ -26,7 +31,16 @@ const FormCheckOut = () => {
           onChange={(e) => setEmailOrPhone(e.target.value)}
           value={emailOrPhone}
           required
+          placeholder='e.g. a********54@gmail.com'
         />
+
+
+
+
+
+    
+
+
         <h3>Delivery</h3>
         <div className="gridInputsTwo">
           <MDBInput
@@ -56,7 +70,9 @@ const FormCheckOut = () => {
           onChange={(e) => setAddress(e.target.value)}
           value={address}
           required
+          placeholder='14 Arab Street'
         />
+
         <MDBInput
           label='Phone'
           id='phone'
@@ -67,27 +83,35 @@ const FormCheckOut = () => {
           required
           style={{ "marginTop": "15px" }}
         />
+
+
         <div className="gridInputsThree">
           <MDBInput
             label='City'
             id='city'
             type='text'
-            className={phone === "" ? "empty" : ""}
-            onChange={(e) => setPhone(e.target.value)}
-            value={phone}
+            className={city === "" ? "empty" : ""}
+            onChange={(e) => setCity(e.target.value)}
+            value={city}
             required
+            placeholder='Ain shams'
           />
+
           <SelectGovernorates setSelected={(value) => setGovernorate(value)} />
+
+
           <MDBInput
             label='Postal code'
             id='postalCode'
             type='text'
-            className={phone === "" ? "empty" : ""}
-            onChange={(e) => setPhone(e.target.value)}
-            value={phone}
+            className={postal === "" ? "empty" : ""}
+            onChange={(e) => setPostal(e.target.value)}
+            value={postal}
             required
+            placeholder='3753450'
           />
         </div>
+
         <CardMethod />
         <button className='payNow' type='sumbit'>Pay Now </button>
       </form>

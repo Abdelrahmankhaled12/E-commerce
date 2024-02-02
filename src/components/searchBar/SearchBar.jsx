@@ -3,7 +3,7 @@ import { Combobox, Transition } from "@headlessui/react";
 import './style.scss'
 import BoxSearchProduct from "./BoxSearchProduct";
 
-const SearchBar = ( { data }) => {
+const SearchBar = ( { data } ) => {
   
   const [query, setQuery] = useState("");
 

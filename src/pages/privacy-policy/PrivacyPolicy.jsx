@@ -1,11 +1,15 @@
 import ContentWrapper from '../../components/contentWrapper/ContentWrapper'
 import BreadCrumb from '../../components/breadcrumb/BreadCrumb'
 import './style.scss'
+import Header from '../../components/header/Header'
+import Icons from '../../components/icons/Icons'
+import ButtonScroll from '../../components/buttonScroll/ButtonScroll'
+import Footer from '../../components/footer/Footer'
 
 const PrivacyPolicy = () => {
     return (
-
         <>
+            <Header />
             <div className="privacy_policy">
                 <ContentWrapper>
                     <BreadCrumb page={"Privacy policy"} />
@@ -15,8 +19,10 @@ const PrivacyPolicy = () => {
                     </div>
                 </ContentWrapper>
             </div>
+            <Icons />
+            <ButtonScroll />
+            <Footer />
         </>
-
     )
 }
 

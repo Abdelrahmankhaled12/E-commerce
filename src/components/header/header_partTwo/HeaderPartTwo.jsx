@@ -7,14 +7,15 @@ import { useSelector } from "react-redux";
 import { useState } from 'react';
 import Cart from '../../cart/Cart';
 import SideBar from '../sidebar/SideBar'
+import { useNavigate } from "react-router-dom";
 
 
 const HeaderPartTwo = ({ products }) => {
-
-
+    
     const { products:productCart } = useSelector((state) => state.cart);
     const [isOpenCart, setIsOpenCart] = useState(false);
     const [isOpenMenu, setIsOpenMenu] = useState(false);
+    const navigate = useNavigate();
 
     return (
         <>
@@ -24,7 +25,7 @@ const HeaderPartTwo = ({ products }) => {
                         <div className="sidebarMenuMobile">
                             <FontAwesomeIcon icon={faBars} onClick={() => setIsOpenMenu(true)} />
                         </div>
-                        <img src={logo} />
+                        <img src={logo} onClick={()=>navigate("/")} style={{"cursor":"pointer"}} />
                         <div className="searchbar">
                             <SearchBar data={products} />
                         </div>

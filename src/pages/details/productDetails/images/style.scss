@@ -1,0 +1,72 @@
+@import '../../../../mixins.scss';
+
+.imagesProductDetails {
+    overflow: hidden;
+    .image {
+        width: 100%;
+        text-align: center;
+        img {
+            width: 400px;
+            transition: 0.3s;
+        }
+    }
+    .div {
+        position: relative;
+        .images {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            margin-right: -20px;
+            margin-left: -20px;
+            padding: 0 20px;
+            max-width: 100%;
+            justify-content: start;
+            &::-webkit-scrollbar {
+                width: 0;
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: transparent;
+                border-radius: 0;
+            }
+            &::-webkit-scrollbar-track {
+                background-color: transparent;
+            }
+            img {
+                width: 150px;
+                border: 1px solid #77777729;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+            img.activeImage {
+                border: 1px solid var(--primary);
+            }
+        }
+        button {
+            position: absolute;
+            top: 45%;
+            transform: translateY(-50%);
+            z-index: 2;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: 1px solid #77777778;
+            background-color: var(--whiteColor);
+            transition: 0.5s;
+            cursor: pointer;
+            font-size: 11px;
+            @include sm {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+            &:hover {
+                background-color: var(--primary);
+                color: white;
+            }
+            &:last-of-type {
+                left: 90%;
+            }
+        }
+    }
+}

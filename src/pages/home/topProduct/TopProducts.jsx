@@ -1,28 +1,39 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import './style.scss'
 import ContainerProducts from './containerProducts/ContainerProducts';
+import { useSelector } from 'react-redux';
+import { shuffleArray } from '../../../utils/functions';
 
-const TopProducts = ({ data }) => {
-    const products = data.filter((item, index) => {
-        if (index <= 2) {
-            return item
-        }
-    })
+const TopProducts = () => {
+
+    const { products } = useSelector(state => state.data);
 
     return (
         <>
             <div className="topProducts">
                 <ContainerProducts
                     title={"Top seller Products"}
-                    products={products}
+                    products={shuffleArray(products).filter((item, index) => {
+                        if (index <= 2) {
+                            return item
+                        }
+                    })}
                 />
                 <ContainerProducts
                     title={"On-Sale Products"}
-                    products={products}
+                    products={shuffleArray(products).filter((item, index) => {
+                        if (index <= 2) {
+                            return item
+                        }
+                    })}
                 />
                 <ContainerProducts
                     title={"Top Rated Products"}
-                    products={products}
+                    products={shuffleArray(products).filter((item, index) => {
+                        if (index <= 2) {
+                            return item
+                        }
+                    })}
                 />
             </div>
         </>

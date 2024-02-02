@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux'
 import { setProductCart } from '../../store/cartSlice'
 import Cart from '../cart/Cart'
 import ImagesProduct from './images/ImagesProduct'
+import ColorsProduct from '../colors/ColorsProduct'
 
 const ProductDetails = ({ isOpen, closeModal, product }) => {
 
@@ -35,7 +36,6 @@ const ProductDetails = ({ isOpen, closeModal, product }) => {
         dispatch(setProductCart(product))
     }
 
-
     return (
         <>
             <div className={isOpen ? "product_details active_details" : 'product_details'}>
@@ -48,23 +48,33 @@ const ProductDetails = ({ isOpen, closeModal, product }) => {
                             <ImagesProduct images={product.images} />
                         </div>
                         <div className="content_details">
-                            <div className="category">
-                                {product.category_name}
+                            <div className="category" onClick={() => navigate(`/Shop/${product.category_name}`)}>
+                                {product?.category_name}
                             </div>
-                            <h3>{product.product_name}</h3>
+                            <h2>{product?.product_name}</h2>
                             <div className="price">
-                                ${(+product.discount).toFixed(2)}
+                                ${(+product?.discount).toFixed(2)}
+                                {
+                                    +product.discount !== +product.price && (
+                                        <del>{'$' + (+product.price).toFixed(2)}</del>
+                                    )
+                                }
                             </div>
-                            <div className="availability">
-                                <p> <strong>Availability: </strong> {product.stock === 0 ? "Unavailable" : "available"}</p>
+                            <div className="avilability">
+                                <p> <strong>Availabilty : </strong> In Stock </p>
                             </div>
                             <div className="description" dangerouslySetInnerHTML={{ __html: product.description }} />
-                            <div className="counter">
-                                <button onClick={() => changeCounter("minus")} style={counter === 1 ? { "cursor": "not-allowed" } : { "cursor": "pointer" }} ><FontAwesomeIcon icon={faMinus} /></button>
-                                <p>{counter}</p>
-                                <button onClick={() => changeCounter("plus")}><FontAwesomeIcon icon={faPlus} /></button>
+                            {product?.colors?.length > 0 && (
+                                <ColorsProduct colors={product.colors} />
+                            )}
+                            <div className="flex">
+                                <div className="counter">
+                                    <button onClick={() => changeCounter("minus")} style={counter === 1 ? { "cursor": "not-allowed" } : { "cursor": "pointer" }} ><FontAwesomeIcon icon={faMinus} /></button>
+                                    <p>{counter}</p>
+                                    <button onClick={() => changeCounter("plus")}><FontAwesomeIcon icon={faPlus} /></button>
+                                </div>
+                                <button className='addCard' onClick={() => { setIsOpenCart(true), addProductCart(product) }}>ADD TO CARD</button>
                             </div>
-                            <button className='addCard' onClick={() => { setIsOpenCart(true), addProductCart(product) }}>ADD TO CARD</button>
                         </div>
                     </div>
                 </div>

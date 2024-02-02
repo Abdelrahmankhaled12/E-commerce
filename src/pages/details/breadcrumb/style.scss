@@ -1,0 +1,28 @@
+.breadCrumbDetails {
+    margin-top: 30px;
+    ul {
+        display: flex;
+        list-style: none;
+        li {
+            font-size: 13px;
+            margin-right: 6px;
+            cursor: pointer;
+            color: var(--secondary);
+            transition: 0.5s;
+            font-weight: 600;
+
+            &:hover {
+                color: var(--primary);
+            }
+
+            svg {
+                font-size: 10px;
+            }
+
+            &:last-of-type {
+                color: var(--primary);
+                cursor: default;
+            }
+        }
+    }
+}

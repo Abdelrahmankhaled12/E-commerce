@@ -11,11 +11,9 @@
     opacity: 0;
     transition: 0.5s;
     display: none;
-
     @include md {
         display: block;
     }
-
     .box_details {
         background-color: var(--whiteColor);
         position: absolute;
@@ -24,11 +22,9 @@
         transform: translate(-50%, -50%);
         padding: 10px 15px;
         border-radius: 8px;
-
         .close {
             display: flex;
             justify-content: end;
-
             button {
                 width: 30px;
                 height: 30px;
@@ -39,98 +35,106 @@
                 cursor: pointer;
             }
         }
-
         .content {
             display: flex;
-
             .images {
                 img {
                     width: 400px;
                 }
             }
-
             .content_details {
                 width: 400px;
                 padding-left: 20px;
-
                 .category {
-                    font-size: 14px;
-                    color: #777777c5;
-                    margin: 5px 0px;
+                    font-size: 13px;
+                    color: #777777b9;
+                    transition: 0.4s;
+                    cursor: pointer;
+                    width: fit-content;
+                    &:hover {
+                        color: var(--primary);
+                    }
                 }
-
-                h3 {
-                    font-size: 20px;
+                h2 {
+                    font-size: 25px;
+                    margin: 3px 0px 0px;
+                    color: #333;
+                    text-transform: capitalize;
                 }
-
                 .price {
                     color: var(--primary);
-                    font-weight: 600;
-                    margin: 10px 0px;
+                    font-weight: 500;
                     font-size: 25px;
-                }
-
-                .availability {
-                    font-size: 16px;
-                }
-
-                .description {
-                    font-size: 14px;
-                    color: #777777d6;
-                    margin: 8px 0px;
-
-                    ul {
-                        li {
-                            margin: 8px 0px;
-                        }
+                    margin: 15px 0px;
+                    del {
+                        color: #b5b5b5;
+                        margin: 0px 15px;
+                        font-size: 22px;
                     }
                 }
-
-                .counter {
-                    display: flex;
-                    align-items: center;
+                .avilability {
+                    margin: 10px 0px;
+                    strong {
+                        color: #000 !important;
+                        font-size: 16px !important;
+                    }
+                    p {
+                        color: #0066c0;
+                        font-size: 14px;
+                    }
+                }
+                .description {
+                    color: #777;
+                    line-height: 1.6;
+                    font-size: 14px;
                     margin: 15px 0px;
-
-                    button {
-                        width: 35px;
-                        height: 35px;
-                        border: 1px solid #77777734;
-                        background-color: transparent;
+                    ul {
+                        padding-left: 15px;
+                    }
+                }
+                .flex {
+                    margin-top: 20px;
+                    .counter {
+                        display: flex;
+                        align-items: center;
+                        button {
+                            width: 35px;
+                            height: 35px;
+                            border: 1px solid #77777734;
+                            background-color: transparent;
+                            transition: 0.5s;
+                            cursor: pointer;
+                            &:hover {
+                                color: var(--primary);
+                            }
+                        }
+                        p {
+                            width: 35px;
+                            height: 35px;
+                            border: 1px solid #77777734;
+                            font-size: 22px;
+                            color: #333;
+                            text-align: center;
+                            font-weight: 600;
+                        }
+                    }
+                    .addCard {
+                        width: 100%;
+                        background-color: var(--primary);
+                        color: white;
+                        padding: 10px;
+                        font-weight: 600;
+                        font-size: 14px;
+                        border: none;
+                        border-radius: 4px;
                         transition: 0.5s;
+                        border: 1px solid var(--primary);
                         cursor: pointer;
-
+                        margin: 0px 10px;
                         &:hover {
+                            background-color: white;
                             color: var(--primary);
                         }
-                    }
-
-                    p {
-                        width: 35px;
-                        height: 35px;
-                        border: 1px solid #77777734;
-                        font-size: 22px;
-                        color: #333;
-                        text-align: center;
-                        font-weight: 600;
-                    }
-                }
-
-                .addCard {
-                    width: 100%;
-                    background-color: var(--primary);
-                    color: white;
-                    padding: 14px;
-                    font-weight: 600;
-                    font-size: 15px;
-                    border: none;
-                    border-radius: 4px;
-                    transition: 0.5s;
-                    border: 1px solid var(--primary);
-                    cursor: pointer;
-
-                    &:hover {
-                        background-color: white;
-                        color: var(--primary);
                     }
                 }
             }

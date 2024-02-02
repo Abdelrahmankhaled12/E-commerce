@@ -2,33 +2,28 @@
 
 .contactUS {
     padding: 60px 0px;
-
     h3 {
         color: var(--secondary);
         font-size: 22px;
         margin: 20px 0px;
     }
-
     .grid {
         display: grid;
         grid-template-columns: 1fr;
         gap: 30px;
         padding-bottom: 30px;
-
         @include sm {
             grid-template-columns: 1fr;
         }
-
         @include md {
             grid-template-columns: 1fr 2fr;
         }
-
         .content {
             p {
+                font-size: 15px;
                 margin: 15px 0px;
             }
         }
-
         .form {
             form {
                 .gridInputs {
@@ -36,24 +31,20 @@
                     grid-template-columns: 1fr;
                     gap: 10px;
                     padding-bottom: 30px;
-
                     @include md {
                         gap: 30px;
                         grid-template-columns: 1fr 1fr 1fr;
                     }
                 }
-
                 label {
                     display: block;
                     color: var(--secondary);
                     font-size: 14px;
                     font-weight: 600;
-
-                    span {
+                span {
                         color: red;
                     }
                 }
-
                 input {
                     background-color: #f7f7f7;
                     padding: 0.6rem 1rem;
@@ -63,7 +54,6 @@
                     width: 100%;
                     border-radius: 4px;
                 }
-
                 textarea {
                     width: 100%;
                     min-height: 300px;
@@ -72,8 +62,9 @@
                     border: 1px solid #e6e6e6;
                     margin: 10px 0px;
                     border-radius: 4px;
+                    font-size: 20px;
+                    padding: 15px 20px;
                 }
-
                 button {
                     padding: 15px 50px;
                     font-size: 16px;
@@ -84,7 +75,6 @@
                     transition: 0.3s;
                     font-weight: 600;
                     cursor: pointer;
-
                     &:hover {
                         background-color: var(--primary);
                         border: 1px solid var(--primary);

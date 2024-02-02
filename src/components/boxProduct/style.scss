@@ -9,14 +9,11 @@
     flex: 1;
     cursor: pointer;
     margin: 10px 0px;
-
     .image {
         position: relative;
-
         img {
             transition: 0.5s;
         }
-
         button.search {
             position: absolute;
             width: 40px;
@@ -33,16 +30,13 @@
             opacity: 0;
             cursor: pointer;
             display: none;
-
             @include md {
                 display: block;
             }
-
             &:hover {
                 background-color: var(--primary);
             }
         }
-
         .discount {
             position: absolute;
             top: 0;
@@ -53,21 +47,31 @@
             padding: 4px;
             font-size: 13px;
             font-weight: 500;
-            border-radius: 3px;        
+            border-radius: 3px;
         }
-
+        .OutOfStock {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgb(255, 193, 7);
+            color: #0000007e;
+            width: 100px;
+            padding: 4px;
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 3px;
+        }
     }
     .details {
         .category {
             color: #777;
-            font-size: 15px;
+            font-size: 13px;
         }
         h3 {
             color: #333;
             margin: 6px 0px;
             font-size: 17px;
         }
-
         .price {
             color: var(--primary);
             font-weight: 600;
@@ -78,7 +82,6 @@
                 font-size: 14px;
             }
         }
-
         button.buttonCard {
             color: #777777ae;
             padding: 15px 25px;
@@ -89,29 +92,23 @@
             cursor: pointer;
             transition: 0.5s;
             border-radius: 4px;
-
             &:hover {
                 background-color: var(--primary);
             }
         }
     }
-
     &:hover {
         box-shadow: 0 0 10px #0000001a;
-
         img {
             transform: rotateY(50deg);
         }
-
         button.buttonCard {
             background-color: #333e48;
             color: white;
         }
-
         button.search {
             opacity: 1;
         }
-
         h3 {
             color: var(--primary);
         }

@@ -1,10 +1,25 @@
 import './style.scss'
 import ContentWrapper from '../../components/contentWrapper/ContentWrapper'
 import MapComponent from './map/MapComponent'
+import Header from '../../components/header/Header'
+import Icons from '../../components/icons/Icons'
+import ButtonScroll from '../../components/buttonScroll/ButtonScroll'
+import Footer from '../../components/footer/Footer'
+import { useState } from 'react'
+
 
 const Contact = () => {
+
+
+  const [ name , setName ] = useState("");
+  const [ email , setEmail ] = useState("");
+  const [ phone , setPhone ] = useState("");
+  const [ message , setMessage ] = useState("");
+
   return (
+
     <>
+    <Header />
       <MapComponent />
       <ContentWrapper>
         <div className="contactUS">
@@ -28,20 +43,20 @@ const Contact = () => {
                 <div className="gridInputs">
                   <div className="div">
                     <label htmlFor="name">Name <span>*</span></label>
-                    <input type="text" id="name" required/>
+                    <input type="text" id="name" required value={name} onChange={(e) => setName(e.target.value)}/>
                   </div>
                   <div className="div">
                     <label htmlFor="email">Email <span>*</span></label>
-                    <input type="email" id='email' required/>
+                    <input type="email" id='email' required value={email} onChange={(e) => setEmail(e.target.value)} />
                   </div>
                   <div className="div">
-                    <label htmlFor="phone">Phone number</label>
-                    <input type="text"  id='phone'/>
+                    <label htmlFor="phone">Phone number <span>*</span></label>
+                    <input type="text"  id='phone' required value={phone} onChange={(e) => setPhone(e.target.value)} />
                   </div>
                 </div>
                 <div className="div">
                     <label htmlFor="message">Message <span>*</span></label>
-                    <textarea name="" id="message" cols="30" rows="10" required></textarea>
+                    <textarea name="" id="message" cols="30" rows="10" required value={message} onChange={(e) => setMessage(e.target.value)} ></textarea>
                   </div>
                   <button type='submit'>Send Message</button>
               </form>
@@ -49,6 +64,9 @@ const Contact = () => {
           </div>
         </div>
       </ContentWrapper>
+      <Icons />
+      <ButtonScroll />
+      <Footer />
     </>
   )
 }

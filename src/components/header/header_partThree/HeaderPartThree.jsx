@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { header_links } from '../../../constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBarsStaggered, faXmark } from '@fortawesome/free-solid-svg-icons'
-import { useState } from 'react';
-import useFetch from '../../../hooks/useFetch';
+import { useState , useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const HeaderPartThree = ({ data }) => {
@@ -14,6 +13,24 @@ const HeaderPartThree = ({ data }) => {
     const [active, setActive] = useState(location.pathname === "/" ? true : false)
 
     data = data.filter((category, index) => index < 9);
+    useEffect(() => {
+        const handleResize = () => {
+            // Set your threshold value
+            const screenWidthThreshold = 1192; // You can adjust this value based on your requirement
+            // Check if the screen width is greater than the threshold
+            const isGreaterThanThreshold = window.innerWidth > screenWidthThreshold;
+            // Update the state
+            setActive(isGreaterThanThreshold && (location.pathname === "/"));
+        };
+        // Attach event listener for window resize
+        window.addEventListener('resize', handleResize);
+        // Initial check on component mount
+        handleResize();
+        // Clean up the event listener on component unmount
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []); // Empty dependency array means this effect runs once on mount and cleans up on unmount
 
     return (
         <div className="header_three">

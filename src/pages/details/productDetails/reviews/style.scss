@@ -1,0 +1,13 @@
+.reviews {
+    display: flex;
+    align-items: center;
+    margin: 12px 0px;
+    .span {
+        margin: 0px 10px;
+        color: #777777ab;
+    }
+    p {
+        color: #000;
+        font-size: 15px;
+    }
+}

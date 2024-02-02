@@ -6,12 +6,20 @@ import BoxProduct from '../../../components/boxProduct/BoxProduct';
 import ContentWrapper from '../../../components/contentWrapper/ContentWrapper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import { useSelector } from 'react-redux';
+import { shuffleArray } from '../../../utils/functions';
 
-const Bestseller = ({ data, data_products }) => {
+
+const Bestseller = () => {
+
+
+
+    const { products, categories } = useSelector(state => state.data);
+
 
     const carouselContainer = useRef();
 
-    const [products, setProducts] = useState([])
+    const [productsFilter, setProductsFilter] = useState([])
 
     const [active, setActive] = useState("");
 
@@ -19,34 +27,34 @@ const Bestseller = ({ data, data_products }) => {
 
     const [details, setDetails] = useState({});
 
+
+    const [categoriesFilter, setCategoriesFilter] = useState([]);
+
     useEffect(() => {
-        const category = data[0].category_name;
+        let categoriesFilter = categories.filter((item) => item.num_of_products > 0)
+        categoriesFilter = shuffleArray(categoriesFilter).filter((item, index) => index <= 3)
+        setCategoriesFilter(categoriesFilter)
+        const category = categoriesFilter[0]?.category_name;
         setActive(category)
-        let products = data_products.filter(item => item.category_name === category)
-        setProducts(products)
-    }, [data, data_products])
+        let productss = products.filter(item => item.category_name === category)
+        setProductsFilter(productss)
+    }, [categories, products])
 
 
 
-    const productsFilter = (category) => {
-        let products = data_products.filter(item => item.category_name === category)
-        setProducts(products)
+    const productsFilterCategory = (category) => {
+        let productss = products.filter(item => item.category_name === category)
+        setProductsFilter(productss)
     }
 
-    const categories = data.filter((item, index) => {
-        if (index <= 3) {
-            return item
-        }
-    })
+
 
     const navigation = (dir) => {
         const container = carouselContainer.current;
-
         const scrollAmount =
             dir === "left"
                 ? container.scrollLeft - (container.offsetWidth + 20)
                 : container.scrollLeft + (container.offsetWidth + 20);
-
         container.scrollTo({
             left: scrollAmount,
             behavior: "smooth",
@@ -64,8 +72,8 @@ const Bestseller = ({ data, data_products }) => {
                         {
                             <ul>
                                 {
-                                    categories?.map((category) => (
-                                        <li onClick={() => { setActive(category.category_name), productsFilter(category.category_name) }} className={active === category.category_name ? "active" : ""} key={category.category_name}>{category.category_name}</li>
+                                    categoriesFilter?.map((category) => (
+                                        <li onClick={() => { setActive(category.category_name), productsFilterCategory(category.category_name) }} className={active === category.category_name ? "active" : ""} key={category.category_name}>{category.category_name}</li>
                                     ))
                                 }
                             </ul>
@@ -78,14 +86,12 @@ const Bestseller = ({ data, data_products }) => {
                 </div>
                 <div className="boxes_products" ref={carouselContainer}>
                     {
-                        products?.map((product, index) => (
+                        productsFilter?.map((product) => (
                             <BoxProduct
                                 product={product}
-                                setDetailsProduct={() => setDetails(product)}
-                                openModel={() => setIsOpen(true)}
                                 widthImage={250}
                                 style={"column"}
-                                key={index} />
+                                key={product.product_name} />
                         ))
                     }
                 </div>

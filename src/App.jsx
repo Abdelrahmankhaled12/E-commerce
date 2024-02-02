@@ -8,25 +8,35 @@ import Details from './pages/details/Details'
 import Checkout from './pages/checkout/Checkout'
 import NotFoundPage from './pages/404/NotFoundPage'
 import PrivacyPolicy from './pages/privacy-policy/PrivacyPolicy'
-import Header from './components/header/Header'
 import ShippingPolicy from './pages/shipping-policy/ShippingPolicy'
 import TermsOfService from './pages/terms-of-service/termsOfService'
-import Footer from "./components/footer/Footer"
-import Icons from "./components/icons/Icons"
-import ButtonScroll from "./components/buttonScroll/ButtonScroll"
 import useFetch from './hooks/useFetch'
 import Animation from './components/animation/Animation'
-import { useEffect, useState } from 'react'
-import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { fetchDataFromApi } from "./utils/api";
+import { setCategories, setProducts } from './store/data'
+
+
 function App() {
   const { data: products, } = useFetch("products");
   const { data: categories, } = useFetch("categories");
-  const [isCheckoutPage , setIsCheckOutPage ] = useState(false)
 
-  useEffect(()=> {
-    setIsCheckOutPage(window.location.pathname === '/checkout');
-  },[window.location.pathname])
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    fetchDataFromApi("categories")
+      .then((res) => {
+        dispatch(setCategories(res.data))
+      })
+
+    fetchDataFromApi("products")
+      .then((res) => {
+        dispatch(setProducts(res.data))
+      })
+      
+  }, []);
 
   return (
     <>
@@ -35,7 +45,6 @@ function App() {
         (products && categories) && (
           <>
             <BrowserRouter>
-              {!isCheckoutPage && <Header products={products.data} categories={categories.data} />}
               <Routes>
                 <Route path="/" element={<Home products={products.data} categories={categories.data} />} />
                 <Route path="/Shop/:category" element={<Shop categories={categories.data} data_products={products} />} />
@@ -49,9 +58,6 @@ function App() {
                 <Route path="/shipping-policy" element={<ShippingPolicy />} />
                 <Route path="/terms-of-service" element={<TermsOfService />} />
               </Routes>
-              {!isCheckoutPage && <Icons />}
-              {!isCheckoutPage && <ButtonScroll />}
-              {!isCheckoutPage && <Footer />}
             </BrowserRouter>
           </>
         )}

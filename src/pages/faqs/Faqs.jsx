@@ -7,12 +7,16 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import './style.scss'
-
+import Header from '../../components/header/Header'
+import Icons from '../../components/icons/Icons'
+import ButtonScroll from '../../components/buttonScroll/ButtonScroll'
+import Footer from '../../components/footer/Footer'
 
 const Faqs = () => {
 
   return (
     <>
+    <Header />
       <div className="faqs">
         <ContentWrapper>
           <BreadCrumb page={"FAQs"} />
@@ -39,6 +43,9 @@ const Faqs = () => {
           </div>
         </ContentWrapper>
       </div>
+      <Icons />
+      <ButtonScroll />
+      <Footer />
     </>
 
   )
