@@ -17,7 +17,7 @@ const Home = ({ products, categories }) => {
 
   return (
     <>
-    <Header />
+      <Header />
       <ContentWrapper>
         <HeroBanner />
         <ProductsTabs data={products} />
@@ -29,8 +29,10 @@ const Home = ({ products, categories }) => {
             <img src={imgBanner_2} alt="Bannner two" />
           </div>
         </div>
-        <Bestseller/>
-        <img src={imgBanner_3} alt="Bannner Three" style={{ "marginBottom": "60px", "width": "100%" }} />
+        <Bestseller products={products} />
+        <div className="effectImage" style={{marginBottom:"50px"}}>
+          <img src={imgBanner_3} alt="Bannner Three" style={{ "width": "100%"  }} />
+        </div>
         <TopProducts />
       </ContentWrapper>
       <Icons />

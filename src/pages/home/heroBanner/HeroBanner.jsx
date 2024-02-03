@@ -8,10 +8,10 @@ const HeroBanner = () => {
         <div className='heroBanner'>
             <Carousel />
             <div className="images">
-                <div className="img">
+                <div className="img effectImage">
                     <img src={banner_1} alt="" className="effectImage" />
                 </div>
-                <div className="img">
+                <div className="img effectImage">
                     <img src={banner_2} alt="" className="effectImage" />
                 </div>
             </div>

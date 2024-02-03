@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import './style.scss'
 import { useEffect, useState, useRef } from 'react';
-import ProductDetails from '../../../components/product_details/ProductDetails';
 import BoxProduct from '../../../components/boxProduct/BoxProduct';
 import ContentWrapper from '../../../components/contentWrapper/ContentWrapper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -10,11 +9,10 @@ import { useSelector } from 'react-redux';
 import { shuffleArray } from '../../../utils/functions';
 
 
-const Bestseller = () => {
+const Bestseller = ({ products }) => {
 
 
-
-    const { products, categories } = useSelector(state => state.data);
+    const { categories } = useSelector(state => state.data);
 
 
     const carouselContainer = useRef();
@@ -22,11 +20,6 @@ const Bestseller = () => {
     const [productsFilter, setProductsFilter] = useState([])
 
     const [active, setActive] = useState("");
-
-    const [isOpen, setIsOpen] = useState(false);
-
-    const [details, setDetails] = useState({});
-
 
     const [categoriesFilter, setCategoriesFilter] = useState([]);
 
@@ -96,7 +89,6 @@ const Bestseller = () => {
                     }
                 </div>
             </ContentWrapper>
-            <ProductDetails isOpen={isOpen} product={details} closeModal={() => setIsOpen(false)} />
         </div>
     )
 }

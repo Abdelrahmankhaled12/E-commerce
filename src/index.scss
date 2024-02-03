@@ -31,7 +31,7 @@
 body {
   background-color: var(--body-bg);
   font-family: "Roboto", sans-serif;
-  
+
 }
 
 .flex {
@@ -44,3 +44,43 @@ ul {
 }
 
 
+.effectImage {
+  position: relative;
+  overflow: hidden;
+  
+  &:hover {
+    &::after {
+      transform: translateY(0%);
+    }
+
+    &::before {
+      transform: translateY(0%);
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.059);
+    height: 50%;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    transition: 0.4s;
+    transform: translateY(-100%);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.059);
+    height: 50%;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    transition: 0.4s;
+    transform: translateY(100%);
+  }
+}
