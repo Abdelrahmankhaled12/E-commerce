@@ -18,7 +18,7 @@ const MaybeYouLike = ({ productID, data }) => {
     useEffect(() => {
         setDataFilter(filterProducts(data, products, productID))
     },[])
-    console.log(dataFilter)
+    
     return (
         <>
             {dataFilter && (

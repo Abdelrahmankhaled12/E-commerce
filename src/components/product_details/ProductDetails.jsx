@@ -53,10 +53,10 @@ const ProductDetails = ({ isOpen, closeModal, product }) => {
                             </div>
                             <h2>{product?.product_name}</h2>
                             <div className="price">
-                                ${(+product?.discount).toFixed(2)}
+                                ${(+product?.price - +product.discount).toFixed(2)}
                                 {
-                                    +product.discount !== +product.price && (
-                                        <del>{'$' + (+product.price).toFixed(2)}</del>
+                                    +product.discount > 0 && (
+                                        <del>{'$' + (product?.price).toFixed(2)}</del>
                                     )
                                 }
                             </div>

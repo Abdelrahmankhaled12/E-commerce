@@ -12,14 +12,12 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
-            margin: 15px 0px;
         }
 
         .gridInputsThree {
             display: grid;
             grid-template-columns: 1fr;
             gap: 10px;
-            margin: 15px 0px;
 
             @include md {
                 grid-template-columns: 1fr 1fr 1fr;
@@ -27,22 +25,21 @@
         }
 
         input {
-            display: block ;
+            display: block;
             width: 100%;
-            padding: 8px 15px !important;
-            outline: none;
+            padding: 10px 11px;
+            margin-top: 8px;
             border-radius: 4px;
+            outline: none;
+            border: 1px solid #7777776b;
             font-size: 15px;
-            font-weight: 500;
             &::placeholder {
-                color:#7777779f !important;
+                color: #777777ac;
             }
         }
-        
-        label {
-            font-size: 15px;
-        }
+
     }
+
     .payNow {
         width: 100%;
         padding: 10px;
@@ -54,6 +51,7 @@
         border-radius: 4px;
         transition: 0.5s;
         cursor: pointer;
+        margin-top: 12px;
         &:hover {
             color: #000;
             background-color: white;

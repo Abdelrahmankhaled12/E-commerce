@@ -18,7 +18,7 @@ const Cart = ({ isOpenCart, closeModalCart }) => {
   const [totalPrice, setTotalPrice] = useState(products?.map(item => +item.discount * +item.counter)?.reduce((acc, ele) => acc + ele, 0))
 
   useEffect(() => {
-    setTotalPrice(products?.map(item => +item.discount * +item.counter)?.reduce((acc, ele) => acc + ele, 0));
+    setTotalPrice(products?.map(item => (+item.price - +item.discount) * +item.counter)?.reduce((acc, ele) => acc + ele, 0));
   }, [products])
 
   const removeProduct = (product_id) => {
@@ -49,7 +49,7 @@ const Cart = ({ isOpenCart, closeModalCart }) => {
                         <div className="text">
                           <h4>{product.product_name}</h4>
                           <div className="price">
-                            ${(+product.discount).toFixed(2)}
+                            ${((+product.price - +product.discount)).toFixed(2)}
                           </div>
                           <div className="counter">
                             <button onClick={() => {
@@ -85,7 +85,7 @@ const Cart = ({ isOpenCart, closeModalCart }) => {
                 <p>Taxes and shipping calculated at checkout</p>
                 <div className="buttons">
                   {/* <button>VIEW CART</button> */}
-                  <button className='check' style={{width:"100%"}} onClick={() => navigate("/")}>check out</button>
+                  <button className='check' style={{width:"100%"}} onClick={() => navigate("/checkout")}>check out</button>
                 </div>
               </div>
             )}

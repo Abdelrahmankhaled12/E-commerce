@@ -24,7 +24,8 @@ const BoxProduct = ({ product, style, widthImage }) => {
     }
 
     const calcDiscount = (discount, price) => {
-        return +(((+discount / +price) * 100) - 100).toFixed(0)
+        console.log((+discount / +price) * 100)
+        return +((+discount / +price) * 100).toFixed(0)
     }
 
     const navigate = useNavigate();
@@ -36,14 +37,14 @@ const BoxProduct = ({ product, style, widthImage }) => {
                 <div className="image">
                     <img src={product.images[0]} alt="" style={{ "width": widthImage + "px" }} />
                     <button className='search' onClick={() => { setDetails(product), setIsOpen(true) }}><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
-                    {product.stock > 0 &&
-                        calcDiscount(product.discount, product.price) < 0 && (
+                    {product.stock > product.sold &&
+                        calcDiscount(product.discount, product.price) > 0 && (
                             <div className="discount">
                                 {calcDiscount(product.discount, product.price)}%
                             </div>
                         )
                     }
-                    {product.stock === 0 &&
+                    {product.stock === product.sold &&
                         (
                             <div className="OutOfStock">
                                 Out of stock
@@ -57,9 +58,12 @@ const BoxProduct = ({ product, style, widthImage }) => {
                     </div>
                     <h3 onClick={() => navigate(`/details/${product.category_name}/${product.product_name}/${product.product_id}`)}>{product.product_name}</h3>
                     <div className="price">
-                        {'$' + (+product.discount).toFixed(2)} {+product.discount !== +product.price && (
-                            <del>{'$' + (+product.price).toFixed(2)}</del>
-                        )}
+                        ${(+product?.price - +product.discount).toFixed(2)}
+                        {
+                            +product.discount > 0 && (
+                                <del>{'$' + (product?.price).toFixed(2)}</del>
+                            )
+                        }
                     </div>
                     {product.stock > 0 && (
                         <button className='buttonCard' onClick={() => { setIsOpenCart(true), addProductCart(product) }}>

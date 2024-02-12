@@ -19,7 +19,7 @@ const BoxSearchProduct = ({ data, productName }) => {
             </div>
             <div className="text">
                 <h4>{product[0].product_name}</h4>
-                <p>{'$' + (+product[0].discount).toFixed(2)} {+product.discount !== +product.price && (
+                <p>{'$' + (+product[0].price - +product[0].discount).toFixed(2)} {+product[0].discount > 0 && (
                     <del>{'$' + (+product[0].price).toFixed(2)}</del>
                 )}</p>
             </div>

@@ -18,7 +18,7 @@ const ShowProducts = () => {
                         <h5>{product.product_name}</h5>
                     </div>
                     <div className="box_price">
-                        ${(+product.discount * product.counter).toFixed(2)}
+                        ${((+product.price - +product.discount) * product.counter).toFixed(2)}
                     </div>
                 </div>
             ))}

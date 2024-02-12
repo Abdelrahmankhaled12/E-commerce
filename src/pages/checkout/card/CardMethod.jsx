@@ -20,8 +20,8 @@ const CardMethod = () => {
                     <img src={iconPay} alt="" />
                 </div>
                 <div className="bodyCard">
-                    <MDBInput
-                        label='Card Number'
+                    <input
+                        placeholder='Card Number'
                         id='cardNumber'
                         type='text'
                         className={cardNumber === "" ? "empty" : ""}
@@ -30,8 +30,8 @@ const CardMethod = () => {
                         required
                     />
                     <div className="gridInputsTwo">
-                        <MDBInput
-                            label='Expiration date (MM / YY)'
+                        <input
+                            placeholder='Expiration date (MM / YY)'
                             id='expirationDate'
                             type='text'
                             className={expirationData === "" ? "empty" : ""}
@@ -39,8 +39,8 @@ const CardMethod = () => {
                             value={expirationData}
                             required
                         />
-                        <MDBInput
-                            label='Security Code'
+                        <input
+                            placeholder='Security Code'
                             id='securityCode'
                             type='text'
                             className={securityCode === "" ? "empty" : ""}
@@ -49,8 +49,8 @@ const CardMethod = () => {
                             required
                         />
                     </div>
-                    <MDBInput
-                        label='Name On Card'
+                    <input
+                        placeholder='Name On Card'
                         id='nameCard'
                         type='text'
                         className={nameOnCard === "" ? "empty" : ""}

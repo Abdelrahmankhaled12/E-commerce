@@ -1,5 +1,3 @@
-import { MDBInput } from 'mdb-react-ui-kit';
-import SelectGovernorates from './SelectGovernorates'
 import CardMethod from '../card/CardMethod';
 import { useState } from 'react';
 import './style.scss'
@@ -13,8 +11,8 @@ const FormCheckOut = () => {
   const [lastName, setLastName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
-  const [postal , setPostal ] = useState("");
-  const [city , setCity ] = useState("");
+  const [postal, setPostal] = useState("");
+  const [city, setCity] = useState("");
 
 
   console.log(postalCodeCheck(postal))
@@ -23,28 +21,18 @@ const FormCheckOut = () => {
     <div className='formCheck'>
       <form action="">
         <h3>Contact</h3>
-        <MDBInput
-          label='Email or mobile Phone number'
+        <input
+          placeholder='Email or mobile Phone number'
           id='emailOrphone'
           type='text'
-          className={emailOrPhone === "" ? "empty" : ""}
           onChange={(e) => setEmailOrPhone(e.target.value)}
           value={emailOrPhone}
           required
-          placeholder='e.g. a********54@gmail.com'
         />
-
-
-
-
-
-    
-
-
         <h3>Delivery</h3>
         <div className="gridInputsTwo">
-          <MDBInput
-            label='First name'
+          <input
+            placeholder='First name'
             id='firstName'
             type='text'
             className={firstName === "" ? "empty" : ""}
@@ -52,8 +40,8 @@ const FormCheckOut = () => {
             value={firstName}
             required
           />
-          <MDBInput
-            label='Last name'
+          <input
+            placeholder='Last name'
             id='lastName'
             type='text'
             className={lastName === "" ? "empty" : ""}
@@ -62,56 +50,44 @@ const FormCheckOut = () => {
             required
           />
         </div>
-        <MDBInput
-          label='Address'
+        <input
+          placeholder='Address'
           id='address'
           type='text'
           className={address === "" ? "empty" : ""}
           onChange={(e) => setAddress(e.target.value)}
           value={address}
           required
-          placeholder='14 Arab Street'
         />
-
-        <MDBInput
-          label='Phone'
+        <input
+          placeholder='Phone'
           id='phone'
           type='text'
           className={phone === "" ? "empty" : ""}
           onChange={(e) => setPhone(e.target.value)}
           value={phone}
           required
-          style={{ "marginTop": "15px" }}
         />
-
-
-        <div className="gridInputsThree">
-          <MDBInput
-            label='City'
+        <div className="gridInputsTwo">
+          <input
+            placeholder='City'
             id='city'
             type='text'
             className={city === "" ? "empty" : ""}
             onChange={(e) => setCity(e.target.value)}
             value={city}
             required
-            placeholder='Ain shams'
           />
-
-          <SelectGovernorates setSelected={(value) => setGovernorate(value)} />
-
-
-          <MDBInput
-            label='Postal code'
+          <input
+            placeholder='Postal code'
             id='postalCode'
             type='text'
             className={postal === "" ? "empty" : ""}
             onChange={(e) => setPostal(e.target.value)}
             value={postal}
             required
-            placeholder='3753450'
           />
         </div>
-
         <CardMethod />
         <button className='payNow' type='sumbit'>Pay Now </button>
       </form>

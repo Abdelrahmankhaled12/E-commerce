@@ -6,13 +6,13 @@ import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons
 import { useNavigate } from 'react-router-dom'
 
 
-const ContainerProducts = ({ title , products }) => {
+const ContainerProducts = ({ title, products }) => {
 
     const [activeLeft, setActiveLeft] = useState(false);
     const [activeRight, setActiveRight] = useState(true);
 
 
-    
+
     const navigate = useNavigate();
 
 
@@ -40,9 +40,12 @@ const ContainerProducts = ({ title , products }) => {
                                         </div>
                                         <h3 onClick={() => navigate(`/details/${product.category_name}/${product.product_name}/${product.product_id}`)}>{product.product_name}</h3>
                                         <div className="price">
-                                            {'$' + (+product.discount).toFixed(2)} {+product.discount !== +product.price && (
-                                                <del>{'$' + (+product.price).toFixed(2)}</del>
-                                            )}
+                                            ${(+product?.price - +product.discount).toFixed(2)}
+                                            {
+                                                +product.discount > 0 && (
+                                                    <del>{'$' + (product?.price).toFixed(2)}</del>
+                                                )
+                                            }
                                         </div>
                                     </div>
                                 </div>
@@ -62,9 +65,12 @@ const ContainerProducts = ({ title , products }) => {
                                         </div>
                                         <h3 onClick={() => navigate(`/details/${product.category_name}/${product.product_name}/${product.product_id}`)}>{product.product_name}</h3>
                                         <div className="price">
-                                            {'$' + (+product.discount).toFixed(2)} {+product.discount !== +product.price && (
-                                                <del>{'$' + (+product.price).toFixed(2)}</del>
-                                            )}
+                                            ${(+product?.price - +product.discount).toFixed(2)}
+                                            {
+                                                +product.discount > 0 && (
+                                                    <del>{'$' + (product?.price).toFixed(2)}</del>
+                                                )
+                                            }
                                         </div>
                                     </div>
                                 </div>

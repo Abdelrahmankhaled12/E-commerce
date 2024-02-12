@@ -46,10 +46,10 @@ const ProductDetailsAll = ({ product, setOpenCart }) => {
             <h2>{product?.product_name}</h2>
             <Reviews />
             <div className="price">
-                ${(+product?.discount).toFixed(2)}
+                ${(+product?.price - +product.discount).toFixed(2)}
                 {
-                    +product.discount !== +product.price && (
-                        <del>{'$' + (+product.price).toFixed(2)}</del>
+                    +product.discount > 0 && (
+                        <del>{'$' + (product?.price).toFixed(2)}</del>
                     )
                 }
             </div>
@@ -60,7 +60,7 @@ const ProductDetailsAll = ({ product, setOpenCart }) => {
             {product.colors.length > 0 && (
                 <ColorsProduct colors={product.colors} />
             )}
-            <Timer />
+            <Timer product={product}/>
             <div className="flex">
                 <div className="counter">
                     <button onClick={() => changeCounter("minus")} style={counter === 1 ? { "cursor": "not-allowed" } : { "cursor": "pointer" }} ><FontAwesomeIcon icon={faMinus} /></button>
@@ -73,7 +73,7 @@ const ProductDetailsAll = ({ product, setOpenCart }) => {
             </div>
             <div className="details">
                 <p> <strong>Collections:</strong> {product.category_name} </p>
-                <p> <strong>BarCode:</strong> 0154-984 </p>
+                <p> <strong>BarCode:</strong> {product.barcode} </p>
                 <Share />
             </div>
         </div>

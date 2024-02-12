@@ -11,7 +11,7 @@ const Checkout = () => {
 
 
     let { products } = useSelector((state) => state.cart);
-    const [totalPrice, setTotalPrice] = useState(products?.map(item => +item.discount * +item.counter)?.reduce((acc, ele) => acc + ele, 0))
+    const [totalPrice, setTotalPrice] = useState(products?.map(item => (+item.price - +item.discount) * +item.counter)?.reduce((acc, ele) => acc + ele, 0))
 
     return (
         <>
