@@ -9,14 +9,14 @@ import Checkout from './pages/checkout/Checkout'
 import NotFoundPage from './pages/404/NotFoundPage'
 import PrivacyPolicy from './pages/privacy-policy/PrivacyPolicy'
 import ShippingPolicy from './pages/shipping-policy/ShippingPolicy'
-import TermsOfService from './pages/terms-of-service/termsOfService'
+import TermsOfService from './pages/terms-of-service/TermsOfService'
 import useFetch from './hooks/useFetch'
 import Animation from './components/animation/Animation'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { fetchDataFromApi } from "./utils/api";
 import { setCategories, setProducts } from './store/data'
-
+import Promotions from './pages/promotions/Promotions'
 
 function App() {
   const { data: products, } = useFetch("products");
@@ -48,11 +48,13 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home products={products.data} categories={categories.data} />} />
                 <Route path="/Shop/:category" element={<Shop categories={categories.data} data_products={products} />} />
+                <Route path="/Promotions" element={<Promotions products={products.data} />} />
                 <Route path="/About" element={<About />} />
+
                 <Route path="/FAQs" element={<Faqs />} />
                 <Route path="/Contact-us" element={<Contact />} />
                 <Route path="/checkout" element={<Checkout />} />
-                <Route path="/details/:category/:product/:id" element={<Details data_products={products.data} />} />
+                <Route path="/Shop/:category/:product/:id" element={<Details data_products={products.data} />} />
                 <Route path="/*" element={<NotFoundPage />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/shipping-policy" element={<ShippingPolicy />} />

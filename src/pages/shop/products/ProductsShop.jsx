@@ -22,7 +22,7 @@ const ProductsShop = ({ categories, data, maxValue, valueFilter, minValue, setFi
                     <div className="boxes_shop">
                         {data?.map((product, index) => (
                             <BoxProduct product={product}
-                                widthImage={150}
+                                widthImage={130}
                                 style={"column"}
                                 key={index} />
                         ))}

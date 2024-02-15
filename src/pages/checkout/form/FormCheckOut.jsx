@@ -1,4 +1,3 @@
-import CardMethod from '../card/CardMethod';
 import { useState } from 'react';
 import './style.scss'
 import { postalCodeCheck } from './functionFormCheckOut';
@@ -14,8 +13,6 @@ const FormCheckOut = () => {
   const [postal, setPostal] = useState("");
   const [city, setCity] = useState("");
 
-
-  console.log(postalCodeCheck(postal))
 
   return (
     <div className='formCheck'>
@@ -88,7 +85,6 @@ const FormCheckOut = () => {
             required
           />
         </div>
-        <CardMethod />
         <button className='payNow' type='sumbit'>Pay Now </button>
       </form>
     </div>

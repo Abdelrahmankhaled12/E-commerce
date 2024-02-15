@@ -10,6 +10,8 @@ import ButtonScroll from '../../components/buttonScroll/ButtonScroll'
 import Footer from '../../components/footer/Footer'
 import { findLowestPrice, findMaxPrice, findMinPrice } from "../../utils/functions";
 import { useState, useEffect } from "react";
+import Animation from "../../components/animation/Animation"
+import { TimaAnimation } from "../../constants"
 
 const Shop = ({ categories, data_products }) => {
 
@@ -20,12 +22,12 @@ const Shop = ({ categories, data_products }) => {
   data_products = category === "categories" ? data_products?.data : data_products?.data.filter(item => item.category_name === category);
 
   let data = price === 0 ? data_products : findLowestPrice(data_products, price);
-  console.log(data)
 
   const [valueFilter, setValueFilter] = useState(0)
 
   const [maxValue, setMaxValue] = useState(0)
   const [minValue, setMinValue] = useState(0)
+  const [animationOff, setAnimationOff] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,37 +41,55 @@ const Shop = ({ categories, data_products }) => {
     fetchData();
   }, [category]);
 
+  useEffect(() => {
+    animationOFF()
+  }, [])
+
+  const animationOFF = () => {
+    setTimeout(() => {
+      setAnimationOff(false)
+    }, TimaAnimation)
+  }
+
+
   return (
     <>
-      <Header />
-      <div className="shop_products">
-        <ContentWrapper>
-          <BreadCrumb page={"Products"} />
-          <div className="grid">
-            <div className="filterCategories">
-              <Categories
-                categories={categories}
-                maxValue={maxValue}
-                valueFilter={valueFilter}
-                minValue={minValue}
-                setFilterValuePrice={(value) => { setPrice(value), setValueFilter(value) }} />
+      {
+        animationOff ? (
+          <Animation />
+        ) : (
+          <>
+            <Header />
+            <div className="shop_products">
+              <ContentWrapper>
+                <BreadCrumb page={"Products"} />
+                <div className="grid">
+                  <div className="filterCategories">
+                    <Categories
+                      categories={categories}
+                      maxValue={maxValue}
+                      valueFilter={valueFilter}
+                      minValue={minValue}
+                      setFilterValuePrice={(value) => { setPrice(value), setValueFilter(value) }} />
+                  </div>
+                  <ProductsShop
+                    categories={categories}
+                    data={data}
+                    maxValue={maxValue}
+                    valueFilter={valueFilter}
+                    minValue={minValue}
+                    setFilterValuePrice={(value) => { setPrice(value), setValueFilter(value) }}
+                  />
+                </div>
+              </ContentWrapper>
             </div>
-            <ProductsShop
-              categories={categories}
-              data={data}
-              maxValue={maxValue}
-              valueFilter={valueFilter}
-              minValue={minValue}
-              setFilterValuePrice={(value) => { setPrice(value), setValueFilter(value) }}
-            />
-          </div>
-        </ContentWrapper>
-      </div>
-      <Icons />
-      <ButtonScroll />
-      <Footer />
+            <Icons />
+            <ButtonScroll />
+            <Footer />
+          </>
+        )
+      }
     </>
-
   )
 }
 

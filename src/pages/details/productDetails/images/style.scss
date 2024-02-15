@@ -5,8 +5,10 @@
     .image {
         width: 100%;
         text-align: center;
+        margin: 50px 0px;
         img {
-            width: 400px;
+            width: 300px;
+            height: 300px;
             transition: 0.3s;
         }
     }
@@ -14,7 +16,7 @@
         position: relative;
         .images {
             display: flex;
-            gap: 10px;
+            gap: 25px;
             overflow-x: auto;
             margin-right: -20px;
             margin-left: -20px;
@@ -33,10 +35,12 @@
             }
             img {
                 width: 150px;
+                height: 150px;
                 border: 1px solid #77777729;
                 border-radius: 4px;
                 cursor: pointer;
                 transition: 0.3s;
+                padding: 8px;
             }
             img.activeImage {
                 border: 1px solid var(--primary);

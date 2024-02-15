@@ -3,6 +3,8 @@
     ul {
         display: flex;
         list-style: none;
+        flex-wrap: wrap;
+
         li {
             font-size: 13px;
             margin-right: 6px;

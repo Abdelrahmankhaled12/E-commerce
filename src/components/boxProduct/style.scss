@@ -13,6 +13,10 @@
         position: relative;
         img {
             transition: 0.5s;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
         }
         button.search {
             position: absolute;
@@ -99,9 +103,6 @@
     }
     &:hover {
         box-shadow: 0 0 10px #0000001a;
-        img {
-            transform: rotateY(50deg);
-        }
         button.buttonCard {
             background-color: #333e48;
             color: white;

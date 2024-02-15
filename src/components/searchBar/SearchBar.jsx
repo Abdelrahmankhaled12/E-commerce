@@ -29,9 +29,7 @@ const SearchBar = ( { data } ) => {
             placeholder='Enter Keywords to search...'
           />
           <Combobox.Button className='search_button'>
-            <button>
               Search
-            </button>
           </Combobox.Button>
           <Transition
             as={Fragment} 

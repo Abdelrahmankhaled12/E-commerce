@@ -18,9 +18,12 @@ const BoxProduct = ({ product, style, widthImage }) => {
     const dispatch = useDispatch();
 
     const addProductCart = (productCart) => {
-        console.log(productCart)
-        productCart.counter = 1;
-        dispatch(setProductCart(productCart))
+        if (product.counter === 1) {
+            dispatch(setProductCart(productCart))
+        } else {
+            productCart.counter = 1;
+            dispatch(setProductCart(productCart))
+        }
     }
 
     const calcDiscount = (discount, price) => {
@@ -34,8 +37,8 @@ const BoxProduct = ({ product, style, widthImage }) => {
     return (
         <>
             <div className={`box_product ${style}`}>
-                <div className="image">
-                    <img src={product.images[0]} alt="" style={{ "width": widthImage + "px" }} />
+                <div className="image" style={{ "width": (widthImage + 45) + "px", "height": (widthImage + 45) + "px" }}>
+                    <img src={product.images[0]} alt="" style={{ "width": widthImage + "px", "height": widthImage + "px" }} />
                     <button className='search' onClick={() => { setDetails(product), setIsOpen(true) }}><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
                     {product.stock > product.sold &&
                         calcDiscount(product.discount, product.price) > 0 && (
@@ -44,7 +47,7 @@ const BoxProduct = ({ product, style, widthImage }) => {
                             </div>
                         )
                     }
-                    {product.stock === product.sold &&
+                    {product.stock <= product.sold &&
                         (
                             <div className="OutOfStock">
                                 Out of stock
@@ -56,7 +59,7 @@ const BoxProduct = ({ product, style, widthImage }) => {
                     <div className="category">
                         {product.category_name}
                     </div>
-                    <h3 onClick={() => navigate(`/details/${product.category_name}/${product.product_name}/${product.product_id}`)}>{product.product_name}</h3>
+                    <h3 onClick={() => navigate(`/Shop/${product.category_name}/${product.product_name}/${product.product_id}`)}>{product.product_name}</h3>
                     <div className="price">
                         ${(+product?.price - +product.discount).toFixed(2)}
                         {

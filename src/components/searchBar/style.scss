@@ -12,23 +12,21 @@
         font-size: 15px;
         outline: none;
     }
+
     @include sm {
         width: 500px;
     }
 
     .search_button {
         border: none;
-
-        button {
-            padding: 13px 20px;
-            border: none;
-            font-size: 15px;
-            background-color: var(--primary);
-            color: white;
-            font-weight: 500;
-            border-top-right-radius: 6px;
-            border-bottom-right-radius: 6px;
-        }
+        padding: 13px 20px;
+        border: none;
+        font-size: 15px;
+        background-color: var(--primary);
+        color: white;
+        font-weight: 500;
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
     }
 
     ul {
@@ -58,15 +56,20 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    gap: 10px;
+    border-bottom: 1px solid #22222218;
+    padding: 5px 0px;
 
     .image {
         img {
             width: 55px;
+            height: 55px;
         }
     }
 
     .text {
         padding-left: 4px;
+
         h4 {
             font-size: 13px;
             color: #333e48;
@@ -78,6 +81,7 @@
             font-size: 15px;
             font-weight: 600;
             margin: 4px 0px;
+
             del {
                 color: #b5b5b5;
                 margin: 0px 3px;

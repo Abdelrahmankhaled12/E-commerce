@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { header_links } from '../../../constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBarsStaggered, faXmark } from '@fortawesome/free-solid-svg-icons'
-import { useState , useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const HeaderPartThree = ({ data }) => {
@@ -62,6 +62,9 @@ const HeaderPartThree = ({ data }) => {
                             {link.title}
                             {link.title === "SHOP" && (
                                 <p className='iconNew'>New</p>
+                            )}
+                            {link.title === "PROMOTIONS" && (
+                                <p className='iconHot'>HOT</p>
                             )}
                         </li>
                     ))}

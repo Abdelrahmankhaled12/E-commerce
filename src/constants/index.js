@@ -1,3 +1,5 @@
+export const TimaAnimation = 1500;
+
 export const header_links = [
     {
         title: "HOME",
@@ -6,6 +8,10 @@ export const header_links = [
     {
         title: "SHOP",
         router: "/Shop/categories"
+    },
+    {
+        title: "PROMOTIONS",
+        router: "/Promotions"
     },
     {
         title: "ABOUT US",

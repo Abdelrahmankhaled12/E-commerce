@@ -70,3 +70,16 @@ export function findLowestPrice(products, targetPrice) {
 
     return filteredProducts;
 }
+
+
+
+export function getTopDiscountObjects(array) {
+    // Filter out objects that contain the 'Discount' property
+    const discountObjects = array.filter(obj => obj.discount);
+
+    // Sort the filtered objects based on the 'Discount' property in descending order
+    discountObjects.sort((a, b) => b.discount - a.discount);
+
+    // Return the top 10 objects
+    return discountObjects.slice(0, 10);
+}
