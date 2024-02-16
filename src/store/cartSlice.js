@@ -7,7 +7,12 @@ export const cartSlice = createSlice({
     },
     reducers: {
         setProductCart: (state, action) => {
-            state.products = [...state.products, action.payload];
+            let check = state.products.filter(product => product.product_id === action.payload.product_id)
+            if (check.length === 1) {
+                state.products = [...state.products];
+            } else {
+                state.products = [...state.products, action.payload];
+            }
         },
         setProductCartFilter: (state, action) => {
             state.products = action.payload;
@@ -23,6 +28,6 @@ export const cartSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { setProductCart, setProductCartFilter , setCounter } = cartSlice.actions
+export const { setProductCart, setProductCartFilter, setCounter } = cartSlice.actions
 
 export default cartSlice.reducer

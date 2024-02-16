@@ -54,8 +54,6 @@ const Bestseller = ({ products }) => {
         });
     };
 
-
-
     return (
         <div className='bestseller'>
             <ContentWrapper>
@@ -82,7 +80,7 @@ const Bestseller = ({ products }) => {
                         productsFilter?.map((product) => (
                             <BoxProduct
                                 product={product}
-                                widthImage={250}
+                                widthImage={170}
                                 style={"column"}
                                 key={product.product_name} />
                         ))

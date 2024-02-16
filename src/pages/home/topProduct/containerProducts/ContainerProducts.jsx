@@ -57,7 +57,7 @@ const ContainerProducts = ({ title, products }) => {
                             products?.map(product => (
                                 <div className="box" key={product.product_name}>
                                     <div className="image">
-                                        <img src={product.images[0]} alt="" style={{ "width": "100" + "px" }} />
+                                        <img src={product.images[0]} alt="" />
                                     </div>
                                     <div className="details">
                                         <div className="category">

@@ -18,7 +18,7 @@ const ProductsTabs = ({ data }) => {
           products?.map(product => (
             <BoxProduct
               product={product}
-              widthImage={150}
+              widthImage={130}
               style={""}
               key={product.product_name} />
           ))

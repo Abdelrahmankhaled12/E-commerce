@@ -13,7 +13,7 @@ import ButtonScroll from '../../components/buttonScroll/ButtonScroll'
 import Footer from '../../components/footer/Footer'
 
 
-const Home = ({ products, categories }) => {
+const Home = ({ products }) => {
 
   return (
     <>
