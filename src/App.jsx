@@ -17,6 +17,7 @@ import { useDispatch } from 'react-redux'
 import { fetchDataFromApi } from "./utils/api";
 import { setCategories, setProducts } from './store/data'
 import Promotions from './pages/promotions/Promotions'
+import 'sweetalert2/src/sweetalert2.scss'
 
 function App() {
   const { data: products, } = useFetch("products");

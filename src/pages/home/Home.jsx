@@ -11,33 +11,54 @@ import Header from '../../components/header/Header'
 import Icons from '../../components/icons/Icons'
 import ButtonScroll from '../../components/buttonScroll/ButtonScroll'
 import Footer from '../../components/footer/Footer'
-
+import { useState, useEffect } from "react";
+import Animation from "../../components/animation/Animation"
+import { TimaAnimation } from "../../constants"
 
 const Home = ({ products }) => {
 
+  const [animationOff, setAnimationOff] = useState(true);
+
+  useEffect(() => {
+    animationOFF()
+  }, [])
+
+  const animationOFF = () => {
+    setTimeout(() => {
+      setAnimationOff(false)
+    }, TimaAnimation)
+  }
   return (
     <>
-      <Header />
-      <ContentWrapper>
-        <HeroBanner />
-        <ProductsTabs data={products} />
-        <div className="images">
-          <div className="effectImage">
-            <img src={imgBanner_1} alt="Banner one" />
-          </div>
-          <div className="effectImage">
-            <img src={imgBanner_2} alt="Bannner two" />
-          </div>
-        </div>
-        <Bestseller products={products} />
-        <div className="effectImage" style={{marginBottom:"50px"}}>
-          <img src={imgBanner_3} alt="Bannner Three" style={{ "width": "100%"  }} />
-        </div>
-        <TopProducts />
-      </ContentWrapper>
-      <Icons />
-      <ButtonScroll />
-      <Footer />
+      {
+        animationOff ? (
+          <Animation />
+        ) : (
+          <>
+            <Header />
+            <ContentWrapper>
+              <HeroBanner />
+              <ProductsTabs data={products} />
+              <div className="images">
+                <div className="effectImage">
+                  <img src={imgBanner_1} alt="Banner one" />
+                </div>
+                <div className="effectImage">
+                  <img src={imgBanner_2} alt="Bannner two" />
+                </div>
+              </div>
+              <Bestseller products={products} />
+              <div className="effectImage" style={{ marginBottom: "50px" }}>
+                <img src={imgBanner_3} alt="Bannner Three" style={{ "width": "100%" }} />
+              </div>
+              <TopProducts />
+            </ContentWrapper>
+            <Icons />
+            <ButtonScroll />
+            <Footer />
+          </>
+        )
+      }
     </>
   )
 }

@@ -38,7 +38,7 @@ const ContainerProducts = ({ title, products }) => {
                                         <div className="category">
                                             {product.category_name}
                                         </div>
-                                        <h3 onClick={() => navigate(`/details/${product.category_name}/${product.product_name}/${product.product_id}`)}>{product.product_name}</h3>
+                                        <h3 onClick={() => navigate(`/shop/${product.category_name}/${product.product_name}/${product.product_id}`)}>{product.product_name}</h3>
                                         <div className="price">
                                             ${(+product?.price - +product.discount).toFixed(2)}
                                             {
@@ -63,7 +63,7 @@ const ContainerProducts = ({ title, products }) => {
                                         <div className="category">
                                             {product.category_name}
                                         </div>
-                                        <h3 onClick={() => navigate(`/details/${product.category_name}/${product.product_name}/${product.product_id}`)}>{product.product_name}</h3>
+                                        <h3 onClick={() => navigate(`/shop/${product.category_name}/${product.product_name}/${product.product_id}`)}>{product.product_name}</h3>
                                         <div className="price">
                                             ${(+product?.price - +product.discount).toFixed(2)}
                                             {

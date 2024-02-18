@@ -8,6 +8,8 @@ import Footer from '../../components/footer/Footer'
 import { useEffect, useState } from "react"
 import Animation from "../../components/animation/Animation"
 import { TimaAnimation } from "../../constants"
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import { ContactUs } from '../../utils/api'
 
 const Contact = () => {
 
@@ -28,6 +30,35 @@ const Contact = () => {
       setAnimationOff(false)
     }, TimaAnimation)
   }
+
+  const handleClickButtonForm = () => {
+
+    let data = {
+      name: name,
+      email: email,
+      phone: phone,
+      message: message
+    }
+
+    ContactUs(data)
+      .then(responseData => {
+        if (responseData.status === 201) {
+          Swal.fire({
+            title: "submit a request!",
+            text: `We will contact you shortly regarding your request.`,
+            icon: "success"
+          })
+          setName("")
+          setEmail("")
+          setPhone("")
+          setMessage("")
+        }
+      })
+      .catch(error => {
+        console.log(error)
+      });
+  }
+
 
   return (
     <>
@@ -57,7 +88,7 @@ const Contact = () => {
                     </div>
                     <div className="form">
                       <h3>Contact.</h3>
-                      <form>
+                      <form onSubmit={(e) => e.preventDefault()}>
                         <div className="gridInputs">
                           <div className="div">
                             <label htmlFor="name">Name <span>*</span></label>
@@ -76,7 +107,7 @@ const Contact = () => {
                           <label htmlFor="message">Message <span>*</span></label>
                           <textarea name="" id="message" cols="30" rows="10" required value={message} onChange={(e) => setMessage(e.target.value)} ></textarea>
                         </div>
-                        <button type='submit'>Send Message</button>
+                        <button type='submit' onClick={() => handleClickButtonForm()}>Send Message</button>
                       </form>
                     </div>
                   </div>
