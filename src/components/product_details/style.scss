@@ -39,7 +39,8 @@
             display: flex;
             .images {
                 img {
-                    width: 400px;
+                    width: 350px;
+                    height: 350px;
                 }
             }
             .content_details {
@@ -91,6 +92,8 @@
                     ul {
                         padding-left: 15px;
                     }
+                    height: 150px;
+                    overflow: hidden;
                 }
                 .flex {
                     margin-top: 20px;
