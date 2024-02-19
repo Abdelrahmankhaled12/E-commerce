@@ -3,11 +3,8 @@ import './style.scss'
 
 const ColorsProduct = ({ colors }) => {
 
-  console.log(colors[0].split("|"))
-
   const [colorText, setColorText] = useState(colors[0].split("|")[0]);
   const [active, setActive] = useState(0);
-
 
   return (
     <div className='colorProductDetails'>

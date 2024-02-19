@@ -55,7 +55,6 @@ const Contact = () => {
         }
       })
       .catch(error => {
-        console.log(error)
       });
   }
 

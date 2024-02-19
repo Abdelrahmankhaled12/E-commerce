@@ -31,7 +31,6 @@ const Promotions = ({ products }) => {
 
 
     const calcDiscount = (discount, price) => {
-        console.log((+discount / +price) * 100)
         return +((+discount / +price) * 100).toFixed(0)
     }
 

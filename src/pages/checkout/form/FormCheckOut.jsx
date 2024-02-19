@@ -3,10 +3,6 @@ import './style.scss'
 import Governorate from './Governorate';
 import { useSelector } from "react-redux";
 import { SendOrderApi } from '../../../utils/api';
-import * as React from 'react';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import PaymentMethod from './PaymentMethod';
 
 
@@ -36,9 +32,7 @@ const FormCheckOut = () => {
       payment_method: "visa",
       products: productsData
     }
-    console.log(data)
     SendOrderApi(data).then(responseData => {
-      console.log(responseData.status)
     })
   }
 
