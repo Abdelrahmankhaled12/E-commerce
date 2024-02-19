@@ -76,3 +76,44 @@ select {
         color: #777777ac;
     }
 }
+
+
+.paymentMethod {
+    display: flex;
+    gap: 30px;
+    margin-top: 14px;
+    div {
+        cursor: pointer;
+        .icon {
+            border: 1px solid #7777776b;
+            width: fit-content;
+            width: 120px;
+            height: 120px;
+            position: relative;
+            transition: 0.5s;
+
+            svg {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 6px;
+                color: var(--primary);
+                font-size: 50px;
+            }
+        }
+
+        p {
+            font-size: 17px;
+            color: #777;
+            text-align: center;
+            margin-top: 7px;
+        }
+
+        input {
+            display: none !important;
+            width: fit-content !important;
+            cursor: pointer;
+        }
+    }
+}

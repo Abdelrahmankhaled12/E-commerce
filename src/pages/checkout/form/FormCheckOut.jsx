@@ -7,6 +7,7 @@ import * as React from 'react';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import PaymentMethod from './PaymentMethod';
 
 
 const FormCheckOut = () => {
@@ -115,7 +116,8 @@ const FormCheckOut = () => {
           />
         </div>
         <Governorate setGovernorate={(value) => setGovernorate(value)} />
-        <h3>Payment method</h3>
+        <PaymentMethod />
+
         <button className='payNow' type='sumbit' onClick={() => handleSumbitPay()}>Pay Now </button>
       </form>
     </div>
